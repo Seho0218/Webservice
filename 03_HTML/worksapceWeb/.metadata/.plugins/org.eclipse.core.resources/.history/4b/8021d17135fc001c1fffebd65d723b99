@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>앵커태그</title>
+</head>
+<body>
+<!-- 
+a 태그 : 링크
+
+href: 이동할 주소
+
+target: _black : 새창에서 열기, _self: 현재창에, _parent: 부모창에
+ 
+ title : 제목 보여줌
+ 					속성 (속성값이 없는 태그)
+ <a href = "좌표" download> 이미지 아운로드</a>
+ 다운로드 없으면 그냥 실행
+  -->
+ 
+</body>
+</html>

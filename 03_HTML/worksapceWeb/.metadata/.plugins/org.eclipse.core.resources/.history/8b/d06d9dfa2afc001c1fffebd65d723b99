@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>제목</title>
+</head>
+<body>
+
+<!--  주석
+	
+	여러줄 주석가능
+ // 많이 띄워도 한칸만
+ 
+ -->
+	첫번째  (pt,16px,,cm,mm,in,em.....) 홈페이지 만들기 
+	<h1 title="heading">허데태그(글자크게, 진하게, 1줄 차지) -> h1, h2, h3, h4, h5,
+		h6</h1>
+	<h2>허데태그<b>(글자크게, 진하게, 1줄 차지)</b> -> h1, h2, h3, h4, h5, h6</h2>
+	<h6>허데태그(글자크게, 진하게, 1줄 차지) -> h1, h2, h3, h4, h5, h6</h6>
+	태그 테스트 중
+	
+	
+	<!--
+	 b, strong 태그 : 지나게
+	 &lt; &gt; : <  >
+	 &nbsp; : 공백
+	 &copy; 컴퍼니 표시
+	 <b> </br> </br> .... : 줄바꾸기
+	 <s>asdf</s> s, del strike : 취소선
+	 sub : 아랫첨자 , sup: 윗첨자
+	 
+	 -->
+	<div> </div>
+</body>
+</html>
