@@ -1,9 +1,0 @@
-INDEX VERSION 1.4+C:\worksapceWeb\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-557632964.index
-2785889402.index
-2292630295.index
-297083469.index
-2158104383.index
-1463001919.index
-3863065513.index
-3825219956.index

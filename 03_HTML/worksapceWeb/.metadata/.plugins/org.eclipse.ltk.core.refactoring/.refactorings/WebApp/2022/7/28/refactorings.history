@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;WebApp/src/main/webapp/html5_css/tag_02_img.html&apos; to &apos;tag02_img.html&apos;" description="Rename resource &apos;tag_02_img.html&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/webapp/html5_css/tag_02_img.html" name="tag02_img.html" stamp="1657005614386" updateReferences="true"/>
-</session>
