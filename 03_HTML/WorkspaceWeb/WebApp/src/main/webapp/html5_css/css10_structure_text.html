@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+    /*구조 선택자
+    
+        nth-child(2n) :짝수번째
+        nth-child(2n+1): 홀수번째
+        nth-child(3n)   : 3의 배수번째
+        띄워쓰면 안됌.
+    
+    
+    */
+    #menu li:nth-child(2n){
+        background-color: pink;
+    }
+    #menu li:nth-child(3n+1){
+        background-color: lightblue;
+    }
+    #menu li:nth-child(3n+2){
+        background-color: #ddd;
+    }
+    /*
+        first child :첫번째 객체
+        last child: 마지막 객체
+    */
+    #menu li:first-child{
+        color: red;
+    }
+    #menu li:last-child{
+        color:lime;
+        font-size: 1.2em;
+    }
+
+
+</style>
+</head>
+<!--
+    html 속성
+    선택불가되도록 설정하기
+    oncontextmenu: 마우스 오른쪽 버튼 메뉴 제어
+    onselectstart: 드래그 시작 불가능
+    ondragend: 드래그 종료 불가능
+-->
+<body oncontextmenu="return false" onselectstart ="return false">
+    <div id="menu" method="post" action="aaa.jsp">
+        <form>
+            <ul>
+                <li>뉴스</li>
+                <li>자동차</li>
+                <li>경제</li>
+                <li>시사</li>
+                <li>웹툰</li>
+                <li>푸드</li>
+                <li>지도</li>
+            </ul>
+        </form>
+</div>
+    <style>
+        /* :nth -of -type()
+        :first-of-type
+        :last-of-type
+        */
+        #menu2 li:nth-last-of-type(2n){
+            background-color: yellow;
+        }
+        #menu2 li:nth-last-of-type(2n+1){
+            background-color: olive;
+            color:#fff;
+        }
+        #menu2 li:first-of-type{
+            background:green;
+        }
+        #menu2 li:last-of-type{
+            background:red;
+        }
+    </style>
+    <div id="menu2" method="post" action="aaa.jsp">            
+                <ul>
+                    <li>뉴스</li>
+                    <li>자동차</li>
+                    <li>경제</li>
+                    <li>시사</li>
+                    <li>웹툰</li>
+                    <li>푸드</li>
+                    <li>지도</li>
+                </ul>
+            </div>
+<style>
+    /*
+            텍스트 스타일
+            :: first-letter: 첫번째 문자에 대한 스타일
+            :: first-line  : 첫번째 줄에 대한 스타일
+            :: selection   : 선택영역에 대한 스타일
+    */
+    #txt::first-letter{
+        font-size: 1.5em;
+        color:green;
+        font-weight: bold;
+        background: yellow;
+    }
+    #txt::first-line{
+        background: #ddd;
+        text-decoration: underline;
+    }
+    #txt::selection{
+        color:red;
+        background: #000;
+    }
+</style>
+ <div id="txt">
+
+
+
+
+</div>
+</body>
+</html>
