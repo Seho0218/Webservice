@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+    var win;
+    function openPopup(){
+        //팝업창 띄우기
+        //1. 새창에 띄울 파일명
+        //2. 창이름 : 창이름이 없으면 새창에 반복적으로 만들어짐.둘째칸 창이름이 비어잇으면 무한히 창이 생김.
+        //3. 옵션:width, height, left, top 
+        
+       win = window.open("logo_daum.png","w","width=400px,height:600px, left=200px, top=200px");
+
+       var x = screen.width/2 - win.outerWidth/2;
+       var y = screen.height/2- win.outerHeight/2;
+       
+       win.moveTo(x,y);
+    }
+    function closePopup(){
+        win.close();
+    }
+    function windowMove(){
+        //창이동
+        //절대좌표
+        //팝업창 win.
+        //win.moveTo(500,300);
+        //상대좌표
+        win.moveBy(-10,10);
+    }
+    function windowSize(){
+        //창의크기를 변경
+        //절대크기 w, h
+        //win.resizeTo(800,400);
+        //상태크기
+        win.resizeBy(10,10);
+    }
+    function winInfor(){
+        var txt = "";
+
+        //윈도우의 좌표 구하기
+        txt += "x좌표 ->" + window.screenX +"<br/>";
+        txt += "Y좌표 ->" + window.screenY +"<br/>";
+
+        //테두리와 제목을 포함한 폭과 높이
+
+        txt += "outerWidth ->"+window.outerWidth+"<br/>";
+        txt += "outerHeight ->"+window.outerHeight+"<br/>";
+
+        //테두리와 제목을 제외한 폭과 높이 컨텐츠 있을 곳
+
+        txt += "innerWidth ->"+window.outerWidth+"<br/>";
+        txt += "innerHeight ->"+window.outerHeight+"<br/>";
+       
+
+        //screen의 폭과 높이
+        txt +="screen.width ->" +screen.width+"<br/>";
+        txt +="screen.height ->" +screen.height+"<br/>"; 
+        
+        document.querySelector("#view").innerHTML=txt;
+    }
+    
+</script>
+</head>
+
+<body onload="openPopup(); winInfor();"> 
+    <!-- 3시 객체 설명 위에 자동 새로고침하면 새창뜸 자동호출-->
+    <h1>window내장객체</h1>
+    <input type = "button" onclick="popup()" value="팝업창 띄우기"/>
+    <input type = "button" onclick="closePopup()" value="팝업창 닫기"/>
+    <input type = "button" onclick="windowMove()" value="창이동"/>
+    <input type = "button" onclick="windowSize()" value="창크기변경"/>
+    <div id = "view" style="border:1px solid gray;"></div>
+</body>
+</html>

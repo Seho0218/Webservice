@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+    function setTimer(){
+        var now = new Date();
+
+        var hour = now.getHours();
+        var minute = now.getMinutes();
+        var second = now.getSeconds();
+
+        var nowTxt="";
+        if(hour<10){
+            nowTxt+= "0";
+        }
+            nowTxt+= hour+ ":";
+
+        if(minute<10){
+            nowTxt+= "0";
+        }
+        nowTxt+=minute+":";
+        if(second<10){
+            nowTxt+= "0";
+        }
+        nowTxt+=second;
+
+        document.getElementById("clock").innerHTML=nowTxt;
+
+    }
+    
+</script>
+</head>
+<body onload="setTimer()">
+<h1 id = "clock"></div>
+</body>
+</html>
