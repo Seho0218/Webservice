@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>1초와 연관해서 사진 움직이기</title>
 <script>
     function setTimer(){
         var now = new Date();
@@ -27,12 +27,42 @@
         nowTxt+=second;
 
         document.getElementById("clock").innerHTML=nowTxt;
+    }
+    var step=50;
+    var left=0;
+    function moveImage(){
+        var img = document.getElementById("i").style;
+        left = left+step;
+        img.left=left+"px";
+        if(left>500){
+            step = -5;
+        }
+        if(left<0){
+            step = 5;
+        }
+    }
+    var interval;
 
+    //background
+        var y=0;
+        function backMove(){
+            y+=5;
+            document.getElementById("b").style.backgroundPosition = "0px "+y+"px";
+        }
+</script>
+<style>
+    body{
+        background: url(../img/logo_daum.png);
     }
     
-</script>
+    #i{width:100px; height:100px; position:absolute; left:0px; top:0px;}
+</style>
 </head>
-<body onload="setTimer()">
-<h1 id = "clock"></div>
+<!-- 설정한 시간 간격으로 호출됨 : setInerval("호출할 함수명", 밀리초");-->
+<body onload="interval = setInterval('moveImage()',500); setInterval('setTimer()',1000); setInterval('backMove()',200)" id="b">
+<h1 id = "clock"></h1>
+<img src="../img/logo_daum.png" id="i" onmouseover="clearInterval(interval)"
+                                       onmouseout="interval=setInterval('moveImage()',100)"/>
+<!-- 마우스를 위에 두면 멈추고 다시 떼어내면 다시 움직임-->
 </body>
 </html>
