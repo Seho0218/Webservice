@@ -5,11 +5,14 @@
 <title>Insert title here</title>
 <script>
     function popup(){
-        window.open("popup.html","w","width=400px","height=500px");
+        //쿠키정보를 확인하여 팝업 띄울지 여부 확인
+        var cookie = document.cookie;
+        if(cookie.indexOf("pop=yes")==-1){
+            window.open("popup.html","w","width=400px","height=500px");
+        }
     }
 </script>
 </head>
-
 <body onload="popup()">
 <img src = "../img/logo_daum.png"/>
 </body>
