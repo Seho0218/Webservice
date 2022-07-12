@@ -53,8 +53,8 @@
         document.getElementById("view").innerHTML="onmouseover 이벤트가"+ ++cnt +"번째 발생하였습니다";
     }
 
-    function mouseoverTest(){
-        document.getElementById("view2").innerHTML="onmouseover 이벤트가"+ ++cnt2 +"번째 발생하였습니다";
+    function mouseoutTest(){
+        document.getElementById("view2").innerHTML="onmouseout 이벤트가"+ ++cnt2 +"번째 발생하였습니다";
     }
 
     var c=0, c2=0;
@@ -71,7 +71,7 @@
 </script>
 </head>
 <body>
-<div id = "t1" onmouseover="mouseoverTest()" onmouseout="mouseoverTest()">
+<div id = "t1" onmouseover="mouseoverTest()" onmouseout="mouseoutTest()">
     <h1>onmouseover 이벤트, <b>onmouseout</b> 이벤트</h1>
 </div>
 
