@@ -8,8 +8,8 @@
         width: 525px;
         height: 525px;
         background-color: green;
-        margin: auto;
-
+        margin: 10px auto;
+        padding: 1em;
     }
 
     #d1{
@@ -17,7 +17,6 @@
         height: 110px;
         background-color: greenyellow;
         margin-top:25px;
-
     }
 
     #d2{
@@ -67,8 +66,9 @@
 <body onload= "setInterval('setTimer()',1000)">
 
 <div>
-    <h1 id = "clock"></h1>
-    <div id = "d1"></div>
+    <div id = "d1">
+        <div id = "clock"></div>
+    </div>
     <div id = "d2"></div>
 </div>
 </body>
