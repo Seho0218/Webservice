@@ -6,7 +6,7 @@
 
 </head>
 
-<body>
+<body link ="red" alink="green" vlink="orange">
 <a href="https://www.daum.net">다음홈페이지</a>
 <a href="https://www.naver.com">네이버홈페이지</a></br>
 <input type="text" name="userid" class="userid"/></br>
@@ -22,6 +22,24 @@
 
     document.bgColor = "afdged"// 숫자가 클수록 연하다
     document.write("<br/>bgColor=>"+document.bgColor);
+
+  
+    //링크 컬러설정 11시 초반 컬러 설명
+    document.linkColor="yellow";
+    document.write("<br/>linkColor=>"+document.linkColor+"<br/>alinkColor=>"+document.alinkColor+"<br/>vlinkColor=>"+document.vlinkColor);
+
+    //쿠키
+        document.cookie = "값을 저장할 수 있다.";
+        document.write("<br/>cookie=>", document.cookie);
+        
+    function domSelect(){
+        document.getElementById("username").value="홍길동";// 값이 저장
+        document.querySelector("#username").value="세종대왕";
+
+        document.getElementsByTagName("a")[1].title = "naver.com으로 이동합니다.";//html 태그로 선택 배열로선택됌.
+        document.getElementsByClassName("userid")[0].value="hong gildong";
+    }
+    domSelect();
 </script>
 </div>
 </body>
