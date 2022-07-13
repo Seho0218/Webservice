@@ -21,8 +21,8 @@
 <script>
     function regExpTest(){
         var data = "Javascript and html5 and css3";
-        var reg = /Html5/i; //정규식 i:대소문자를 구별하지 않는다는 표시.(없으면 구별함) 2시 10분
-        var result = reg.test(data);//검사할값. 함수 이름이 text
+        var reg = /Html5/i; //정규식 i:대소문자를 구별하지 않는다는 표시.(없으면 구별함) 2시 10분 
+        var result = reg.test(data);//검사할값. 함수 이름이 text data에 있는지 확인하는것
         console.log(result);
 
 
@@ -33,7 +33,7 @@
         reg = /^[A-Za-z]{1}[A-Za-z0-9_$]{7,11}$/;//대괄호 문자의 범위, 중괄호문자=대괄호가 검사하는 문자 범위. 7에서11개까지
         var userid = document.getElementById("userid").value;
         var id = document.getElementById("useridResult");
-        if(!reg.test(userid)){
+        if(!reg.test(userid)){ //다음페이지로 안가가ㅣ위해서
             id.innerHTML = "사용 불가능한 아이디 입니다.";
             id.style.color="red";
 
