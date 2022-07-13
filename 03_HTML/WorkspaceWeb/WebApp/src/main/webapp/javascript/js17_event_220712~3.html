@@ -31,6 +31,23 @@
         background-color: #ddd;
         height: 50px;
     }
+    /*로그인*/
+    ul,li{margin: 0; padding:0; list-style-type:none ;}
+
+    #login{width:400px; margin:0 auto; padding: 50px; overflow: auto; border:1px solid gray;}
+
+    #login li{float:left; height: 50px;}
+
+    #login li:nth-child(2n+1){
+        width:20%;
+    }
+    #login li:nth-child(2n){
+        width:80%;
+    }
+    #login li:last-child{
+        width:100%;
+        text-align: center;
+    }
 </style>
 <script>
     /*javascript의 이벤트
@@ -46,6 +63,8 @@
     onmousedown: 마우스를 누른 상태
     onmouseup: 마우스를 누른후 놓으면
     onmousemove: 마우스를 움직이면
+
+    on
     
     */
     var cnt = 0; cnt2=0;
@@ -68,9 +87,54 @@
     function mouseEvent(a){
         document.getElementById("view").innerHTML="<h1>"+a +"</h1> "; 
     }
+    function setBackPink(obj){
+        obj.style.backgroundColor="pink";
+    }
+    function setBackBlue(obj){
+            obj.style.backgroundColor="lightblue";
+        }
+    //아이디와 비밀번호 입력을 했는지 여부확인하는 함수 생성
+    function loginCheck(){
+        //11 25분부터 설명
+        /*if(document.getElementById("userid".value==""){
+            alert("아이디를 입력하세요.")
+        }*/
+        var userid = document.getElementById("userid");
+        if(userid.value==""){
+            alert("아이디를 입력하세요.");
+             userid.focus();//커서를 옮겨줌
+        return false;// 뒤에 문장은 실행 x
+        }
+        var userpwd = document.getElementById("userpwd");
+        if(userpwd.value==""){
+            alert("비밀번호를 입력하세요.")
+            userpwd.focus();
+            return false;
+        }
+        return true;       
+    }
+// 3->2->1(폼이 받아서액션으로) 및에 form에서 구현 
 </script>
 </head>
 <body>
+<div id = 'login'>
+<form method="post" action="loginOr.jsp" onsubmit="return loginCheck()">
+    <h1>로그인</h1>
+    <ul>
+        <li> 아이디</li>
+        <li><input type = "password" name="userid" id="userid" onfocus="setBackPink(this)" onblur = "setBackBlue(this)"/></li>// 전체를 객체로 받음. 11시 9분 현재 이벤트가 발생한 인풋
+        <li>비밀번호</li>
+        <li><input type="password" name = "userpwd" id = "userpwd" onfocus="setBackPink(this)" onblur = "setBackBlue(this)"/></li>
+        <li>
+        <input type="submit" value='로그인' onfocus = "setBackPink(this)" onblur = "setBackBlue(this)">
+            <button>로그인</button>
+            <input type="image" src="../img/button.png"/><!-- 기능이 같음 submit이 발생-->
+
+            <input type = "button" value ="로그인"/>
+        </li>
+    </ul>
+    </form>
+</div>
 <div id = "t1" onmouseover="mouseoverTest()" onmouseout="mouseoutTest()">
     <h1>onmouseover 이벤트, <b>onmouseout</b> 이벤트</h1>
 </div>
