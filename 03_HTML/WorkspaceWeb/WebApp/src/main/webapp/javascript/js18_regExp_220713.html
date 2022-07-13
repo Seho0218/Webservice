@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>정규 표현식을 이용한 유효성 검사</title>
+<style>
+    ul,li{margin:0; padding:0; list-style-type: none;}
+    li{
+        float:left; height:40px; line-height: 40px; border-bottom: 1px solid #ddd;
+    }
+    li:nth-child(2n+1){
+        width:30%;
+    }
+    li:nth-child(2n){
+        width:70%;
+    }
+    li:last-child{
+        width:100%; text-align: center;
+    }
+</style>
+<script>
+    function regExpTest(){
+        var data = "Javascript and html5 and css3";
+        var reg = /Html5/i; //정규식 i:대소문자를 구별하지 않음 2시 10분
+        var result = reg.test(data);//검사할값 함수 이름이 text
+        console.log(result);
+
+
+        //아이디 유효성 검사
+        //^ : 처음부터 검사하라. $ : 마지막 까지 검사.
+        //8~12사이어야 한다. 첫번째는 영어라야함. 영어,숫자,$,_만 허용한다.
+
+        reg = /^[A-Za-z]{1}[A-Za-z0-9_$]{7,11}$/;//대괄호 문자의 범위, 중괄호문자하나.
+        var userid = document.getElementById("userid").value;
+        var id = document.getElementById("useridResult");
+        if(!reg.test(userid)){
+            id.innerHTML = "사용 불가능한 아이디 입니다.";
+            id.style.color="red";
+
+            return false;
+        }else{
+            id.innerHTML = "사용 가능한 아이디 입니다.";
+            id.style.color="green";
+        }
+        /*
+                if(!reg.test(userid)){//2시 15분
+                    document.getElementById("useridResult").innerHTML = "사용 불가능한 아이디 입니다.";
+                }else{
+                    document.getElementById("useridResult").innerHTML = "사용 가능한 아이디 입니다.";
+        }*/
+        //이름 : 2~10글자
+        return false;
+
+        reg = /^[가-힣]{2,10}$/; //사용이 끝난 변수라서 다시 이렇게 사용함.
+        if(!reg.test(document.getElementById("username").value)){
+            alert("사용불가능한 이름입니다.");
+            return false;
+        }
+        return false;
+    }
+
+
+    
+</script>
+</head>
+
+<body>
+    <h1>정규 표현식을 이용한 유효성 검사</h1>
+    <form method="post" action = "test.jsp" onsubmit="return regExpTest()">
+        <ul>
+            <li>아이디</li>
+            <li><input type="text" name="userid" id="userid"/><span id = "useridResult"></span></li>//<!-- id 가 유효성 검사에 들어감.-->
+            <li><input type = "submit" value = "등록"/></li><!-- span은 줄바꾸는 기능이 없다. li 높이 40으로 변경-->
+            <li>이름</li>
+            <li><input type = "text" name="username" id="username"/></li>
+            <li><input type ="submit" value="등록"/></li>
+        </ul>
+    </form>
+
+</body>
+</html>

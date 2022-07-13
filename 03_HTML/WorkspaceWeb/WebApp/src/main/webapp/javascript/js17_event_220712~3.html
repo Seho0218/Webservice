@@ -64,7 +64,16 @@
     onmouseup: 마우스를 누른후 놓으면
     onmousemove: 마우스를 움직이면
 
-    on
+    onfocus: 컴퍼넌트에 커서가 들어가면
+    onblur: 컴퍼넌트에서 커서가 나가면
+
+    onkeydown : 키를 누른 상태 onkeyrelease
+    onkeyup : 키를 누른 후 놓으면 onkeypress
+
+    onChange : value의 값이 변경되면 발생하는 이벤트
+
+    onload : body가 로딩되면
+    onresize : 크기가 변경되면
     
     */
     var cnt = 0; cnt2=0;
@@ -111,18 +120,41 @@
             userpwd.focus();
             return false;
         }
-        return true;       
+        //return true;
+        //아이디와 비밀번호가 있다
+        //자바스크립트로 폼을 submit을 발생시킨다.
+        document.getElementById("frm").submit();   
+    }
+
+    function numKeyCheck(){
+        //event라는 내장객체가 존재
+        console.log(event.keyCode);
+        var code = event.keyCode;
+        if(code>=48 && code <= 57){
+            //숫자
+            event.returnValue=true;//문자를 표시
+        }else if(code==8){
+            event.returnValue=true;
+        }
+        else{//숫자가 아닐때
+            event.returnValue=false;
+        }
     }
 // 3->2->1(폼이 받아서액션으로) 및에 form에서 구현 
 </script>
 </head>
-<body>
+<body onresize="console.log('창의 크기가 변경되었습니다.')">
 <div id = 'login'>
-<form method="post" action="loginOr.jsp" onsubmit="return loginCheck()">
+<!--<form method="post" action="loginOr.jsp" onsubmit="return loginCheck()">-->
+    <form method="post" ㅑㅇ="frm" action="loginOr.jsp">
     <h1>로그인</h1>
     <ul>
+        <li>번호</li>
+        <li><input type = "txt" name="num" id="num" onkeydown="numKeyCheck()"/></li>
         <li> 아이디</li>
-        <li><input type = "password" name="userid" id="userid" onfocus="setBackPink(this)" onblur = "setBackBlue(this)"/></li>// 전체를 객체로 받음. 11시 9분 현재 이벤트가 발생한 인풋
+        <li><input type = "password" name="userid" id="userid" onfocus="setBackPink(this)"
+                                     onblur = "setBackBlue(this)" onchange="conlole.log(this.value+'로 변경되었습니다.')"></li>
+                                            <!-- 전체를 객체로 받음. 11시 9분 현재 이벤트가 발생한 인풋, 데이터의 변경을 확인하는 onchange-->>
         <li>비밀번호</li>
         <li><input type="password" name = "userpwd" id = "userpwd" onfocus="setBackPink(this)" onblur = "setBackBlue(this)"/></li>
         <li>
@@ -130,7 +162,7 @@
             <button>로그인</button>
             <input type="image" src="../img/button.png"/><!-- 기능이 같음 submit이 발생-->
 
-            <input type = "button" value ="로그인"/>
+            <input type = "button" value ="로그인" onclick="loginCheck()"/>
         </li>
     </ul>
     </form>
