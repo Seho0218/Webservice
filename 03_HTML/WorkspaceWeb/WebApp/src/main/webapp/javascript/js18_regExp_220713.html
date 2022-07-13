@@ -21,8 +21,8 @@
 <script>
     function regExpTest(){
         var data = "Javascript and html5 and css3";
-        var reg = /Html5/i; //정규식 i:대소문자를 구별하지 않음 2시 10분
-        var result = reg.test(data);//검사할값 함수 이름이 text
+        var reg = /Html5/i; //정규식 i:대소문자를 구별하지 않는다는 표시.(없으면 구별함) 2시 10분
+        var result = reg.test(data);//검사할값. 함수 이름이 text
         console.log(result);
 
 
@@ -30,7 +30,7 @@
         //^ : 처음부터 검사하라. $ : 마지막 까지 검사.
         //8~12사이어야 한다. 첫번째는 영어라야함. 영어,숫자,$,_만 허용한다.
 
-        reg = /^[A-Za-z]{1}[A-Za-z0-9_$]{7,11}$/;//대괄호 문자의 범위, 중괄호문자하나.
+        reg = /^[A-Za-z]{1}[A-Za-z0-9_$]{7,11}$/;//대괄호 문자의 범위, 중괄호문자=대괄호가 검사하는 문자 범위. 7에서11개까지
         var userid = document.getElementById("userid").value;
         var id = document.getElementById("useridResult");
         if(!reg.test(userid)){
@@ -56,11 +56,17 @@
             alert("사용불가능한 이름입니다.");
             return false;
         }
+
+        //주민번호
         return false;
     }
+    //커서옮기기
+    function cursorMove(){
+        if(document.getElementById("jumin1").value.length==6){
+            document.getElementById("jumin2").focus();
+        }
+    }
 
-
-    
 </script>
 </head>
 
@@ -73,6 +79,9 @@
             <li><input type = "submit" value = "등록"/></li><!-- span은 줄바꾸는 기능이 없다. li 높이 40으로 변경-->
             <li>이름</li>
             <li><input type = "text" name="username" id="username"/></li>
+            <li>주민번호</li>
+            <li><input type = "text" name="jumin1" id="jumin1" size="6" onkeyup="cursorMove()"/>-
+            <li><input type = "text" name="jumin2" id="jumin2" size="6"/></li>
             <li><input type ="submit" value="등록"/></li>
         </ul>
     </form>
