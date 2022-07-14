@@ -16,8 +16,9 @@
     }
 </style>
 <!-- 구글맵 라이브러리를 연결 11시 35분 설명-->
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAqHHeQ3OzHwALvXgdepJTfsDw3MtAcsoU&callback=initMap"></script>
-
+<script async
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAqHHeQ3OzHwALvXgdepJTfsDw3MtAcsoU&callback=initMap">
+</script>
 </head>
 <body>
 <div id = "gMap">
@@ -111,6 +112,15 @@ function setMapPosition(mapAddr,mapHome,mapImg){
 
         }//function();
     );//geocode();
+    }
+    //지역명을 이용한 지도검색.
+    function searchMap(){
+        var addr = document.getElementById("address").value
+        if(addr==""){
+            alert ==("검색할 지역 또는건물명을 입력하세요.")
+        }else{
+            setMapPosition(addr,"https://www.seoul.go.kr",'08.jpg');
+        }
     }
 </script>
 </body>
