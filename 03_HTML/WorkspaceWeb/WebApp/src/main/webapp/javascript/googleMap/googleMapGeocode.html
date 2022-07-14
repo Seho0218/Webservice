@@ -17,8 +17,7 @@
 </style>
 <!-- 구글맵 라이브러리를 연결 11시 35분 설명-->
 <script async
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAqHHeQ3OzHwALvXgdepJTfsDw3MtAcsoU&callback=initMap">
-</script>
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAqHHeQ3OzHwALvXgdepJTfsDw3MtAcsoU&callback=initMap"></script>
 </head>
 <body>
 <div id = "gMap">
@@ -52,7 +51,7 @@
         var option={
             center :myCenter,
             zoom:12,
-            mapTypeId : google.maps.mapTypeId.ROADMAP
+            mapTypeId : google.maps.MapTypeId.ROADMAP
 
         }
         map = new google.maps.Map(document.getElementById("gMap"),option);
