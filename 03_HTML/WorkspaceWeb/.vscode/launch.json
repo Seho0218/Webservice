@@ -5,7 +5,6 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "pwa-chrome",
             "request": "launch",
             "name": "Open tag13_semantic_layout.html",
             "file": "/Users/hongseho/Desktop/GIT/Study/03_HTML/WorkspaceWeb/WebApp/src/main/webapp/html5_css/tag13_semantic_layout.html"

@@ -12,7 +12,7 @@
         background-color: #ddd;
         left:40%;
         top:50px;
-        z-index: 100;
+        z-index:300;
     }
 </style>
 <!-- 구글맵 라이브러리를 연결 11시 35분 설명-->
@@ -20,10 +20,10 @@
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAqHHeQ3OzHwALvXgdepJTfsDw3MtAcsoU&callback=initMap"></script>
 </head>
 <body>
-<div id = "gMap">
+<div>
     <div id="geocodeSearch">
         <input type="text" id ="address" value="양재역"/>
-        <input type="button" value="GeoCode" id="geoSubmit" onClick="searchMap"/>
+        <input type="button" value="GeoCode" id="geoSubmit" onClick="searchMap()"/>
     </div>
     <div id = "gMap"></div>
 </div>
@@ -74,12 +74,11 @@
 function setMapPosition(mapAddr,mapHome,mapImg){
 
                     //지도에서 찾을 위치        처리할 함수(콜백함수) 찾은 정보, 작동여부)
-    geoCode.geoCode({'address':mapAddr},    function(results, status){// status='OK' 성공
-
+    geoCode.geocode({'address':mapAddr},    function(results, status){// status='OK' 성공
         if(status=='OK'){
             console.log(results);
             //지도의 중앙 위치를 변경
-            map.setCenter(result[0].geometry.location);
+            map.setCenter(results[0].geometry.location);
 
             var marker = new google.maps.Marker({
                 map:map,
@@ -95,15 +94,15 @@ function setMapPosition(mapAddr,mapHome,mapImg){
 
             var popMsg = "위도: "+la;
                 popMsg += "경도: "+lo;
-                popMsg += "주소 : "+ results[0].formatted_address;
+                popMsg += "주소: "+ results[0].formatted_address;
                 popMsg += "<a href='"+mapHome+"'><img src='../../img/"+mapImg+"'/></a>";
 
             var info = new google.maps.InfoWindow({content:popMsg});
 
             //마커에 마우스 오버시 info보여주기
-            google.maps.event.addListener(marker, 'mouseover', function(){
-                info.open(map,marker);
-            });
+            google.maps.event.addListener(marker, 'mouseover', 
+            function(){info.open(map,marker);}
+            );
 
         }else{
             alert("입력한 주소가 존재하지 않습니다.");
