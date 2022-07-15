@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<style>
+    ul,li{margin: 0; padding:0}
+    img{width:100px; height:100px;}
+    li{list-style-type: none; float:left}
+</style>
+<script>
+
+    $(()=>{
+    //before(): 선택자 이전에 객체를 추가
+    $("#i").before("<li><img src='../img/apple.png'/></li>");
+    //insertBefore():선택자 이전에 객체를 추가
+    //내용을 왼쪽에 추가
+    // 내용         선택자
+    $("<li><img src='../img/logo_daum.png'/></li>").insertBefore("#i");
+    //after() : 선택자 다음에 객체를 추가
+    $("#i").after("<li><img src='../img/apple2.png'/></li>");
+    //insertAfter():선택자 다음에 객체를 추가
+    $("<li><img src='../img/apple2.png'/></li>").insertAfter("#i");
+    //append() 선택자의 내용중에 제일 마지막에 추가
+    $('ul').append("<li><img src='../img/apple4.png'/></li>");
+    //appendTo(): 내용, 선택자
+    $("<li><img src='../img/apple5.png'/></li>").appendTo('ul');
+});
+</script>
+</head>
+<body>
+<ul>
+    <li id = "i"><img src="../img/apple.png"/></li>
+</ul>
+</body>
+</html>
