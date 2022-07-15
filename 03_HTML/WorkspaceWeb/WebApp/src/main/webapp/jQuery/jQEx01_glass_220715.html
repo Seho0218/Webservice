@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(()=>{
+        //html() :특정 객체에 html태그를 추가한다. =>innerHTML
+        var tag = 
+        $('result').html(tag); //태그가 들어간곳마다 생긴다. 값을 셋팅하는 html(tag)
+
+        console.log($('#result').html()); // 값을 얻어오는 html()
+
+        //text(): 특정 객체에 문자를 추가한다.
+        var tag2 = "<div>text()속성 연습중</div>";
+        $("#result").text(tag2);
+
+
+        //클래스 handler
+        //addClass(): 클래스 추가
+        $('#result>img').addClass('c1');
+        $('#result>img').addClass('c2');//콘솔에서보면 c1 c2 둘다 생김.
+
+        //removeClass():클래스 삭제
+        $("#lst>img").removeClass('c2');// 콘솔에서 보면 클래스에서 c2가 사라짐
+
+    
+
+
+
+;    });
+</script>
+</head>
+</html>
