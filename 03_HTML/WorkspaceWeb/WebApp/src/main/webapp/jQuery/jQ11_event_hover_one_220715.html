@@ -13,24 +13,26 @@
     $(function(){
         var cnt=0;
         $('h1').hover(function(){//오버시
-            $(this).addClass("s1");
+            $(this).addClass('s1');
             cnt++;
             $("div").html("cnt="+cnt);
             if(cnt>5){
                 $(this).off();//이벤트 중지
             }
         },function(){//아웃시
-            $(this).removeClass("s1");
+            $(this).removeClass('s1');
         });
+
         //one:// 이벤트 한번만 발생
         $('h2').one('click',function(){
-            $(this).addClass("s2");
-            console.log("AAA");
+            $(this).addClass('s2');
+            console.log("AAA")
         });
     });
 </script>
 </head>
 <body>
+    <div></div>
     <h1>hover 이벤트 처리 테스트 중....</h1>
     <h1>hover 이벤트 처리 테스트 중....</h1>
     <h1>hover 이벤트 처리 테스트 중....</h1>
