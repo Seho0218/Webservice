@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<style>
+.s1{font-weight: bold;}
+
+ ul,li{margin:0; padding:0; list-style-type:none;}
+ #wrap{ width:1000px; height:750px; margin: 0 auto; position :relative; background-color: greenyellow; }
+
+/* girlsdaily*/
+#wrap>ul{margin: auto; padding :0; text-align: center; font-size: 5em; border-bottom: 1px solid gray;
+        }
+
+#tabMenu{
+    width:1000px; height:65px; position:relative;
+    margin:0 auto; overflow: hidden; background-color: green; 
+ }
+#tabMenu>ol>li{
+     float:left; margin: auto; font-size: 25px; text-align: center;
+ }
+
+#tabMenu>ol>li:hover{
+        max-width: 200px; max-height: 65px;
+ }
+</style>
+<script>
+$(function(){
+        $('#OUTER').hover(function(){//오버시
+            $(this).addClass('s1');
+         
+        },function(){//아웃시
+            $(this).removeClass('s1');
+        });
+        $('#TOP').hover(function(){//오버시
+            $(this).addClass('s1');
+         
+        },function(){//아웃시
+            $(this).removeClass('s1');
+        });
+        $('#DRESS').hover(function(){//오버시
+            $(this).addClass('s1');
+         
+        },function(){//아웃시
+            $(this).removeClass('s1');
+        });
+        $('#BOTTOM').hover(function(){//오버시
+            $(this).addClass('s1');
+         
+        },function(){//아웃시
+            $(this).removeClass('s1');
+        });
+        $('#SUMMER').hover(function(){//오버시
+            $(this).addClass('s1');
+         
+        },function(){//아웃시
+            $(this).removeClass('s1');
+        });
+    });
+</script>
+</head>
+<body>
+    <div id = "wrap"> 
+        <ul id = "brandname">GIRLSDAILY</ul>
+
+        <div id = "tabMenu">
+        <ol>
+            <li id = "OUTER">OUTER
+                <ol>
+                    <li>가디건</li>
+                    <li>자켓&점퍼</li>
+                    <li>베스트</li>
+                    <li>코드</li>
+                    <li>세일</li>
+                </ol>
+            </li> 
+            <li id = "TOP">TOP
+                <ol>
+                    <li>Tee</li>
+                    <li>Came</li>
+                    <li>Knit</li>
+                    <li>Shirt&Blouse</li>
+                </ol>
+            </li>
+            <li id = "DRESS">DRESS
+                <ol>
+                    <li>All</li>
+                    <li>바캉스룩</li>
+                    <li>Set</li>
+                </ol>
+            </li>
+            <li id = "BOTTOM">BOTTOM
+                <ol>
+                    <li>레깅스</li>
+                    <li>히링두엘브</li>
+                    <li>히든밴딩시리즈</li>
+                    <li>스커트</li>
+                    <li>팬츠</li>
+                </ol>
+            </li>
+            <li id = "SUMMER">SUMMER
+                <ol>
+                    <li>HOLI스윕웨어</li>
+                    <li>22</li>
+                </ol>
+            </li>
+        </ol>
+        </div>
+        <div id = "image">
+
+        </div>
+    </div>
+</body>
+</html>
