@@ -6,76 +6,141 @@
 <script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <style>
 
- ul,li{margin:0; padding:0; list-style-type:none;}
- #wrap{ width:1000px; height:750px; margin: 0 auto; position :relative; background-color: white; }
+ ul,li,body{margin:0; padding:0; list-style-type:none;}
+
+ #wrap{ width:1000px;  margin: 0 auto; position :relative;}
+
+ .s1{font-weight: bold;}
 
 /* girlsdaily*/
-#wrap>ul{margin: auto; padding :0; text-align: center; font-size: 5em; border-bottom: 1px solid gray;}
+#wrap>ul{ padding :20px 0px; 
+          text-align: center;
+          font-size: 5em;
+          border-bottom: 1px solid gray;}
 
 #tabMenu{
-    position:relative; display : block;
-    margin:0; padding :0 ;background-color: gray; 
-   
+    position:relative;
+    margin:0 auto;
+    padding: 16px 28px; 
+    display: flex;
  }
-#tabMenu>ol>li{
-    float:left; margin: 0 auto; font-size: 25px; text-align: center; display: block;
- }
-    
-#tabMenu>ol>li>ol{opacity: 0; visibility: hidden;}
-#tabMenu>ol>li:hover ol{opacity: 1; visibility: visible; text-align: left;}
-#tabMenu>ol>li:hover li{background-color: white;}
 
+#tabMenu > ul {
+        font-size: 1.8em;
+        text-align: center;
+        display: block;
+        padding: 0 50px;
+        position: relative;
+}
+
+#submenu{
+        opacity: 0;
+        visibility: hidden; 
+        padding-inline-start: 0;
+        position: absolute;
+        background-color: white;
+    } 
+/*absolute 가 숨겨줌*/
+
+#tabMenu>ul:hover #submenu {opacity: 1; visibility: visible; }
+
+#submenu > li  {
+    width:200px;
+    margin: 0 auto;
+    padding-top: 10px; 
+  font-size: 1em;
+}
+#image>img{ width :1000px;}
+
+/*
+
+
+*/
 </style>
+<script>
+   $(function(){
+        
+        $("#OUTER").hover(function(){//오버시
+            $(this).addClass('s1');   
+
+        },function(){//아웃시
+            $(this).removeClass('s1');
+        });
+        $("#TOP").hover(function(){//오버시
+            $(this).addClass('s1');   
+
+        },function(){//아웃시
+            $(this).removeClass('s1');
+        });
+        $("#DRESS").hover(function(){//오버시
+            $(this).addClass('s1');   
+
+        },function(){//아웃시
+            $(this).removeClass('s1');
+        });
+        $("#BOTTOM").hover(function(){//오버시
+            $(this).addClass('s1');   
+
+        },function(){//아웃시
+            $(this).removeClass('s1');
+        });
+        $("#SUMMER").hover(function(){//오버시
+            $(this).addClass('s1');   
+
+        },function(){//아웃시
+            $(this).removeClass('s1');
+        });
+    });
+</script>
 </head>
+
 <body>
     <div id = "wrap"> 
         <ul id = "brandname">GIRLSDAILY</ul>
 
         <div id = "tabMenu">
-        <ol>
-            <li id = "OUTER">OUTER
-                <ol>
-                    <li>가디건</li>
-                    <li>자켓&점퍼</li>
-                    <li>베스트</li>
-                    <li>코드</li>
-                    <li>세일</li>
+            <ul id = "OUTER">OUTER
+                <ol id="submenu">
+                    <li><a href="#">가디건</a></li>
+                    <li><a href="#">자켓&점퍼</a></li>
+                    <li><a href="#">베스트</a></li>
+                    <li><a href="#">코드</a></li>
+                    <li><a href="#">세일</a></li>
                 </ol>
-            </li> 
-            <li id = "TOP">TOP
-                <ol>
-                    <li>Tee</li>
-                    <li>Came</li>
-                    <li>Knit</li>
-                    <li>Shirt&Blouse</li>
+            </ul> 
+            <ul id = "TOP">TOP
+                <ol id="submenu">
+                    <li><a href="#">Tee</a></li>
+                    <li><a href="#">Came</a></li>
+                    <li><a href="#">Knit</a></li>
+                    <li><a href="#">Shirt&Blouse</a></li>
                 </ol>
-            </li>
-            <li id = "DRESS">DRESS
-                <ol>
-                    <li>All</li>
-                    <li>바캉스룩</li>
-                    <li>Set</li>
+            </ul>
+            <ul id = "DRESS">DRESS
+                <ol id="submenu">
+                    <li><a href="#">All</a></li>
+                    <li><a href="#">바캉스룩</a></li>
+                    <li><a href="#">Set</a></li>
                 </ol>
-            </li>
-            <li id = "BOTTOM">BOTTOM
-                <ol>
-                    <li>레깅스</li>
-                    <li>히링두엘브</li>
-                    <li>히든밴딩시리즈</li>
-                    <li>스커트</li>
-                    <li>팬츠</li>
+            </ul>
+            <ul id = "BOTTOM">BOTTOM
+                <ol id="submenu">
+                    <li><a href="#">레깅스</a></li>
+                    <li><a href="#">히링두엘브</a></li>
+                    <li><a href="#">히든밴딩시리즈</a></li>
+                    <li><a href="#">스커트</a></li>
+                    <li><a href="#">팬츠</a></li>
                 </ol>
-            </li>
-            <li id = "SUMMER">SUMMER
-                <ol>
-                    <li>HOLI스윕웨어</li>
-                    <li>22</li>
+            </ul>
+            <ul id = "SUMMER">SUMMER
+                <ol id="submenu">
+                    <li><a href="#">HOLI스윕웨어</a></li>
+                    <li><a href="#">22</a></li>
                 </ol>
-            </li>
-        </ol>
+            </ul>
         </div>
         <div id = "image">
-
+            <img src = "../img/jejumap.jpg"/>
         </div>
     </div>
 </body>
