@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Calendar</title>
+<style>
+    div{
+        width: 525px;
+        height: 525px;
+        background-color: green;
+        margin: 10px auto;
+        padding: 1em;
+    }
+
+    #d1{
+        width: 480px;
+        height: 110px;
+        background-color: greenyellow;
+        margin-top:25px;
+    }
+
+    #d2{
+        width: 480px;
+        height: 365px;
+        background-color: brown;
+        margin-top: 12px;
+        margin-bottom: 20px;
+    }
+    
+</style>
+<script>
+        function setTimer(){
+        var now = new Date();
+
+        var hour = now.getHours();
+        var minute = now.getMinutes();
+        var second = now.getSeconds();
+
+        var nowTxt="";
+        if(hour<10){
+            nowTxt+= "0";
+        }
+            nowTxt+= hour+ ":";
+
+        if(minute<10){
+            nowTxt+= "0";
+        }
+        nowTxt+=minute+":";
+        if(second<10){
+            nowTxt+= "0";
+        }
+        nowTxt+=second;
+
+        document.getElementById("clock").innerHTML=nowTxt;
+    }
+    var now = new Date();
+
+    var nowYear = new Date(now).getFullYear();
+    var nowMonth = new Date(now).getMonth()+1;
+    var nowDate= new Date(now).getDate();
+
+</script>
+
+</head>
+
+<body onload= "setInterval('setTimer()',1000)">
+
+<div>
+    <div id = "d1">
+        <div id = "clock"></div>
+    </div>
+    <div id = "d2"></div>
+</div>
+</body>
+</html>
