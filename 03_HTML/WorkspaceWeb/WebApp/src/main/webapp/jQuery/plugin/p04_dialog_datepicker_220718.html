@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src = "/03_HTML/WorkspaceWeb/WebApp/src/main/webapp/js_css/jquery-ui.min.js"></script>
+<script src = "/03_HTML/WorkspaceWeb/WebApp/src/main/webapp/js_css/jquery-ui.min.css" type = "text/css"></script>
+<style>
+    #dialogOpen, #schedule{ font-size:2em; background-color: #ffd; text-align: center;}
+    #schedule{background-color: #dff;}
+
+    h2{text-align: center;}
+    input[type = text],label{margin-bottom: 13px; padding: 5px; width:95%;}
+    
+</style>
+<script>
+    $(function(){
+        //일정등록 클릭시
+        $("#dialogOpen").click(function(){
+                $("#dialog").dialog('open');//일정등록을 클릭하면 창 보이게 설정
+        });
+        //다이얼로그
+        $("#dialog").dialog({  
+            autoOpen:false//실행시 자동열림설정("true: 기본,false")
+            , buttons: {
+                submit:function(){
+                    var name = $("#event-name").val();
+                    var date =$("#event-date").val();
+
+                    $("#schedule").append("<p>"+name+" : "+date+"</p>");
+
+                    $('#event-name').val('');
+                    $('#event-date').val('');
+                },
+                reset : function(){
+                    $('#event-name').val('');
+                    $('#event-date').val('');
+                },
+                close : function(){
+                    $('#event-name').val('');
+                    $('#event-date').val('');
+                    $('dialog').dialog('close')
+                }
+            }
+            , modal:true
+        });
+
+        //날짜입력박스 : datepicker 셋팅
+        $("#event-date").datepicker({
+            dateFormat : 'yy년 mm월 dd일' //y:년도 2자리, yy년도 4자리, yy- mm -dd
+            ,numberOfMonth:3
+        });
+    });
+</script>
+</head>
+<body>
+    <div id = "dialogOpen">일정등록</div>
+    <hr/>
+    <div id="schedule">일정이 표시되는 곳</div>
+    <!-- 다이얼로그 창-->
+    <div id = "dialog" title="jQuery UI Dialog">
+        <h2>일정을 등록하세요.</h2>
+        <label for="event-name">일정이름</label> :
+        <input type="text" id = "event-name"/>
+        <label for="event-date">날짜선택</label> :
+        <input type="text" id = "event-date"/>
+        
+    </div>
+</body>
+</html>
