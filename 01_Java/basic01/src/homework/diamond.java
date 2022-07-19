@@ -1,4 +1,5 @@
-package ¼÷Á¦;
+package homework;
+
 
 import java.util.*;
 public class diamond {
@@ -14,7 +15,7 @@ public class diamond {
 	
 	
 		
-	System.out.printf("ÀÓÀÇÀÇ È¦¼ö ÀÔ·Â(1~49) : ");
+	System.out.printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È¦ï¿½ï¿½ ï¿½Ô·ï¿½(1~49) : ");
 	num = scan.nextInt();
 		
 	if(num>0 && num<50 && num%2 !=0)	
@@ -39,7 +40,7 @@ public class diamond {
 		
 	}
 	else{	
-			System.out.printf("¿¡·¯");
+			System.out.printf("ï¿½ï¿½ï¿½ï¿½");
 		}		
            		
 	}     

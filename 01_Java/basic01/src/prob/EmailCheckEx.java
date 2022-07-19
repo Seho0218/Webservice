@@ -1,4 +1,5 @@
-package ¹®Á¦;
+package prob;
+package ï¿½ï¿½ï¿½ï¿½;
 
 import java.util.*;
 public class EmailCheckEx {
@@ -11,11 +12,11 @@ public class EmailCheckEx {
 		Scanner scan = new Scanner(System.in);
 		
 		
-		System.out.printf("ÀÌ¸ÞÀÏ = ");
+		System.out.printf("ï¿½Ì¸ï¿½ï¿½ï¿½ = ");
 		email = scan.next();
-		System.out.printf("¾ÆÀÌµð = ");
+		System.out.printf("ï¿½ï¿½ï¿½Ìµï¿½ = ");
 		id = scan.next();
-		System.out.printf("µµ¸ÞÀÎ = ");
+		System.out.printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ = ");
 		domain = scan.next();
 		
 		//email = (ghdtpgh8913@gmail.com);
@@ -28,14 +29,14 @@ public class EmailCheckEx {
 		//System.out.printf(result)
 		
 		
-		System.out.printf("´Ù½ÃÇÏ½Ã°Ú½À´Ï±î(1.¿¹, 2.¾Æ´Ï¿À)? ");
+		System.out.printf("ï¿½Ù½ï¿½ï¿½Ï½Ã°Ú½ï¿½ï¿½Ï±ï¿½(1.ï¿½ï¿½, 2.ï¿½Æ´Ï¿ï¿½)? ");
 		i = scan.nextInt();
 		
 		if(i==1) {
 			
 			
 			
-			System.out.printf("ÀÌ¸ÞÀÏ = ");
+			System.out.printf("ï¿½Ì¸ï¿½ï¿½ï¿½ = ");
 			email2 = scan.next();
 			
 			int result1 = a.compareTo(b);

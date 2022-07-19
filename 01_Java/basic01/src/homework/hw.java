@@ -1,4 +1,4 @@
-package ¼÷Á¦;
+package homework;
 
 import java.lang.*;
 import java.util.*;
@@ -8,18 +8,18 @@ public class hw {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		Calendar now = Calendar.getInstance(); // ¿À´Ã ³¯Â¥¿Í ½Ã°£
+		Calendar now = Calendar.getInstance(); // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Â¥ï¿½ï¿½ ï¿½Ã°ï¿½
 		Scanner scan = new Scanner(System.in);
 	
 		
-		System.out.print("³âµµ = ");
+		System.out.print("ï¿½âµµ = ");
 		int year = scan.nextInt();
 		
-		System.out.print("¿ù = ");		
+		System.out.print("ï¿½ï¿½ = ");		
 		int month = scan.nextInt();
 		
-		System.out.println("\t\t\t\t\t"  +year+  "³â  " +month +"¿ù\n");
-		System.out.println("ÀÏ\t\t¿ù\t\tÈ­\t\t¼ö\t\t¸ñ\t\t±Ý\t\tÅä");
+		System.out.println("\t\t\t\t\t"  +year+  "ï¿½ï¿½  " +month +"ï¿½ï¿½\n");
+		System.out.println("ï¿½ï¿½\t\tï¿½ï¿½\t\tÈ­\t\tï¿½ï¿½\t\tï¿½ï¿½\t\tï¿½ï¿½\t\tï¿½ï¿½");
 		
 		
 		
@@ -28,8 +28,8 @@ public class hw {
 		now.set(year, month-1,1);
 
 		
-		int eod = now.getActualMaximum(Calendar.DAY_OF_MONTH); // ¸¶Áö¸·³¯ ±¸ÇÏ±â DATE °¡´É
-		int DOW = now.get(Calendar.DAY_OF_WEEK); // ¿äÀÏ ±¸ÇÏ±â
+		int eod = now.getActualMaximum(Calendar.DAY_OF_MONTH); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï±ï¿½ DATE ï¿½ï¿½ï¿½ï¿½
+		int DOW = now.get(Calendar.DAY_OF_WEEK); // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï±ï¿½
 		
 		
 		for(int A=1; A<=eod; A++) {

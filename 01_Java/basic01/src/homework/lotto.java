@@ -1,4 +1,5 @@
-package ¼÷Á¦;
+package homework;
+
 
 import java.lang.*;
 import java.util.*;
@@ -26,7 +27,7 @@ class lotto3{
 	
 		 
 	do {	
-			System.out.printf("°ÔÀÓ ¼ö = ");
+			System.out.printf("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ = ");
 			game = scan.nextInt();
 			
 			for(int k = 1; k<=game; k++) {
@@ -45,11 +46,11 @@ class lotto3{
 				Arrays.sort(rand);
 				
 				int z = (int) (Math.random()*((45-1)+1));
-					System.out.printf("%d°ÔÀÓ"+Arrays.toString(rand)+", bonus = %d" +"\n",k,z);
+					System.out.printf("%dï¿½ï¿½ï¿½ï¿½"+Arrays.toString(rand)+", bonus = %d" +"\n",k,z);
 				}
 				
 			
-				System.out.print("°è¼ÓÇÏ½Ã°Ú½À´Ï±î (1:¿¹, 2:¾Æ´Ï¿À)?");	
+				System.out.print("ï¿½ï¿½ï¿½ï¿½Ï½Ã°Ú½ï¿½ï¿½Ï±ï¿½ (1:ï¿½ï¿½, 2:ï¿½Æ´Ï¿ï¿½)?");	
 				int m = scan.nextInt();
 				
 				if(m!=1)

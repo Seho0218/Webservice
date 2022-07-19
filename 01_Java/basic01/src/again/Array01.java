@@ -1,4 +1,4 @@
-package ´Ù½Ãº¼°Í;
+package again;
 
 import java.util.*;
 
@@ -23,7 +23,7 @@ public class Array01 {
         Scanner scan = new Scanner(System.in);
         Solution sol = new Solution();
         
-        System.out.printf("Á¤¼ö ÀÔ·Â");
+        System.out.printf("ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½");
         num = scan.nextInt();
         
         sol.solution(num);

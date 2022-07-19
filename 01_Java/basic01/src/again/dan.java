@@ -1,14 +1,14 @@
-package ´Ù½Ãº¼°Í;
+package again;
 
 public class dan {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		//  AutoTODO-generated method stub
 
 				
 			for(int i=1; i<10 ;i+=3) {						
 				for(int j=i; j<i+3 ; j++){					
-					System.out.printf("==%d´Ü==\t \n", j );
+					System.out.printf("==%dï¿½ï¿½==\t \n", j );
 															
 				for(int k=1; k<10 ; k++){
 							System.out.printf("%dx%d=%d\t ", j ,k, j*k);
@@ -22,7 +22,7 @@ public class dan {
 /*	 
 		for(int i=1; i<10 ;i+=3) {						
 				for(int j=i; j<i+3 ; j++){					
-					System.out.printf("==%d´Ü==\t \n", j );
+					System.out.printf("==%dï¿½ï¿½==\t \n", j );
 															
 				for(int k=1; k<10 ; k++){
 							System.out.printf("%dx%d=%d\t ", j ,k, j*k);

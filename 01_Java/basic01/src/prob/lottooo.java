@@ -1,4 +1,4 @@
-package ¹®Á¦;
+package prob;
 
 import java.util.*;
 
@@ -18,7 +18,7 @@ public class lottooo {
 		
 			 
 	do {	
-			System.out.printf("°ÔÀÓ ¼ö = ");
+			System.out.printf("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ = ");
 			game = scan.nextInt();
 						
 			for(int k = 1; k<=game; k++) {			
@@ -37,7 +37,7 @@ public class lottooo {
 				}
 				
 			}
-				System.out.print("°è¼ÓÇÏ½Ã°Ú½À´Ï±î (1:¿¹, 2:¾Æ´Ï¿À)?");	
+				System.out.print("ï¿½ï¿½ï¿½ï¿½Ï½Ã°Ú½ï¿½ï¿½Ï±ï¿½ (1:ï¿½ï¿½, 2:ï¿½Æ´Ï¿ï¿½)?");	
 				int m = scan.nextInt();
 				
 				if(m!=1)

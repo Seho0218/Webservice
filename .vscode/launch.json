@@ -4,7 +4,20 @@
     // 자세한 내용을 보려면 https://go.microsoft.com/fwlink/?linkid=830387을(를) 방문하세요.
     "version": "0.2.0",
     "configurations": [
-        
+        {
+            "type": "java",
+            "name": "Launch Array01",
+            "request": "launch",
+            "mainClass": "again.Array01",
+            "projectName": "basic01"
+        },
+        {
+            "type": "java",
+            "name": "Launch dan",
+            "request": "launch",
+            "mainClass": "다시볼것.dan",
+            "projectName": "basic01"
+        },
         {
             "type": "chrome",
             "request": "launch",

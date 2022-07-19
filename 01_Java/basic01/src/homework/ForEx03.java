@@ -1,4 +1,4 @@
-package ¼÷Á¦;
+package homework;
 
 import java.lang.*;
 import java.util.*;
@@ -13,7 +13,7 @@ public class ForEx03 {
 		
 		int tot=0,tote = 0,toto=0;
 		
-		System.out.print("ÀÓÀÇÀÇ Á¤¼ö =  ");
+		System.out.print("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ =  ");
 		int num = scan.nextInt(); 
 		
 		for(int i= 1; i<=num; i++) {
@@ -26,9 +26,9 @@ public class ForEx03 {
 		
 	
 		
-		System.out.printf("1~ %d ±îÁöÀÇ ÇÕÀº? %d \n",num,tot);
-		System.out.printf("1~ %d ±îÁöÀÇ È¦¼öÀÇ ÇÕÀº? %d \n",num,toto);
-		System.out.printf("1~ %d ±îÁöÀÇ Â¦¼öÀÇ ÇÕÀº? %d \n",num,tote);
+		System.out.printf("1~ %d ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½? %d \n",num,tot);
+		System.out.printf("1~ %d ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È¦ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½? %d \n",num,toto);
+		System.out.printf("1~ %d ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Â¦ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½? %d \n",num,tote);
 
 
 	}

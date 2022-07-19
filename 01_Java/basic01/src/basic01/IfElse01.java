@@ -10,7 +10,7 @@ public class IfElse01 {
 		
 		Scanner scan = new Scanner(System.in);
 
-		System.out.print("1~100 ÀÓÀÇÀÇ °ª: ");
+		System.out.print("1~100 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½: ");
 		int b = scan.nextInt(); 
 		
 		if(0<b &&b<101) {System.out.print(b);}
