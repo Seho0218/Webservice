@@ -21,8 +21,16 @@
     Calendar now = Calendar.getInstance();
 
     System.out.println("c="+c);
-    
+
+    //내장 객체 : request , response , session , out, application , cookie
+
+    out.print("c="+c); //웹 페이지는 줄이 안바뀜
 %>
+<hr/>
+<%
+    out.print("<h1>jsp에서 클라이언트에게 보낸 데이터</h1>");
+%>
+
 </div>
 </body>
 </html>
