@@ -2,6 +2,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.util.Calendar" %>
 <%@ page import="java.util.Scanner"%>
+<%! //선언부
+    //메소드나 변수를 선언하는 영역
+    public String gugudan(int dan){
+        String tag = "<ul>";
+        for(int i = 2; i<=9; i++){
+            tag+= "<li>"+dan+"*"+i+"=" + (dan*i) +"</li>";
+        }
+        tag+="</ul>";
+        return tag;
+    }
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,8 +40,13 @@
 <hr/>
 <%
     out.print("<h1>jsp에서 클라이언트에게 보낸 데이터</h1>");
-%>
 
+    out.print(gugudan(7));
+%>
+a=<%=a+15%> //= out.print 역할 클라이언트에게 보내라는 뜻. 여러개는 못함
+name=<%=name %><br/>
+c=<%=c %>
+request //아이디나 서버를 가져가는 내장객체
 </div>
 </body>
 </html>
