@@ -14,15 +14,13 @@
             $.ajax({
                 url: 'ajax_data_220719.json', //서버에 접속할 대상
                 dataType:'json',
-                success:function(){//서버에서 정상전송을 받았을때
+                success:function(result){//서버에서 정상전송을 받았을때
                     console.log(result);
                     $("#result").append("<ol type = '1'>");
                     $.each(result.rank,function(idx,data){
                         //data에 <li>손흥민: 영국</li>
                         $("#result>ol").append("<li>"+data.name+":"+data.local+"</li>");
-                    });
-                    $("#result").append("</ol>")
-                
+                    });     
                 },
                 error: function(request, status, error){//서버에서 전송을 받지 못했을때.
                     console.log("전송실패");
