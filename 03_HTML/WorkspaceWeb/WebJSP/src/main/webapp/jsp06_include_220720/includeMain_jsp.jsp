@@ -8,11 +8,8 @@
 .container{
     width:1000px; height:1000px; margin:0 auto; background-color:cyan;
 }
-#bottom{  
-        height:50px; background-color: #ddd;
-    }
-
 #top{height:50px; background-color:pink;}
+#bottom{height:50px; background-color: #ddd;}
 
 </style>
 </head>

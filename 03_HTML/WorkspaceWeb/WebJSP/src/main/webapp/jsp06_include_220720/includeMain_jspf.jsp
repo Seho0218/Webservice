@@ -6,15 +6,23 @@
 <title>Insert title here</title>
 <style>
     #main{
-        width:1000px;
         margin:0 auto;
+        width:500px;
+        height:500px;
         background-color: green;
     }
+
+    #header{height:50px;background-color:lightblue;}
+    #footer{height:50px; background-color:orange;}
+
 </style>
 </head>
 <body>
+<%@ include file = "header.jspf"%>
 <div id = "main">
-<%= username %>
+<%= username %><br/>
 </div>
+
+<%@ include file= "footer.jspf"%>
 </body>
 </html>
