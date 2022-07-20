@@ -21,8 +21,16 @@
 <style>header{height :100px; background:lime; color:#fff; line-height : 100px; text-align:center; font-size:4em;}</style>
 </head>
 <body>
-<header> 멀캠 홈페이지</header>
-<a href = "<%=request.getContextPath()%>/jsp02_response/login.jsp">로그인</a>
+
+<header> 멀캠 홈페이지</header> 
+<!-- 순서가 있음-->
+<% if(session.getAttribute("logStatus")!= null && session.getAttribute("logStatus").equals("Y")){ %>
+		<%=session.getAttribute("logName") %><a href= "/WebJsp/jsp04_session/sessionLogout_220720.jsp">로그아웃</a>
+<%}else{  /*로그인 안된경우*/ %>	
+		<a href = "<%=request.getContextPath()%>/jsp02_response/login_220720.jsp">로그인</a>
+<%} %>
+
+<h2><%= session.getId() %></h2> <!-- 서버에만 있다-->
 <div>
 <%
     //스크립트릿: 명령어 입력하는 곳

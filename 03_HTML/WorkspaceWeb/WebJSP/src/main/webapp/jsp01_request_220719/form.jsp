@@ -7,7 +7,7 @@
 </head>
 <body>
 <h1>폼을 이용한 서버로 데이터 보내기 </h1>
-<form method ="post" action="formOk_220719.jsp">
+<form method ="post" action="formOk.jsp">
     아이디 : <input type = "text" name="userid" value="goguma" readonly/><br/><!-- 무조건 있어야함  disabled =값을 못 넘김-->
     비밀번호 : <input type = "password" name = "userpwd"/><br/>
     이름 : <input type = "text" name = "username"/><br/>
