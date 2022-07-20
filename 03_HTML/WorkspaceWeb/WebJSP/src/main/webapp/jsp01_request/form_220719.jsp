@@ -8,12 +8,27 @@
 <body>
 <h1>폼을 이용한 서버로 데이터 보내기 </h1>
 <form method ="post" action="formOk_220719.jsp">
-    아이디 : <input type = "text" name="userid"/><br/><!-- 무조건 있어야함-->
+    아이디 : <input type = "text" name="userid" value="goguma" readonly/><br/><!-- 무조건 있어야함  disabled =값을 못 넘김-->
     비밀번호 : <input type = "password" name = "userpwd"/><br/>
-    이름 : <input type = "text" name = "username"/>
-    동의여부 : <input type = "radio" name = "state" value ="Ok"/>동의함
-             <input type = "radio" name = "state" value ="No"/>동의안함 <!-- 둘다 있어야 라디오 기능을 함-->
-
+    이름 : <input type = "text" name = "username"/><br/>
+    동의여부 :<input type = "radio" name = "state" value ="Ok"/>동의함
+            <input type = "radio" name = "state" value ="No"/>동의안함<br/><!-- 둘다 있어야 라디오 기능을 함-->
+    취미 :   <input type = "checkbox" name = "hobby" value = "축구"/>축구
+            <input type = "checkbox" name = "hobby" value = "야구"/>야구
+            <input type = "checkbox" name = "hobby" value = "배구"/>배구
+            <input type = "checkbox" name = "hobby" value = "탁구"/>탁구
+            <input type = "checkbox" name = "hobby" value = "족구"/>족구<br/>
+    연락처:   
+            <select name = "tel1" multiple>
+                <option>010</option>
+                <option>02</option>
+                <option>031</option>
+                <option>032</option>
+                <option>041</option> 
+            </select>-
+            <input type = "text" name ="tel2"/>-
+            <input type = "text" name ="tel3"/><br/>
+        <input type = "hidden" name = "num" value="1234"/>
     <input type ="submit" value ="전송"/>
 </form>
 </body>

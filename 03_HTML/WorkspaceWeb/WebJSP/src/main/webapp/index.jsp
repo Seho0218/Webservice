@@ -22,6 +22,7 @@
 </head>
 <body>
 <header> 멀캠 홈페이지</header>
+<a href = "<%=request.getContextPath()%>/jsp02_response/login.jsp">로그인</a>
 <div>
 <%
     //스크립트릿: 명령어 입력하는 곳
