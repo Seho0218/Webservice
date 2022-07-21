@@ -31,6 +31,20 @@
 <%} %>
 
 <h2><%= session.getId() %></h2> <!-- 서버에만 있다-->
+<hr/>
+    <h2>jstl(jsp standard tag library)</h2>
+    <div>
+    <p style="background-color:#ddd">
+        https://tomcat.apache.org/taglibs/standard 에서 다운로드
+        jakarta-libs-standard-1.1.2.zip 다운로드
+        WEB-INF/lib폴더에 jstl.jar, standard.jar를 복사한다
+        </p>
+        <ol>
+        <li><a href="/WebJSP/jsp07_jstl_220721/setTag.jsp">setTag:변수를 선언하고 삭제하는 방법</a></li>
+        <li><a href="/WebJSP/jsp07_jstl_220721/ifTag.jsp?name=이순신&age=500&tel=010-1234-5678">if Tag: 조건문</a>
+        <li><a href="/WebJSP/jsp07_jstl_220721/forEach.jsp">forEach tag : 반복문 </a>
+        </ol>
+    </div>
 <div>
 <%
     //스크립트릿: 명령어 입력하는 곳
