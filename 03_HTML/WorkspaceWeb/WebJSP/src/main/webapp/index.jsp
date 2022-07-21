@@ -25,9 +25,9 @@
 <header> 멀캠 홈페이지</header> 
 <!-- 순서가 있음-->
 <% if(session.getAttribute("logStatus")!= null && session.getAttribute("logStatus").equals("Y")){ %>
-		<%=session.getAttribute("logName") %><a href= "/WebJsp/jsp04_session/sessionLogout_220720.jsp">로그아웃</a>
+		<%=session.getAttribute("logName") %><a href= "/WebJsp/jsp04_session_220720/sessionLogout.jsp">로그아웃</a>
 <%}else{  /*로그인 안된경우*/ %>	
-		<a href = "<%=request.getContextPath()%>/jsp02_response/login_220720.jsp">로그인</a>
+		<a href = "<%=request.getContextPath()%>/jsp02_response_220720/login.jsp">로그인</a>
 <%} %>
 
 <h2><%= session.getId() %></h2> <!-- 서버에만 있다-->
@@ -40,9 +40,12 @@
         WEB-INF/lib폴더에 jstl.jar, standard.jar를 복사한다
         </p>
         <ol>
-        <li><a href="/WebJSP/jsp07_jstl_220721/setTag.jsp">setTag:변수를 선언하고 삭제하는 방법</a></li>
-        <li><a href="/WebJSP/jsp07_jstl_220721/ifTag.jsp?name=이순신&age=500&tel=010-1234-5678">if Tag: 조건문</a>
-        <li><a href="/WebJSP/jsp07_jstl_220721/forEach.jsp">forEach tag : 반복문 </a>
+            <li><a href="/WebJSP/jsp07_jstl_220721/setTag.jsp">setTag:변수를 선언하고 삭제하는 방법</a></li>
+            <li><a href="/WebJSP/jsp07_jstl_220721/ifTag.jsp?name=이순신&age=500&tel=010-1234-5678">if Tag: 조건문</a>
+            <li><a href="/WebJSP/jsp07_jstl_220721/forEach.jsp">forEach tag : 반복문 </a>
+            <li><a href="/WebJSP/jsp07_jstl_220721/url.jsp">url Tag</a></li>
+            <li><a href="/WebJSP/jsp07_jstl_220721/choose.jsp?name=hong&age=25">choose Tag : 조건</a></li>
+            <li><a href="/WebJSP/jsp07_jstl_220721/redirect.jsp">redirect Tag : 자동페이지 이동</a></li>
         </ol>
     </div>
 <div>

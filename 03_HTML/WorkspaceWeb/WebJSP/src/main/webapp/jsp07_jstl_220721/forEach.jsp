@@ -45,3 +45,9 @@
     key : ${mapData.key} 값 : ${mapData.value}<br/>
 
 </c:forEach>
+
+<h1>forTokens 태그 : 문자열을 특정문자로 조각내기</h1>
+
+<c:forTokens var = "t" items = "빨강색, 파랑색 노란색.보라색.오렌지색-갈색 ^^초록색-남색" delims=",-.^">
+    [[${t }]]
+</c:forTokens>

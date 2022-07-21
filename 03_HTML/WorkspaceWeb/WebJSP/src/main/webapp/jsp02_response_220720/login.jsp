@@ -8,9 +8,12 @@
 <body>
 <h1>로그인</h1>
 <form method = "post" action="loginOk.jsp">
-  아이디 : <input type = "text" name= "userid" id = "userid"/><br/>
-  비밀번호 : <input type = "password" name= "userpwd" id = "userpwd"/><br/>
+  아이디 : <input type = "text" name= "userid" id = "userid"  value="${param.userid }"/><br/>
+  비밀번호 : <input type = "password" name= "userpwd" id = "userpwd" value = "${param.userpwd }"/><br/>
   <input type = "submit" value ="login"/>
   </form>
+  <hr/>
+  이름 : ${param.username}</br>
+  연락처 : ${param.tel}
 </body>
 </html>

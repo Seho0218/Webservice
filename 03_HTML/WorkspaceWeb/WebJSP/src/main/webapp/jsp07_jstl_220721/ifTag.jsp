@@ -16,7 +16,7 @@
     무조건 참이다.
 </c:if>
 
-<h1>jstl에서 request하기, request.getParameter("name")  -> param.name</h1>
+<h1>jstl에서 request하기, request.getParameter("name") -> param.name</h1>
 <c:set var = "name" value = "${param.name}"/>
 이름 : ${name}<br/>
 나이 : ${param.age}<br/>
