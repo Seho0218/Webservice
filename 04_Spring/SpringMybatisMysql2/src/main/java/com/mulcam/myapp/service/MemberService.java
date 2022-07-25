@@ -1,5 +1,7 @@
 package com.mulcam.myapp.service;
 
-public interface MemberService {
+import com.mulcam.myapp.vo.MemberVO;
 
+public interface MemberService {
+	public MemberVO login(MemberVO vo);
 }
