@@ -5,20 +5,21 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="resources/css/style.css" type="text/css"/>
+<link rel="stylesheet" href="/myapp/resources/css/style.css" type="text/css"/>
 <script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
 <header>
 	<ul>
+		<li><a href = "/myapp/">홈</a></li> 
 		<li>
 		<c:if test = "${logStatus !='Y' }">
-		<a href="login">로그인</a><!-- /myapp/login -->
+		<a href="/myapp/login">로그인</a><!-- /myapp/login -->
 		</c:if>
 		<c:if test = "${logStatus=='Y' }">
-		<a href="logout">로그아웃</a>
+		<a href="/myapp/logout">로그아웃</a>
 		</c:if>
 		</li>
-	<li><a href = "">게시판</a></li>
+	<li><a href = "/myapp/board/list">게시판</a></li> <!-- 세번째 패키지 이름 자동으로 붙음 디스패치 서블릿이 알아서 찾아감-->
 	</ul>
 </header>

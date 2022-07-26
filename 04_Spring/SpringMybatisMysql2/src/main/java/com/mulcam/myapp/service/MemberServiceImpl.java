@@ -9,12 +9,12 @@ import com.mulcam.myapp.vo.MemberVO;
 
 @Service
 public class MemberServiceImpl implements MemberService {
-   //dao 객체생성 MemberDAO dao = new MemberDAO();
-   @Inject //객체생성해주는 어노테이션 = @Autowired
-   MemberDAO dao;
+	//dao 객체생성 MemberDAO dao = new MemberDAO();
+	@Inject //객체생성해주는 어노테이션 = @Autowired
+	MemberDAO dao;
 
-   @Override
-   public MemberVO login(MemberVO vo) {
-      return dao.login(vo); //mapper로 아이디 비번 리턴
-   }
+	@Override
+	public MemberVO login(MemberVO vo) {
+		return dao.login(vo); //mapper로 아이디 비번 리턴
+	}
 }

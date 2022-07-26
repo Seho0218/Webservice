@@ -5,8 +5,8 @@ body,ul,li{
 	padding:0;
 	list-style-type:none;
 }
-w
-a:link, a: visited, a:hover{
+
+header a:link, header a: visited, header a:hover{
 	
 	text-decoration:none;
 	color: gray;
@@ -16,10 +16,13 @@ header{
 	background:olive;
 	color:#fff;
 }
-
+header>ul{
+	width:1200px;
+	margin: 0  auto;
+}
 header>ul>li{
 	float:left;
-	width:50%;
+	width:30%;
 	text-align:center;
 	height: 40px;
 	line-height:40px;
