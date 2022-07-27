@@ -4,9 +4,18 @@
 	#view li{
 	border-bottom :1px solid #ddd;
 	margin:10px 0 10px;
-	
-
-</style>
+	</style>
+<script>
+ function boardDel(){
+	  //alert() 확인
+	  //confirm() -> 확인(true), 취소(false)
+	  //prompt() -> 데이터를 입력할 수 있다.
+	  if(confirm("삭제하시겠습니까?")){
+		  location.href="/myapp/board/del?no=${viewVO.no}";//삭제
+	  }
+		  //삭제
+	 }
+</script>
 <div class = "container">
 	<h1>글내용 보기</h1>
 	<ul>
@@ -21,11 +30,9 @@
 	</ul>
 	
 	<div>
-	
-		<a href="/myapp/board/edit?no=${viewVO.no}">수정</a>
-		
-		
-		<a href="">삭제</a>
-	
+	<c:if test ="${logId==viewVO.userid}"> <!-- 현재글쓴이와 로그인 아이디가 같을때 수정, 삭제가 가능 -->
+		<a href="/myapp/board/edit?no=${viewVO.no}">수정</a>	
+		<a href="javascript:boardDel()">삭제</a>
+	</c:if>
 	</div>
 </div>

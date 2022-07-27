@@ -20,4 +20,11 @@
   	<update id = "hitCount">
   		update board set hit = hit+1 where no=#{param1}
   	</update>
+  	<update id = "boardEditOk">
+  		update board set subject=#{subject}, content=#{content} where no = ${no} and userid = #{userid}<!-- #도 됌., 같아야 바꿀 수 있음, mybatis가 바꿔줌 -->  	
+  	</update>
+  	<delete id ="boardDel">
+  		delete from board where no=${param1} and userid=#{param2}
+  	
+  	</delete>
   </mapper>

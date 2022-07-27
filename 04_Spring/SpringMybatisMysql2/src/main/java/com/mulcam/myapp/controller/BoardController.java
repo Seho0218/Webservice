@@ -27,9 +27,14 @@ public class BoardController {
 		ModelAndView mav = new ModelAndView();
 		
 		//DB조회
-		List<BoardVO> list = service.boardList();
-		mav.addObject("list",list);
+		//List<BoardVO> list = service.boardList();
+		//mav.addObject("list",list);
+		
+		mav.addObject("list",service.boardList());
+		
 		mav.setViewName("board/boardList"); // 보드 리스트로 이동
+		
+		
 		
 		return mav;
 		
@@ -58,6 +63,7 @@ public class BoardController {
 		if(cnt>0) {
 			mav.setViewName("redirect:/board/list"); // 바로 호출가능 다른 컨트롤러를 호출해서 데이터 베이스를 조회한후 오겠다.매핑주소를 가리키기(이 파일 내에 잇음) 없으면그냥 페이지로 감
 		}else {// 등록이 안된경우: 글쓰기 폼으로 이동
+			mav.addObject("msg","글등록");
 			mav.setViewName("board/boardResult");
 		}
 		
@@ -76,5 +82,54 @@ public class BoardController {
 	model.addAttribute("viewVO", vo); //vo를 viewVO로 넘김
 	
 	return "board/boardView";
+	}
+	//글수정 폼
+	@RequestMapping("/board/edit")
+	public ModelAndView boardEdit(int no){
+		BoardVO vo = service.boardView(no);//board dao 보고 판단
+		
+		ModelAndView mav = new ModelAndView();
+		//수정하기 위한 레코드 정보
+		mav.addObject("vo",vo);
+		mav.setViewName("board/boardEdit");
+		
+		return mav;
+	}
+	//글수정 DB
+	@RequestMapping(value="/board/editOk",method=RequestMethod.POST)
+	public ModelAndView boardEditOk(BoardVO vo,HttpSession session){ //앞에는 없음 뒤에는 세션객체
+		//로그인 아이디를 얻어 vo에 userid에 셋팅
+		vo.setUserid((String)session.getAttribute("logId"));
+		
+		//vo -> no, subject, content, userid
+		int cnt = service.boardEditOk(vo);
+		
+		ModelAndView mav = new ModelAndView();
+		if(cnt>0) {//글이 수정된 경우 글내용보기로 이동
+			mav.addObject("no", vo.getNo());
+			mav.setViewName("redirect:/board/view");
+		}else {
+			mav.addObject("msg","글수정");
+			mav.setViewName("/board/boardResult");
+		}
+		return mav;
+	}
+	
+	//글지우기
+	@RequestMapping("/board/del") //삭제 확인하면 여기로
+	public ModelAndView boardDel(int no, HttpServletRequest request) {
+		
+		String userid = (String) request.getSession().getAttribute("logId");
+		
+		int cnt = service.boardDel(no,userid);
+		
+		ModelAndView mav = new ModelAndView();
+		if(cnt>0){// 삭제 -> 목록
+			mav.setViewName("redirect:/board/list");
+		}else {// 삭제실패 -> 글내용 보기
+			mav.addObject("no",no);
+			mav.setViewName("redirect:/board/view");
+		}
+		return mav;
 	}
 }

@@ -37,4 +37,14 @@ public class BoardServiceImpl implements BoardService {
 		dao.hitCount(no);
 		
 	}
+
+	@Override
+	public int boardEditOk(BoardVO vo) {
+		return dao.boardEditOk(vo);
+	}
+
+	@Override
+	public int boardDel(int no, String userid) {
+		return dao.boardDel(no, userid);
+	}
 }

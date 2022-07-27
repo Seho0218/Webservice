@@ -4,13 +4,17 @@ import java.util.List;
 
 import com.mulcam.myapp.vo.BoardVO;
 
-public interface BoardDAO { //dao service ¶È°°ÀÌ
-	//±Ûµî·Ï
+public interface BoardDAO { //dao service ë˜‘ê°™ì´
+	//ê¸€ë“±ë¡
 	public int boardWriteOk(BoardVO vo);
-	//±Ûµî·Ï
+	//ê¸€ë“±ë¡
 	public List<BoardVO> boardList();
-	//±Û¼±ÅÃ
+	//ê¸€ì„ íƒ
 	public BoardVO boardView(int no);
-	//Á¶È¸¼ö Áõ°¡
+	//ì¡°íšŒìˆ˜ ì¦ê°€
 	public void hitCount(int no);
+	//ê¸€ìˆ˜ì •
+	public int boardEditOk(BoardVO vo);
+	//ê¸€ì‚­ì œ
+	public int boardDel(int no, String userid);
 }
