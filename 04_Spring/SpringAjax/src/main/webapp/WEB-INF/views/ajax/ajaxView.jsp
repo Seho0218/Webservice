@@ -117,6 +117,27 @@
 				}
 			});
 		});
+		
+		$("#frm").submit(function(){
+			//form태그는 action의 주소로 이동하는 기능이 있는 것을 제거한다.
+			event.preventDefault(); //기본 이벤트 해제
+		
+			//num = 54&username = 홍길동
+			//var params = "num=" +$("#num").val()+"&username"=+$("username").val();
+			var params = $("#frm").serialize();
+			
+			$.ajax({
+				url:"/home/ajaxForm",
+				type:"POST",
+				data:params,
+				success:function(result){
+					$("#view").append("<p>"+result+"</p>");
+				},
+				error:function(error){
+					console.log(error.responseText);
+				}
+			});
+		});
 	});
 </script>
 </head>
@@ -126,7 +147,15 @@
 <button id = "ajaxObject">ajax 객체</button>
 <button id = "ajaxList">ajax List</button>
 <button id = "ajaxMap">ajaxMap</button>
-<button id = "ajaxJson">ajaxJson</button>
+<button id = "ajaxJson">ajaxJson</button><br/>
+<form method= "post" id = "frm">
+ 	번호 : <input type = "text" name = "num"  id = "num"/><br/>
+ 	이름 : <input type = "text" name = "username" id = "username"/><br/>
+ 		<input type = "submit" value = "전송하기"/>
+ 	
+
+
+</form>
 <hr/>
 
 <div id="view" style="border : 1px solid gray;"></div>
