@@ -25,7 +25,7 @@ public class MemberController {
 		return mav;
 	}
 	
-	/*
+	
 	@GetMapping("idCheck") //아이디 중복검사
 	public ModelAndView idCheck(String userid) {
 		ModelAndView mav = new ModelAndView();
@@ -34,5 +34,5 @@ public class MemberController {
 		//DB조회  : 아이디가 존재하는지 확인
 		mav.setViewName("member/idCheck");
 		return mav;
-	}*/
+	}
 }
