@@ -5,7 +5,10 @@ import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
@@ -80,5 +83,14 @@ public class AjaxController {
 		
 		System.out.println(jsonData);
 		return jsonData;
+	}
+	@RequestMapping(value="/ajaxForm",method=RequestMethod.POST, produces= "application/text;charset=UTF-8")
+	@ResponseBody
+	public String ajaxForm(@RequestParam("num") int num, @RequestParam("username") String username){
+		//폼(ajaxView)에서 보낸 데이터  왼쪽을 오른쪽에
+		System.out.println("번호->"+num);
+		System.out.println("이름->"+username);
+		
+		return num+","+username;
 	}
 }
