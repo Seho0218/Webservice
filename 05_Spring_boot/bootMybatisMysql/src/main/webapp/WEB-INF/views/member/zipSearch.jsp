@@ -1,23 +1,45 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c"%>
    
    <style>
 	#topMenu, #logo, #mainMenu, .footer{
 	display:none;
-	
 	}
+	#zipList li{float:left; border-bottom:1px solid #ddd;}
+	#zipList li:nth-child(2n){width:95%;}
+	#zipList li:nth-child(2n+1){width:5%;}
 </style>
+<script>
+	$(function(){
+		$("#zipFrm").submit(function(){
+			if($("#doro").val==""){
+				alert("ë„ë¡œëª…ì„ ì…ë ¥í•˜ì„¸ìš”..");
+				return false;
+			}
+			return true;
+		});
+		//ì„ íƒí•œ ì£¼ì†Œë¥¼ íšŒì›ê°€ì… í¼ìœ¼ë¡œ ì…‹íŒ…í•˜ê³  í˜„ì¬ì°½ì€ ë‹«ëŠ”ë‹¤.
+		$(".zip").click(function(){
+			opener.$("#zipcode").val($(this).prev().text());//ìš°í¸ë²ˆí˜¸
+			opener.$("#addr").val($(this).text()); //liì˜ ë¬¸ìì—´ ë°›ê¸°
+			window.close();
+			
+		})
+	});	
+</script>
     <div class ="">
     	<p>
-    		µµ·Î¸íÀ» ÀÔ·Â ÈÄ ¿ìÆí¹øÈ£ Ã£±â¸¦ ÇÏ½Ã±â ¹Ù¶ø´Ï´Ù.
+    		ë„ë¡œëª…ì„ ì…ë ¥ í›„ ìš°í¸ë²ˆí˜¸ ì°¾ê¸°ë¥¼ í•˜ì‹œê¸° ë°”ëë‹ˆë‹¤.
     	</p>
-    	<form method = "get" action ="">
-    		µµ·Î¸í : <input type = "text" name = "doro" id = "doro"/>
-    				<input type = "submit" name = "doro" id = "¿ìÆí¹øÈ£ Ã£±â"/>
+    	<form method = "get" action ="/member/zipSearch" id ="zipFrm" >
+    		ë„ë¡œëª… : <input type = "text" name = "doro" id = "doro"/>
+    				<input type = "submit" value = "ìš°í¸ë²ˆí˜¸ ì°¾ê¸°"/>
     	</form>
     	<hr/>
     	<ul id = "zipList">
-    		<li>1111</li>
-    		<li>¼­¿ï½Ã °­³²±¸ µµ°î·Î 9999</li>
+    	<c:forEach var = "zipVo" items="${zipList}">
+    		<li>${zipVo.zipcode}</li>											<!--  -->
+    		<li class = 'zip'>${zipVo.sido}&nbsp;${zipVo.doro}&nbsp;${zipVo.buildname}&nbsp;${zipVo.buildingnum1}<c:if test="${zipVo.buildingnum2 !='0'}">-${zipVo.buildingnum2}</c:if>&nbsp;(${zipVo.dong} ,${zipVo.num1} <c:if test= "${zipVo.num2!='0'}">-${zipVo.num2}</c:if>)</li>
+    	</c:forEach>
     	</ul>
     </div>

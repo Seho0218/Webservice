@@ -8,6 +8,6 @@
 	</select>
 	<select id = "zipSearch" resultType ="ZipcodeVO">
 		select zipcode, sido, doro, buildingnum1,buildingnum2, buildname, dong, num1, num2 from zipcode	
-		where doro like "%${param1}%" order by zipcode;
+		where doro like "%${param1}%" order by zipcode
 	</select>
 </mapper>

@@ -21,7 +21,39 @@
 		//우편번호 찾기
 		$("#zipSearch").click(function(){
 			window.open("/member/zipSearch","zipcode","width=500,height=600");
-		})
+		});
+		//유효성 검사
+		$("#mFrm").submit(function(){
+			//아이디
+			if($("#userid").val()==""){
+			alert("아이디를 입력하세요..");
+			return false;
+			}
+			//아이디 중복검사여부
+			if($("#idCheckState").val()!='Y'){
+				alert("아이디를 중복검사 하세요");
+				return false;
+			}
+			//비밀번호가 똑같은지 확인
+			if($("#userpwd").val()==""){
+				alert("비밀번호를 입력하세요.");
+				return false;
+			}
+			if($("#userpwd").val()!=$("#userpwd2").val()){
+				alert("비밀번호가 일치하지 않습니다.");
+				return false;
+			}
+			if($("#username").val()==""){
+				alert("이름을 입력하세요..");
+				return false;
+			}
+			//연락처
+			if($("#tel1").val()=="" || $("#tel2").val()=="" || $("#tel3").val()==""){
+				alert("연락처를 입력하세요...");
+				return false;
+			}
+			return true;
+		});
 	});
 	
 
@@ -40,7 +72,7 @@
 			<li>비밀번호</li>
 			<li><input type ="password" name = "userpwd" id ="userpwd"/>
 			<li>비밀번호확인</li>
-			<li><input type = "password" value = "userpwd2" id = "userpwd2"/></li>
+			<li><input type = "password" name = "userpwd2" id = "userpwd2"/></li>
 			<li>이름</li>
 			<li><input type ="text" name = "username" id ="username"/></li>
 			<li>연락처</li>
@@ -53,7 +85,7 @@
 			<li><input type ="text" name = "zipcode" id ="zipcode"/>
 				<input type = "button" value = "우편번호찾기" id = "zipSearch"/><br/>
 			<li>주소</li>
-			<li><input type = "text" name = "addr" id = "addr" sytle = width "90%"/></li>
+			<li><input type = "text" name = "addr" id = "addr" sytle = "width=90%"/></li>
 			<li>상세주소</li>
 			<li><input type ="text" name = "detailaddr" id ="detailaddr"/></li>	
 			<li>

@@ -1,5 +1,7 @@
 package com.campus.myapp.controller;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.campus.myapp.service.MemberService;
+import com.campus.myapp.vo.ZipcodeVO;
 
 @RestController //리턴할때 modelandview또는 컨텐츠를 보낼 수 없다. 
 @RequestMapping("/member/*")
@@ -24,6 +27,7 @@ public class MemberController {
 	@GetMapping("memberForm")
 	public ModelAndView memberForm() {
 		ModelAndView mav = new ModelAndView();
+		
 		mav.setViewName("member/memberForm");
 		return mav;
 	}
@@ -44,8 +48,16 @@ public class MemberController {
 		return mav;
 	}
 	@GetMapping("zipSearch")
-	public ModelAndView zipSearch() {
+	public ModelAndView zipSearch(String doro) {
 		ModelAndView mav = new ModelAndView();
+		List<ZipcodeVO> list = service.zipSearch(doro);
+		
+		if(doro!=null && doro.equals("")) {
+			list= service.zipSearch(doro);
+		}
+		//System.out.println(list.size());
+		
+		mav.addObject("zipList", list);
 		
 		
 		mav.setViewName("member/zipSearch");
