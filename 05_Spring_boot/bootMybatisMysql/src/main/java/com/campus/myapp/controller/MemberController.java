@@ -1,4 +1,4 @@
-package comcampus.myapp.controller;
+package com.campus.myapp.controller;
 
 import javax.inject.Inject;
 
@@ -18,10 +18,13 @@ public class MemberController {
 	//@RequestMapping("/member/memberForm")
 	//@GetMapping get방식으로만 매핑되는 어노테이션 @PostMapping
 	
+	
+	
+	
 	@GetMapping("memberForm")
 	public ModelAndView memberForm() {
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("member/userForm");
+		mav.setViewName("member/memberForm");
 		return mav;
 	}
 	
@@ -32,6 +35,11 @@ public class MemberController {
 		
 		
 		//DB조회  : 아이디가 존재하는지 확인
+		 int cnt = service.idCheck(userid); //같은 아이디가 존재하는 값 0,1
+		 
+		 mav.addObject("idCnt",cnt);
+		 mav.addObject("userid",userid);
+		
 		mav.setViewName("member/idCheck");
 		return mav;
 	}

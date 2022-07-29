@@ -1,4 +1,4 @@
-package comcampus.myapp.vo;
+package com.campus.myapp.vo;
 
 public class MemberVO {
 	private String userid;

@@ -2,15 +2,15 @@
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c"%>
 <style>
 	#mFrm li{
-		float:left; height: 40px; line-height:40px; border-bottom:1px solid #ddd; width: 30p%;
+		float:left; height: 40px; line-height:40px; border-bottom:1px solid #ddd; width: 30%;
 	}
-	#mFrm li: nth-child(2n){width:70%}
+	#mFrm li:nth-child(2n){width:70%}
 	#mFrm li:last-of-type{width:100%; text-align:center}
 </style>
 <script>
 	$(function(){
 		$("#idChk").click(function(){
-			window.open("/member/idCheck?userid="+$("#userid".val(),"idchk","width=400,height=300");
+			window.open("/member/idCheck?userid="+$("#userid").val(),"idchk","width=400,height=300");
 		});
 	});
 	
@@ -22,9 +22,8 @@
 		<form method = "post" action = "/member/memberWrite" id = "mFrm">
 		<ul>
 			<li>아이디</li>
-			<li><input type ="text" name = "userid" id ="userid"/>아이디
+			<li><input type ="text" name = "userid" id ="userid"/>
 				<input type = "button" value = "아이디중복검사" id = "idChk"/></li>
-			<li><input type ="text" name = "userid" id ="userid"/>아이디</li>
 			<li>비밀번호</li>
 			<li><input type ="password" name = "userpwd" id ="userpwd"/>
 			<li>비밀번호확인</li>

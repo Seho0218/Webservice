@@ -11,4 +11,9 @@ public class MemberServiceImpl implements MemberService{
 	@Inject
 	MemberDAO dao;
 
+	@Override
+	public int idCheck(String userid) {
+		return dao.idCheck(userid);
+	}
+
 }

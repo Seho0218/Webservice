@@ -6,15 +6,29 @@
 	
 	}
 </style>
+<script>
+	$(function(){
+		//조회한 id를 opener에 셋팅하고 현재 window를 닫아야한다.
+		$("#setId").click(function(){
+			opener.$('#userid').val('${userid}');
+			window.close();
+		});
+	});
 
+</script>
 <div>
-	사용가능한 아이디 입니다.
+	<c:if test="${idCnt==0}">
+		<b>${userid}</b>는 사용가능한 아이디 입니다.
+		<input type = "button" value = "아이디 사용하기" id="setId"/>
+	</c:if>
+	<c:if test ="${idCnt>0}">
+		<b>${userid}는 사용 불가능한 아이디 입니다.</b>
+	</c:if>
+
 	<hr/>
-	<form method = "post" action="">
+	<form method = "get" action="/member/idCheck">
 		아이디 : <input type = "text" name = "userid" id = "userid"/>
 		<input type = "submit" value ="아이디중복검사하기"/>
 	
 	</form>
-	
-
 </div>
