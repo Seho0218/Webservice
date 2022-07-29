@@ -43,4 +43,13 @@ public class MemberController {
 		mav.setViewName("member/idCheck");
 		return mav;
 	}
+	@GetMapping("zipSearch")
+	public ModelAndView zipSearch() {
+		ModelAndView mav = new ModelAndView();
+		
+		
+		mav.setViewName("member/zipSearch");
+		return mav;
+		
+	}
 }

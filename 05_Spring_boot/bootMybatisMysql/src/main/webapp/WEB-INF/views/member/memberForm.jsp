@@ -12,6 +12,16 @@
 		$("#idChk").click(function(){
 			window.open("/member/idCheck?userid="+$("#userid").val(),"idchk","width=400,height=300");
 		});
+		
+		$("#userid").change(function(){
+			$("#idCheckState").val("N");
+		});
+		
+		//https://www.koreapost.go.kr/
+		//우편번호 찾기
+		$("#zipSearch").click(functioni(){
+			window.open("/member/zipSearch","zipcode","width=500,height=600");
+		})
 	});
 	
 
@@ -23,7 +33,10 @@
 		<ul>
 			<li>아이디</li>
 			<li><input type ="text" name = "userid" id ="userid"/>
-				<input type = "button" value = "아이디중복검사" id = "idChk"/></li>
+				<input type ="button" value = "아이디중복검사" id = "idChk"/>
+				<input type ="hidden" id = "idCheckState" value = "N"/>
+				
+				</li>
 			<li>비밀번호</li>
 			<li><input type ="password" name = "userpwd" id ="userpwd"/>
 			<li>비밀번호확인</li>
@@ -40,7 +53,7 @@
 			<li><input type ="text" name = "zipcode" id ="zipcode"/>
 				<input type = "button" value = "우편번호찾기" id = "zipSearch"/><br/>
 			<li>주소</li>
-			<li><input type = "text" name = "addr" id = "addr"/></li>
+			<li><input type = "text" name = "addr" id = "addr" sytle = width "90%"/></li>
 			<li>상세주소</li>
 			<li><input type ="text" name = "detailaddr" id ="detailaddr"/></li>	
 			<li>

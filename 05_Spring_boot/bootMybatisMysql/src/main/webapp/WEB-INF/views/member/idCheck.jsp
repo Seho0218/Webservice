@@ -11,6 +11,7 @@
 		//조회한 id를 opener에 셋팅하고 현재 window를 닫아야한다.
 		$("#setId").click(function(){
 			opener.$('#userid').val('${userid}');
+			opener.$('#idCheckState').val('Y');
 			window.close();
 		});
 	});

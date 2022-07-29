@@ -22,6 +22,9 @@ select no, subject, userid, hit, date_format(writedate, '%m-$d %H:%i') writedate
 insert into member(userid, userpwd, username, tel) 
 values('sunsin', '1234','이순신','010-1234-1235');
 
+use mydb;
+select * from zipcode;
+
 
 
 
