@@ -19,7 +19,7 @@
 		
 		//https://www.koreapost.go.kr/
 		//우편번호 찾기
-		$("#zipSearch").click(functioni(){
+		$("#zipSearch").click(function(){
 			window.open("/member/zipSearch","zipcode","width=500,height=600");
 		})
 	});

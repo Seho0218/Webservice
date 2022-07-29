@@ -1,7 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-    <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c"%>
-    
+<%@ page language="java" contentType="text/html; charset=EUC-KR"pageEncoding="EUC-KR"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c"%>
+   
+   <style>
+	#topMenu, #logo, #mainMenu, .footer{
+	display:none;
+	
+	}
+</style>
     <div class ="">
     	<p>
     		도로명을 입력 후 우편번호 찾기를 하시기 바랍니다.
