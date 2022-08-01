@@ -6,19 +6,33 @@
 <script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <style>
 
-body,ul,ui{margin:0 auto; padding:0; list-style-type: none;} 
+body,ul,main,button{margin:0 auto; padding:0; list-style-type: none;} 
 body{width: 1920px;}
+#tabMenu_1{ margin:0 auto;}
 
 #head{text-align: center;}
-nav{text-align: center;}
-#banner{width: 1178px; height: 60px; background-color: burlywood;}
-#body{width:1178px; height: 1000px;}
-#main{width: 900px; height:700px; background-color: yellowgreen;}
 
-#sub_menu{width:244px; height: 700px; position:relative; background-color: violet;}
+nav{width:1178px; height: 59px; font-size: 30px; text-align: center; background-color: #DAE2EB; border-radius: 12px 12px 12px 12px}
+
+#button{
+    width:154px; height: 42px; font-size: 22px; border-radius: 10px 10px 0 0;
+}
+
+
+#banner{width: 1178px; height: 60px; background-color: burlywood;}
+
+#body{width:1178px; height: 980px;}
+
+#board{width: 900px; height:700px; position: relative;background-color: yellowgreen;}
+
+#board> #list{width:900px; height:710px; background-color: aquamarine;}
+
+#board> #list >ol{width:275px; height: 280px; background-color: #DAE2EB;}
+
+#sub_menu{width:244px; height: 710px; position:relative; top:-700px; left : 920px;background-color: violet;}
 
 footer{
-    width:1920px; height:100px; background-color: blueviolet; text-align: center;
+    width:1920px; height:100px; position:relative; top:-700px; background-color: blueviolet; text-align: center;
 }
 
 
@@ -35,24 +49,29 @@ footer{
         <h1>On the Way</h1>
     </div>
 
-    <nav>
-        마이페이지
-    </nav>
+    <nav>마이페이지</nav>
 
-<main>
-    <div id = "main">
-        <button><input type = "button" value ="내가 쓴 글"></button>
-        <button><input type = "button" value ="내가 쓴 댓글"></button>
-        <button><input type = "button" value ="찜한 여행지"></button>
-        <button><input type = "button" value ="나의 후기"></button>
-    </div>
+    <main>  
+        <div id = "tabMenu_1">
+            <input type = "button" id = "button" onclick = "window.location='#'" value ="내가 쓴 글">
+            <input type = "button" id = "button" onclick = "window.location='#'" value ="내가 쓴 댓글">
+            <input type = "button" id = "button" onclick = "window.location='#'" value ="찜한 여행지">
+            <input type = "button" id = "button" onclick = "window.location='#'" value ="나의 후기">
+        </div>
 
-    <div id = "sub_menu">
+        <div id = "board">
+            <ul id = "list">
+               
+            </ul>
+        </div>
+
+        <div id = "sub_menu">
 
 
-    </div>
-</main>
-    <footer>About Us | Support | Terms of Use | Privacy Policy </br>©2022 NoviceCoders. All Rights Reserved.</footer>
+        </div>  
+    </main>
+    <footer>About Us | Support | Terms of Use | Privacy Policy </br>©2022 NoviceCoders. All Rights Reserved.
+    </footer>
 </div>
 </body>
 </html>
