@@ -36,6 +36,14 @@
         line-height: 40px;
         text-align:center;
     }
+    
+  
+    #mainSection{
+        overflow:auto;
+    }
+    main>#mainSection>*{
+        float:left;
+    }
     main{
         width:1200px;
         margin:0 auto;
@@ -43,23 +51,28 @@
         /*overflow: auto;*/
         position: relative;
     }
+    
+   
     main>*{
-        float:left;
-    }
+            float:left;
+        }
+   
     aside{
         width:150px;
-        background-color: lightblue;
+        background-color:  lightblue;
     }
+
     section{
         width: 1050px;
         background-color: lime;
     }
+
     footer{
         height: 80px;
         background-color: gray;
         text-align: center;
     }
-    /*배너*/
+  /*배너*/
     #leftBanner{
         background-color: red;
         width: 80px;
@@ -67,12 +80,6 @@
         position: absolute;
         left: -80px;
         top: 100px;
-    }
-    #mainSection{
-        overflow:auto;
-    }
-    main>#mainSection>*{
-        float:left;
     }
     #rightBanner{
         background-color: blue;
