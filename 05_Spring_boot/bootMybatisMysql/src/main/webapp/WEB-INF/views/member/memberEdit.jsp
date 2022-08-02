@@ -59,7 +59,7 @@
 			<li>상세주소</li>
 			<li><input type ="text" name = "detailaddr" id ="detailaddr" value ="${vo.detailaddr}"/></li>	
 			<li>
-				<input type = "submit" value = "회원가입하기"/>
+				<input type = "submit" value = "회원정보 수정하기"/>
 				<input type = "reset" value = "다시쓰기"/>
 		</ul>
 		</form>
