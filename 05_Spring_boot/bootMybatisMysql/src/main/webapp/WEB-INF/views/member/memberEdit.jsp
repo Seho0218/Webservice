@@ -23,7 +23,7 @@
 			if($("#userpwd").val()==""){
 				alert("비밀번호를 입력하세요.");
 				return false;
-				
+			}
 			//연락처
 			if($("#tel1").val()=="" || $("#tel2").val()=="" || $("#tel3").val()==""){
 				alert("연락처를 입력하세요...");
