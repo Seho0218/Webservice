@@ -85,7 +85,7 @@
 			<li><input type ="text" name = "zipcode" id ="zipcode"/>
 				<input type = "button" value = "우편번호찾기" id = "zipSearch"/><br/>
 			<li>주소</li>
-			<li><input type = "text" name = "addr" id = "addr" sytle = "width=90%"/></li>
+			<li><input type = "text" name = "addr" id = "addr" style = "width=90%"/></li>
 			<li>상세주소</li>
 			<li><input type ="text" name = "detailaddr" id ="detailaddr"/></li>	
 			<li>

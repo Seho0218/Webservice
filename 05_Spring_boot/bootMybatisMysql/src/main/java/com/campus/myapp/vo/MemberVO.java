@@ -14,9 +14,16 @@ public class MemberVO {
 	private String addr;
 	private String detailaddr;
 	private String writedate;
+	private String email;
 	
 	
 	
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	public String getTel() {
 		return tel + "-"+tel2+"-"+tel3;
 	}
