@@ -25,4 +25,6 @@ public interface BoardDAO {
 	public void hitCount(int no);
 	//총레코드수
 	public int totalRecord(PagingVO pVO);
+	//여러개의 레코드 삭제
+	public int boardMultiDel(BoardVO vo); //vo에 삭제할 레코드가 있다.
 }

@@ -49,4 +49,9 @@ public class BoardServiceImpl implements BoardService {
 	public int totalRecord(PagingVO pVO) {
 		return dao.totalRecord(pVO);
 	}
+
+	@Override
+	public int boardMultiDel(BoardVO vo) {
+		return dao.boardMultiDel(vo);
+	}
 }

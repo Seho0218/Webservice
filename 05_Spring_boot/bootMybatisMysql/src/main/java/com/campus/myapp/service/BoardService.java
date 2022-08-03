@@ -20,4 +20,6 @@ public interface BoardService {
 	public void hitCount(int no);
 	//총레코드
 	public int totalRecord(PagingVO pVO);
+	//여러개 삭제
+	public int boardMultiDel(BoardVO vo);
 }

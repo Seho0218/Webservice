@@ -3,6 +3,7 @@ package com.campus.myapp.controller;
 import java.nio.charset.Charset;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -10,8 +11,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -36,8 +39,6 @@ public class BoardController {
 		pVO.setTotalRecord(service.totalRecord(pVO));
 		
 		
-		
-		
 		//DB 레코드 선택 - 페이지, 검색어
 		mav.addObject("list",service.boardList(pVO));
 		mav.addObject("pVO",pVO);
@@ -45,7 +46,6 @@ public class BoardController {
 		mav.setViewName("board/boardList");
 		return mav;	
 	}
-	
 	//글쓰기폼
 	@GetMapping("boardForm")
 	public ModelAndView boardForm() {
@@ -74,4 +74,77 @@ public class BoardController {
 		ResponseEntity<String> entity = new ResponseEntity<String>(msg,headers,HttpStatus.OK);
 		return entity;
 	}
+	//글내용보기
+	@GetMapping("boardView")
+	public ModelAndView boardView(@RequestParam("no") int no, PagingVO pVO){
+		
+		//조회수 증가
+		service.hitCount(no);
+		
+		mav = new ModelAndView();
+		mav.addObject("vo",service.getBoard(no));
+		mav.addObject("pVO",pVO);
+		mav.setViewName("/board/boardView");
+		return mav;
+	}
+	//글수정 폼
+	@GetMapping("boardEdit/{num}")
+	public ModelAndView boardEdit(@PathVariable("num") int no) {
+		
+		mav = new ModelAndView();
+		
+		mav.addObject("vo",service.getBoard(no));
+		mav.setViewName("board/boardEdit");
+		
+		return mav;
 }
+	//글수정: DB
+	@PostMapping("boardEditOk")
+	public ResponseEntity<String> boardEditOk(BoardVO vo, HttpSession session){
+		//세션의 아이디를 구한다.
+		vo.setUserid((String)session.getAttribute("logId"));
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(new MediaType("text","html",Charset.forName("UTF-8")));
+		headers.add("Content-Type", "text/html; charset-UTF-8");
+		String msg = "<script>";
+		try {
+			service.boardEditOk(vo);
+			//수정되었음 - 글내용보기
+			msg += "alert('글이 수정되었습니다.');";
+			msg += "location.href = '/board/boardView?no="+vo.getNo()+"';";
+		}catch(Exception e) {
+			e.printStackTrace();
+			//수정 실패일때
+			msg += "alert('글이 수정되지 않았습니다.');";
+			msg += "history.go(-1);";
+		}
+		msg += "</script>";
+		return new ResponseEntity<String>(msg,headers,HttpStatus.OK);
+	}
+	//글 삭제
+	@GetMapping("boardDel")
+	public ModelAndView boardDel(int no,HttpSession session) {
+		int cnt = service.boardDel(no, (String) session.getAttribute("logId"));
+		mav= new ModelAndView();
+		if(cnt>0) {
+			mav.setViewName("redirect:boardList");
+		}else {
+			mav.setViewName("redirect:boardView");
+		}
+		return mav;
+	}
+	//여러개의 레코드 삭제
+	@PostMapping("multiDel")
+	public ModelAndView multiDel(BoardVO vo) {
+		
+		int cnt = service.boardMultiDel(vo);
+		System.out.println("삭제된 레코드 수:"+cnt);
+		
+		mav=new ModelAndView();
+		mav.setViewName("redirect:boardList");
+		return mav;
+	}
+}
+		
+	
+

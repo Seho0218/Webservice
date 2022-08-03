@@ -1,5 +1,7 @@
 package com.campus.myapp.vo;
 
+import java.util.List;
+
 public class BoardVO {
 	private int no;
 	private String subject;
@@ -8,6 +10,11 @@ public class BoardVO {
 	private String ip;
 	private int hit;
 	private String writedate;
+	
+	//여러개의 레코드 번호를 저장하는 컬렉션 선언
+	private List<Integer> noList;
+	
+	
 	@Override
 	public String toString() {
 		return "BoardVO [no=" + no + ", subject=" + subject + ", content=" + content + ", userid=" + userid + ", ip="
@@ -55,5 +62,12 @@ public class BoardVO {
 	public void setWritedate(String writedate) {
 		this.writedate = writedate;
 	}
+	public List<Integer> getNoList() {
+		return noList;
+	}
+	public void setNoList(List<Integer> noList) {
+		this.noList = noList;
+	}
+	
 
 }

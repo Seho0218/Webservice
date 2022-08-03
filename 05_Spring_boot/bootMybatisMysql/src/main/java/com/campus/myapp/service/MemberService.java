@@ -1,7 +1,6 @@
 package com.campus.myapp.service;
 
 import java.util.List;
-
 import com.campus.myapp.vo.MemberVO;
 import com.campus.myapp.vo.ZipcodeVO;
 
