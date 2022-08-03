@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+    div{
+        width: 300px; height: 300px; float : left;
+    }
+    #d1{background:pink;}
+    #d2{background:lightblue;}
+    #d3{background:orange;}
+    #d4{background:cyan;}
+
+    /* visibility 속성: 선택된 겍체를 보여주거나 숨길 수 있다.
+        visible, hidden 공간은 그대로 차지함
+    */
+    #d2:hover {visibility:hidden;}
+    /*
+        display 속성:선택된 객체를 보여주거나 숨길 수 잇다.
+                    숨김 상태에서 공간을 반납한다.
+                block, none
+    */
+    #d3{
+        display:none;
+    }
+    /*
+        position 속성: 이게 있어야 실제로 움직임
+            absolute: 좌표는 0,0(body)에서 시작(자리가 없음)). 바텀 설정시, 창 크기와 같이 변경됌..
+            relative: 원하는대로 조정 가능, 공간을 차지하고 있음 원래 있던 곳을 기준으로 좌표가 옮겨짐
+            fixed   : 움직이지 않게 할때. 
+            static(default): 좌표 안먹음 0707 오후 5시부터 봐야 개념 잡힘.
+    */
+    #d2{
+        position: absolute;
+        left:250px; bottom: 100px;
+    }
+    img{
+        position: fixed;
+        left:100px; top :100px;
+    }
+</style>
+</head>
+<body>
+    <!-- div division-->
+<div id = "d1"></div>
+<div id = "d2"></div>
+<div id = "d3"></div>
+<div id = "d4"></div>
+</body>
+</html>

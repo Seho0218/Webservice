@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+   #googleMapView{
+    height:700px;
+    border:1px solid #ddd;
+   }
+</style>
+    <!-- google 맵 라이브러리를 연결-->
+    <script async
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAqHHeQ3OzHwALvXgdepJTfsDw3MtAcsoU&callback=initMap"></script>
+</head>
+<body>
+<!-- 위도 경로로 찾기 == 지오코드--> 
+<div id = "googleMapView"></div>
+<script>
+    var latitude = 37.5729503;
+    var longitude = 126.9793578;
+    var lat=[37.5689999,37.88899009];
+    var log=[126.99999,126.998888];
+        function initMap(){
+            //위도 경도를 이용한 위치 객체생성 
+            var myCenter = new google.maps.LatLng(latitude,longitude);
+                                   
+            //표시할 지도 옵션
+            var mapProperty = {
+                center: myCenter,
+                zoom: 14, //0~21사이의 값을 사용한다. 숫자가 클수록 확대.
+                mapTypeId : google.maps.MapTypeId.ROADMAP//지도종류(ROADMap,HYBRID,steelite,terrain)
+            }; //jason 형식                                       지도를 표시할 곳  맵 옵션
+            var map = new google.maps.Map(document.getElementById("googleMapView"),mapProperty);
+
+            //마커표시
+            var marker = new google.maps.Marker({
+                position:myCenter,//마커를 표시할 위치
+                map:map,//마커를 표시할 지도
+                title:"서울시청",// 마커에 마우스 오버시 표시할 내용
+                icon:"gmap_pin.png"
+            });
+
+            //정보 대화상자
+            var infoMsg = "위도 : " +latitude + "</br>경도 =" +longitude;
+            infoMsg +="<br/><a href='' target='_blank'><img src='../../daum_logo.png width='100' height='100'/></a>"
+            var info = new google.maps.InfoWindow({
+                content:infoMsg
+            });
+            //이벤트 등록
+            google.maps.event.addListener(marker,'click',function(){info.open(map,marker);});
+
+            //마커여러곳 표시하기
+            for(var i = 0; i<lat.length; i++){
+                var mk = new google.maps.Marker({
+                    position:new google.maps.LatLng(lat[i],log[i]),
+                    map:map,
+                    title : "위도" +lat[i]+",경도="+log[i]
+                });
+                mk.setMap(map);
+            }
+       
+        var myCity = new google.maps.Circle({
+            center:myCenter,//반경의 중심점
+            radius:500,//반지름 m
+            strokeColor:'#f00',//선의 생상
+            strokewidth:4,//선의 두께 px
+            strokeOpacity:0.5,//선의 투명도 0~1
+            fillColor:'#0f0',//면의 색상
+            fillOpacity:0.5//면의 투명도
+        });
+            myCity.setMap(map);
+        }
+</script> 
+</body>
+</html>
