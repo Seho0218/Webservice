@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<style>
+
+ ul,li,body{margin:0; padding:0; list-style-type:none;}
+
+ #wrap{ width:1000px;  margin: 0 auto; position :relative;}
+
+ .s1{font-weight: bold;}
+
+/* girlsdaily*/
+#wrap>ul{ padding :20px 0px; 
+          text-align: center;
+          font-size: 5em;
+          border-bottom: 1px solid gray;}
+
+#tabMenu{
+    position:relative;
+    margin:0 auto;
+    padding: 16px 28px; 
+    display: flex;
+ }
+
+#tabMenu > ul {
+        font-size: 1.8em;
+        text-align: center;
+        display: block;
+        padding: 0 50px;
+        position: relative;
+}
+
+#submenu{
+        opacity: 0;
+        visibility: hidden; 
+        padding-inline-start: 0;
+        position: absolute;
+        background-color: white;
+    } 
+/*absolute 가 숨겨줌*/
+
+#tabMenu>ul:hover #submenu {opacity: 1; visibility: visible; }
+
+#submenu > li  {
+    width:200px;
+    margin: 0 auto;
+    padding-top: 10px; 
+  font-size: 1em;
+}
+#image>img{ width :1000px;}
+
+/*
+
+
+*/
+</style>
+<script>
+   $(function(){
+        
+        $("#OUTER").hover(function(){//오버시
+            $(this).addClass('s1');   
+
+        },function(){//아웃시
+            $(this).removeClass('s1');
+        });
+        $("#TOP").hover(function(){//오버시
+            $(this).addClass('s1');   
+
+        },function(){//아웃시
+            $(this).removeClass('s1');
+        });
+        $("#DRESS").hover(function(){//오버시
+            $(this).addClass('s1');   
+
+        },function(){//아웃시
+            $(this).removeClass('s1');
+        });
+        $("#BOTTOM").hover(function(){//오버시
+            $(this).addClass('s1');   
+
+        },function(){//아웃시
+            $(this).removeClass('s1');
+        });
+        $("#SUMMER").hover(function(){//오버시
+            $(this).addClass('s1');   
+
+        },function(){//아웃시
+            $(this).removeClass('s1');
+        });
+    });
+</script>
+</head>
+
+<body>
+    <div id = "wrap"> 
+        <ul id = "brandname">GIRLSDAILY</ul>
+
+        <div id = "tabMenu">
+            <ul id = "OUTER">OUTER
+                <ol id="submenu">
+                    <li><a href="#">가디건</a></li>
+                    <li><a href="#">자켓&점퍼</a></li>
+                    <li><a href="#">베스트</a></li>
+                    <li><a href="#">코드</a></li>
+                    <li><a href="#">세일</a></li>
+                </ol>
+            </ul> 
+            <ul id = "TOP">TOP
+                <ol id="submenu">
+                    <li><a href="#">Tee</a></li>
+                    <li><a href="#">Came</a></li>
+                    <li><a href="#">Knit</a></li>
+                    <li><a href="#">Shirt&Blouse</a></li>
+                </ol>
+            </ul>
+            <ul id = "DRESS">DRESS
+                <ol id="submenu">
+                    <li><a href="#">All</a></li>
+                    <li><a href="#">바캉스룩</a></li>
+                    <li><a href="#">Set</a></li>
+                </ol>
+            </ul>
+            <ul id = "BOTTOM">BOTTOM
+                <ol id="submenu">
+                    <li><a href="#">레깅스</a></li>
+                    <li><a href="#">히링두엘브</a></li>
+                    <li><a href="#">히든밴딩시리즈</a></li>
+                    <li><a href="#">스커트</a></li>
+                    <li><a href="#">팬츠</a></li>
+                </ol>
+            </ul>
+            <ul id = "SUMMER">SUMMER
+                <ol id="submenu">
+                    <li><a href="#">HOLI스윕웨어</a></li>
+                    <li><a href="#">22</a></li>
+                </ol>
+            </ul>
+        </div>
+        <div id = "image">
+            <img src = "../img/jejumap.jpg"/>
+        </div>
+    </div>
+</body>
+</html>

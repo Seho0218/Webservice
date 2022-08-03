@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<style>
+
+</style>
+<script>
+    //ajax란 비동기식으로 웹서버와 통신을 할 수 있는 자바스크립트 라이브러리이다.
+    //ajax란 사용하면 비동기식으로 웹서버에 데이터를 보내거나 받을 수 있다.
+    function loadDom(){
+        //비동기식으로 서버에 접속하여 abcd.txt파일의 정보를 전송받아 ajaxResult에 내용을 변경한다.
+        //XMLHttpRequest : ajax처리를 하는 자바스크립트 내장객체
+
+        //1. 객체 생성  (1)
+        var xHttp = new XMLHttpRequest(); //웹서버와 통신하는 객체를 생성한다.
+
+        //2. 서버에서 데이터를 넘어오면 전송받을 기능 구현 (4)
+        x.http.onreadystatechange = function(){
+            //서버에서 정보가 오면 이벤트에 의해서 실행되는 함수
+            //전송결과 확인하는 변수
+            // readyState : XMLHttpRequest의 처리결과를 가지고 있음
+            //              0:초기화 실패, 1: 서버연결, 2: 요청이 접수, 3: 처리요청, 4: 요청이 완료됨.
+            //status: 요청상태번호를 반환 200: 정상처리, 403: 금지, 404: 파일이없음
+            //responseText: 실행결과값 - > 서버에서 전송받은 내용이 있는 변수
+
+            if(this.readyStats==4 && this.status == 200){ // 정상처리됨.
+                document.getElementById("ajaxResult").innerHTML = this.responseText;
+            }else{//전송실패
+                document.getElementById("ajaxResult").innerHTML="서버에서 정보를 가져오지 못하셨습니다.";
+            }
+        }
+
+        //3. 객체열기 (2)
+        //          전송방식, 가져올 데이터 파일명, 동기식(false) 비동기식(true)
+        xHttp.open('GET','abcd.txt',true);
+
+        //4.객체를 보냄: 실제서버에 접속 (3)
+        xHttp.send();//서버에 정보를 요청함.
+    }
+</script>
+</head>
+<body>
+<h1>자바스크립트를 이용한 ajax 테스트</h1>
+<button onclick ="loadDom"> 클릭하면 서버에서 데이터를 비동기식으로 가져옴.</button>
+<div id="ajaxResult" style="border: 1px solid gray; height: 200px;"></div>
+</body>
+</html>
