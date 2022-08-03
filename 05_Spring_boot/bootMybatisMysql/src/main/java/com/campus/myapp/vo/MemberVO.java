@@ -25,7 +25,7 @@ public class MemberVO {
 		this.email = email;
 	}
 	public String getTel() {
-		return tel + "-"+tel2+"-"+tel3;
+		return tel1 + "-"+tel2+"-"+tel3;
 	}
 	public void setTel(String tel) {
 		this.tel = tel;
