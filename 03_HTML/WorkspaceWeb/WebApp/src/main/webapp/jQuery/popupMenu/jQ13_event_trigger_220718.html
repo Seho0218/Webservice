@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<style>
+
+</style>
+<script>
+    $(function(){
+        var tag = "<img src = '../img/apple.png/>";
+        //이벤트 발생시 실행
+        $("img:first").click(function(){
+            $('body').append(tag);
+        });
+
+        //trigger(): 이벤트를 발생시킴
+        //setInterval(), setTimeout()
+
+        setINterval(function(){
+            //강제로 이벤트 발생시킴
+            $("img:first").trigger('click');//$("img").first().trigger('click');
+        },1000);
+    });
+</script>
+</head>
+<body>
+
+</body>
+</html>

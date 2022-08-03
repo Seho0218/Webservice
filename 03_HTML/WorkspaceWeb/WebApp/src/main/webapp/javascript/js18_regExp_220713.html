@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>정규 표현식을 이용한 "유효성 검사"</title>
+<style>
+    ul,li{margin:0; padding:0; list-style-type: none;}
+    li{
+        float:left; height:40px; line-height: 40px; border-bottom: 1px solid #ddd;
+    }
+    li:nth-child(2n+1){
+        width:30%;
+    }
+    li:nth-child(2n){
+        width:70%;
+    }
+    li:last-child{
+        width:100%; text-align: center;
+    }
+</style>
+<script>
+    function regExpTest(){
+        var data = "Javascript and html5 and css3";
+        var reg = /Html5/i; //정규식 i:대소문자를 구별하지 않는다는 표시.(없으면 구별함) 2시 10분 
+        var result = reg.test(data);//검사할값. 함수 이름이 text data에 있는지 확인하는것
+        console.log(result);
+
+
+        //아이디 유효성 검사
+        //^ : 처음부터 검사하라. $ : 마지막 까지 검사.
+        //8~12사이어야 한다. 첫번째는 영어라야함. 영어,숫자,$,_만 허용한다.
+
+        reg = /^[A-Za-z]{1}[A-Za-z0-9_$]{7,11}$/;//대괄호 문자의 범위, 중괄호문자=대괄호가 검사하는 문자 범위. 7에서11개까지
+        var userid = document.getElementById("userid").value;
+        var id = document.getElementById("useridResult");
+        if(!reg.test(userid)){ //다음페이지로 안가가ㅣ위해서
+            id.innerHTML = "사용 불가능한 아이디 입니다.";
+            id.style.color="red";
+            return false;
+
+        }else{
+            id.innerHTML = "사용 가능한 아이디 입니다.";
+            id.style.color="green";
+        }
+        /*
+                if(!reg.test(userid)){//2시 15분
+                    document.getElementById("useridResult").innerHTML = "사용 불가능한 아이디 입니다.";
+                }else{
+                    document.getElementById("useridResult").innerHTML = "사용 가능한 아이디 입니다.";
+        }*/
+
+        //이름 : 2~10글자
+        reg = /^[가-힣]{2,10}$/; //사용이 끝난 변수라서 다시 이렇게 사용함.
+        if(!reg.test(document.getElementById("username").value)){
+            alert("사용불가능한 이름입니다.");
+            return false;
+        }
+
+        //주민번호
+        reg =/^[0-9]{2}[0-1]{1}[0-9]{1}[0-3]{1}[0-9]{1}-[1-8]{1}[0-9]{6}$/
+        var jumin = document.getElementById("jumin1").value+"-"+document.getElementById("jumin2").value;
+        if(!reg.test(jumin)){ //잘못됐을때 메시지 표시
+            alert("주민번호가 잘못되었습니다.");
+            return false;
+        }
+        return false;
+        //이메일 \w : 영어대소문자, ,숫자, $ _ ()? : 있거나 없건, 있으면 조건에 맞아야한다.
+        reg=/^ \w{8,20}[@][a-z0-9]{2,10}[.][a-z]{2,4}({[.][a-z]{2,4}})? $/
+        if(reg.test(document.getElementById("email").value)){// id를 넣는다
+            alert("이메일을 잘못입력하였습니다.");
+            return false;
+        } 
+
+        //연락처
+        var tel = document.getElementById("tel1").value + "-";
+            tel += document.getElementById("tel2").value + "-";
+            tel += document.getElementById("tel3");
+            // () : 1개는 반드시 있어야한다.
+        reg = /^(010|02|031|032|041|042)[-][0-9]{3,4}[-][0-9]{4}$/;
+        if(!reg.test(tel)){//잘못 입력되면 내려온다.
+            alert("전화번호가 잘못입력되었습니다.");
+            return false;
+        }
+        return true; //다음페이지로 넘어가야해서 바꿈.
+    }
+    //커서옮기기
+    function cursorMove(){
+        if(document.getElementById("jumin1").value.length==6){
+            document.getElementById("jumin2").focus();
+        }
+    }
+</script>
+</head>
+<body>
+    <h1>정규 표현식을 이용한 유효성 검사</h1>
+    <form method="post" action = "test.jsp" onsubmit="return regExpTest()">
+        <ul>
+            <li>아이디</li>
+            <li><input type="text" name="userid" id="userid" value = "ghdtpgh8913"/><span id = "useridResult"></span></li> <!-- id 가 유효성 검사에 들어감.-->                                                       
+            <li>이름</li>                                                                             <!-- span은 줄바꾸는 기능이 없다. li 높이 40으로 변경-->
+            <li><input type ="text" name="username" id="username" value = "홍세호"/></li>
+            <li>주민번호</li>
+            <li><input type ="text" name="jumin1" id="jumin1" size="6" onkeyup="cursorMove()" value="960218"/>-
+                <input type ="text" name="jumin2" id="jumin2" size="6"/></li>
+            <li>이메일</li>
+                <li><input type ="text" name="email" id="email" value ="ghdtpgh8913@gmail.com"/></li>
+            <li>연락처</li>
+            <li>
+                <input type ="text" name="tel1" id="tel1" size="3"/>-
+                <input type ="text" name="tel2" id="tel2" size="4"/>-
+                <input type ="text" name="tel3" id="tel3" size="4"/>
+            </li>
+            <li><input type ="submit" value="등록"/></li>
+        </ul>
+    </form>
+</body>
+</html>

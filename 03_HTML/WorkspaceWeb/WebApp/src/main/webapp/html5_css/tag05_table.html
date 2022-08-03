@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+</head>
+<body>
+<!--
+caption 가운데정렬
+span 2칸을 하나로 적용
+col <-- 위치따라 바뀜
+-->
+
+<table border="1" width='100%' style="background-color : yellow">
+    <caption><h1 style='color:red'></h1>시간표</caption>
+    <colgroup>
+        <col style = "background-color:red">
+        <col span = "2" style="background-color: cyan">
+    </colgroup>
+    <tr height="50" style = "background-color: #ddd;">
+        <th width="200">월<br/>요<br/>일</th>
+        <td>화</td>
+        <td>수</td>
+    </tr>
+    <tr>
+        <td>자바<span style = "color : #fff">스크립트</span></td>
+        <td><img src="../img/jejumap.jpg" width = "200"/></td>
+        <td>자바</td>
+    </tr>
+<tr>
+    <td>Spring</td>
+    <td>Mybatis</td>
+    <td>Mysql</td>
+</tr>
+</table>
+</body>
+</html>
