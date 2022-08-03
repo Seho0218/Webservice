@@ -17,4 +17,6 @@ public interface BoardService {
 	public int boardDel(int no, String userid);
 	//조회수 증가
 	public void hitCount(int no);
+	//총레코드
+	public int totalRecord();
 }

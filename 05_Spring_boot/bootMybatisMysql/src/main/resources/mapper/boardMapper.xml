@@ -12,4 +12,7 @@
 	  		insert into board(subject,content,userid,ip)
 	  		values(#{subject}, #{content}, #{userid}, #{ip})
 	  </insert>
+	  <select id = "totalRecord" resultType="int">
+	  	select count(no) cnt from board;
+	  </select>
   </mapper>

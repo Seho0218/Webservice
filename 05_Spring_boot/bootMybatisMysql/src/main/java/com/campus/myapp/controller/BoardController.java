@@ -17,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.campus.myapp.service.BoardService;
 import com.campus.myapp.vo.BoardVO;
+import com.campus.myapp.vo.PagingVO;
 
 @RestController
 @RequestMapping("/board/*")
@@ -28,8 +29,13 @@ public class BoardController {
 	
 	//게시판
 	@GetMapping("boardList") //a태그
-	public ModelAndView boardList() {
+	public ModelAndView boardList(PagingVO pVO) {
 		mav = new ModelAndView();
+		
+		//총 레코드 수
+		pVO.setTotalRecord(service.totalRecord());
+		
+		
 		
 		//DB 레코드 선택 - 페이지, 검색어
 		mav.addObject("list",service.boardList());
