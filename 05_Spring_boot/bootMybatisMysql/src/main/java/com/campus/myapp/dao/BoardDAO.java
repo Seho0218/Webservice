@@ -6,12 +6,13 @@ import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
 import com.campus.myapp.vo.BoardVO;
+import com.campus.myapp.vo.PagingVO;
 
 @Mapper
 @Repository
 public interface BoardDAO {
 	//글목록
-	public List<BoardVO> boardList();
+	public List<BoardVO> boardList(PagingVO pVO);
 	//글등록
 	public int boardWriteOk(BoardVO vo);
 	//글선택(수정). 글내용보기
@@ -23,5 +24,5 @@ public interface BoardDAO {
 	//조회수 증가
 	public void hitCount(int no);
 	//총레코드수
-	public int totalRecord();
+	public int totalRecord(PagingVO pVO);
 }

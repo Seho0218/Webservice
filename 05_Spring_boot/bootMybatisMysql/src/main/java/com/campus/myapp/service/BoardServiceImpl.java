@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.campus.myapp.dao.BoardDAO;
 import com.campus.myapp.vo.BoardVO;
+import com.campus.myapp.vo.PagingVO;
 
 @Service
 public class BoardServiceImpl implements BoardService {
@@ -14,8 +15,8 @@ public class BoardServiceImpl implements BoardService {
 	BoardDAO dao;
 
 	@Override
-	public List<BoardVO> boardList() {
-		return dao.boardList();
+	public List<BoardVO> boardList(PagingVO pVO) {
+		return dao.boardList(pVO);
 	}
 
 	@Override
@@ -45,9 +46,7 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public int totalRecord() {
-		// TODO Auto-generated method stub
-		return 0;
+	public int totalRecord(PagingVO pVO) {
+		return dao.totalRecord(pVO);
 	}
-
 }

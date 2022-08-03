@@ -3,10 +3,11 @@ package com.campus.myapp.service;
 import java.util.List;
 
 import com.campus.myapp.vo.BoardVO;
+import com.campus.myapp.vo.PagingVO;
 
 public interface BoardService {
 	//글목록
-	public List<BoardVO> boardList();
+	public List<BoardVO> boardList(PagingVO pVO);
 	//글등록
 	public int boardWriteOk(BoardVO vo);
 	//글선택(수정). 글내용보기
@@ -18,5 +19,5 @@ public interface BoardService {
 	//조회수 증가
 	public void hitCount(int no);
 	//총레코드
-	public int totalRecord();
+	public int totalRecord(PagingVO pVO);
 }

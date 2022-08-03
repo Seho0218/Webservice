@@ -33,12 +33,14 @@ public class BoardController {
 		mav = new ModelAndView();
 		
 		//총 레코드 수
-		pVO.setTotalRecord(service.totalRecord());
+		pVO.setTotalRecord(service.totalRecord(pVO));
+		
 		
 		
 		
 		//DB 레코드 선택 - 페이지, 검색어
-		mav.addObject("list",service.boardList());
+		mav.addObject("list",service.boardList(pVO));
+		mav.addObject("pVO",pVO);
 		
 		mav.setViewName("board/boardList");
 		return mav;	

@@ -6,13 +6,21 @@
   <select id = "boardList" resultType="BoardVO">
   		select no,subject, userid, hit, date_format(writedate, '%m-%d %h:%i') writedate
   		from board
+  		<if test = "searchWord!=null">
+  			where ${searchKey} like '%${searchWord}%'
+  		</if>
+  		
   		order by no desc
+  		limit ${onePageRecord} offset ${offsetPoint}
   </select>
 	  <insert id = "boardWriteOk">
 	  		insert into board(subject,content,userid,ip)
 	  		values(#{subject}, #{content}, #{userid}, #{ip})
 	  </insert>
 	  <select id = "totalRecord" resultType="int">
-	  	select count(no) cnt from board;
+	  		select count(no) cnt from board
+	  		<if test='searchWord!=null'>
+	  			where ${searchKey} like '%${searchWord}%'
+	  		</if>
 	  </select>
   </mapper>

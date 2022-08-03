@@ -31,6 +31,13 @@ select * from zipcode;
 select zipcode, sido, doro, buildnum1,buildnum2, buildname, dong, num1, num2 from zipcode
 where doro like "%마음로%" order by zipcode;
 
+select no, subject from board order by no desc;
+-- limit
+select no, subject, userid, hit, writedate
+from board
+order by no desc
+limit 5;
+
 delete from member where userid = 'root1234';
 
 
