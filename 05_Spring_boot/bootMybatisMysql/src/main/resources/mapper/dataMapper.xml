@@ -8,4 +8,8 @@
   			from data
   			order by no desc
   		</select>
+  		<insert id = "dataInsert">
+  			insert into data(title, content, userid, filename1, filename2)
+  			values(#{title},#{content},#{userid},#{filename1},#{filename2})
+  		</insert>
   </mapper>

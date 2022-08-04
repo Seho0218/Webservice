@@ -11,4 +11,5 @@ import com.campus.myapp.vo.DataVO;
 @Repository
 public interface DataDAO {
 	public List<DataVO> dataAllSelect();
+	public int dataInsert(DataVO vo);
 }

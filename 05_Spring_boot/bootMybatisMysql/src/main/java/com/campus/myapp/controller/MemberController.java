@@ -89,7 +89,7 @@ public class MemberController {
 			msg += "</script>";
 			
 			entity = new ResponseEntity<String>(msg,headers,HttpStatus.OK);
-		}catch(Exception e) {//회원등록 실패 -> 이전페이지 history:자파스크립트
+		}catch(Exception e) {//회원등록 실패 -> 이전페이지 history:자바스크립트
 			String msg = "<script>";
 			msg += "alert('회원가입이 실패하였습니다.');";
 			msg += "history.back()";

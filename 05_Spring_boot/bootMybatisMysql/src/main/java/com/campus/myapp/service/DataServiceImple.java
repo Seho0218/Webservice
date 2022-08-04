@@ -19,4 +19,9 @@ public class DataServiceImple implements DataService {
 	public List<DataVO> dataAllSelect(){
 		return dao.dataAllSelect();
 	}
+
+	@Override
+	public int dataInsert(DataVO vo) {
+		return dao.dataInsert(vo);
+	}
 }
