@@ -10,7 +10,7 @@ import com.campus.myapp.dao.DataDAO;
 import com.campus.myapp.vo.DataVO;
 
 @Service
-public class DataServiceImple implements DataService {
+public class DataServiceImpl implements DataService {
 	
 	@Inject
 	DataDAO dao;
@@ -23,5 +23,25 @@ public class DataServiceImple implements DataService {
 	@Override
 	public int dataInsert(DataVO vo) {
 		return dao.dataInsert(vo);
+	}
+
+	@Override
+	public int downCount(int no) {
+		return dao.downCount(no);
+	}
+
+	@Override
+	public int newDownCount(int no) {
+		return dao.newDownCount(no);
+	}
+
+	@Override
+	public int hitCount(int no) {
+		return dao.hitCount(no);
+	}
+
+	@Override
+	public DataVO dataSelect(int no) {
+		return dao.dataSelect(no);
 	}
 }

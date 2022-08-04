@@ -5,6 +5,7 @@ package com.campus.myapp.controller;
 
 import java.io.File;
 import java.nio.charset.Charset;
+import java.security.Provider.Service;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -15,6 +16,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -162,5 +164,25 @@ public class DataController {
     		}
     	}catch(Exception e) {}
     } 
+    //다운로드 횟수 수정
+    @GetMapping("downCountUpdate")
+    public int downCountUpdate(int no){
+    	//다운로드 횟수 업데이트
+    	service.downCount(no);
+    	//새로운 다운로드 횟수 구하기
+    	return service.newDownCount(no);
+    }
+    //글내용 보기
+    @GetMapping("dataView/{no}")//dataList에서 확인가능
+    public ModelAndView dataView(@PathVariable("no") int no){
+    	mav = new ModelAndView();
+    	
+    	service.hitCount(no);//조회수 증가
+    	mav.addObject("dataVO",service.dataSelect(no));
+    	mav.setViewName("data/dataView");
+    	return mav; 	
+	
+    }	
  }
+
 

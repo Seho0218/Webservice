@@ -12,4 +12,18 @@
   			insert into data(title, content, userid, filename1, filename2)
   			values(#{title},#{content},#{userid},#{filename1},#{filename2})
   		</insert>
+  		<update id = "downCount">
+  			update data set downcount=downcount+1 where no=${param1}
+  		</update>
+  		<select id = "newDownCount" resultType="int">
+  			select downcount from data where no=${param1}
+  		</select>
+  		<update id = "hitCount">
+  			update data set hit=hit+1 where no=${param1}
+  		</update>
+  		<select id = "dataSelect" resultType="DataVO">
+  			select no,title,content,hit,downcount,userid,filename1,filename2, writedate 
+  			from data
+  			where no=${param1}  		
+  		</select>
   </mapper>

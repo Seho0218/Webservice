@@ -7,6 +7,25 @@
 	}
 	#listView li:nth-child(7n+2){width:52%;}
 </style>
+<script>
+	$(function(){
+		$("#listView img[src='/img/disk.jfif']").click(function(){
+			var no = $(this).attr('alt')//레코드 번호. alt가 가지고 있는 속성
+			var countObj = $(this).parent().parent().prev().prev();//a -> li -> 조회수 -> 다운로드횟수
+			
+			$.ajax({
+				url:'/data/downCountUpdate',
+				data:"no="+no,
+				success:function(down){
+					countObj.text(down);
+				},error:function(e){
+					console.log(e.responseText);
+				}
+			});
+		});// 거리 축소
+	})
+
+</script>
 
 <div class ="container">
 	<h1>자료실 목록</h1>
@@ -30,9 +49,9 @@
 				<li>${vo.downcount}</li>
 				<li>${vo.hit}</li>
 				<li>
-						<a href = "/upload/${vo.filename1}" title="${vo.filename1}"><img src = "/img/disk.jfif"/></a>
+						<a href = "/upload/ ${vo.filename1}" title="${vo.filename1}" download ><img src = "/img/disk.jfif" height="25" alt="${vo.no}"/></a>
 						<c:if test= "${vo.filename2!= null && vo.filename2!=''}">
-							<a href = "/upload/${vo.filename2}" title="${vo.filename2}"><img src = "/img/disk.jfif"/></a>
+							<a href = "/upload/ ${vo.filename2}" title="${vo.filename2}" download><img src = "/img/disk.jfif" height="25" alt="${vo.no}"/></a>
 						</c:if>	
 				</li>
 				<li>${vo.writedate}</li>
