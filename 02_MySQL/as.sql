@@ -6,6 +6,8 @@ use mydb;
 
 show tables;
 
+desc data;
+
 
 select * from member;
 
@@ -39,5 +41,7 @@ order by no desc
 limit 5;
 
 delete from member where userid = 'root1234';
+
+select * from data;
 
 

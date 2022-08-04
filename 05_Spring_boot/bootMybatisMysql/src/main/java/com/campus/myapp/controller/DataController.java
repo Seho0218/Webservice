@@ -62,6 +62,7 @@ public class DataController {
     	headers.add("Content-Type", "text/html; charset=UTF-8");
     	//파일 업로드
     	String message="";
+    	
     	try {
     		//1.DataVO에 제목, 글내용은 request되어 있다.
     		//2.클라이언트 컴퓨터에 있는 파일이 서버로 복사하기 위해서는
@@ -80,6 +81,7 @@ public class DataController {
     			//첨부한 파일의 수만큼 반복적으로, 순서대로 업로드를 처리한다.
     				int cnt=0;//업로드 번호 매기기
     				for(int i = 0; i<files.size(); i++) {//for 1
+
     					
     					//List에서 MultipartFile객체 얻어오기
     					MultipartFile mf = files.get(i);
@@ -95,12 +97,13 @@ public class DataController {
     						if(f.exists()) {//if3 있으면 true 없으면 false
     							//중복되니 파일명을 변경
     							for(int renameNum = 1;;renameNum++) {
+    								System.out.println(f.getName());
     								// a_1.gif
     								int dot = orgName.lastIndexOf(".");
     								String fileName = orgName.substring(0,dot);//파일명
     								String extName = orgName.substring(dot+1);//확장자
     								
-    								f = new File(path,fileName+"_"+i+"."+extName);
+    								f = new File(path,fileName+"_"+renameNum+"."+extName);
     								if(!f.exists()) { // 다른 파일명을 만들필요가 없음.
     									orgName = f.getName(); //파일명 + 파일명+ 확장자를 구해줌
     									break;
@@ -123,18 +126,20 @@ public class DataController {
     		//DB등록//////////////////
     		vo.setUserid((String)request.getSession().getAttribute("logId"));
     		int cnt = service.dataInsert(vo);//레코드 추가
+    	
     		if(cnt>0) {//등록성공
+    		
     			// 리스트로 이동
     			message += "<script>";
     			message += "alert('자료실 등록이 완료되었습니다.');";
     			message += "location.href = '/data/dataList'";
     			message += "</script>";
-    		}else {//등록실패
+    			
+    		}else {//등록실패	
     			throw new Exception();
     		}
      	}catch(Exception e){
-     		//등록실패
-     		
+     		e.printStackTrace();
      		//파일을 지우고 글 등록으로 다시 보내기
      		fileDelete(path,vo.getFilename1());
      		fileDelete(path,vo.getFilename2());
@@ -144,11 +149,12 @@ public class DataController {
      		message += "history.go(-1);";
      		message += "</script>";
     	}
-    	
+    	System.out.println(message);
     	ResponseEntity<String> entity = new ResponseEntity<String>(message,headers,HttpStatus.OK);
     	return entity;
     }
     public void fileDelete(String path, String filename) {
+    
     	try {
     		if(filename!=null) {
     			File file = new File(path,filename);
