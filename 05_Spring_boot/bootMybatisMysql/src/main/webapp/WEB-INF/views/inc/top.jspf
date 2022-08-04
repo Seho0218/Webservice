@@ -28,6 +28,6 @@
 	<div id = "mainMenu">
 		<ul>
 			<li><a href ="/board/boardList">게시판</a></li>
-			<li><a href ="#">자료실</a></li>
+			<li><a href ="/data/dataList">자료실</a></li>
 		</ul>
 	</div>

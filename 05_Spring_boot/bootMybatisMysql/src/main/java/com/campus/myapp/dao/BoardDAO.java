@@ -11,20 +11,20 @@ import com.campus.myapp.vo.PagingVO;
 @Mapper
 @Repository
 public interface BoardDAO {
-	//ê¸€ëª©ë¡
+	//±Û¸ñ·Ï
 	public List<BoardVO> boardList(PagingVO pVO);
-	//ê¸€ë“±ë¡
+	//±Ûµî·Ï
 	public int boardWriteOk(BoardVO vo);
-	//ê¸€ì„ íƒ(ìˆ˜ì •). ê¸€ë‚´ìš©ë³´ê¸°
+	//±Û¼±ÅÃ(¼öÁ¤). ±Û³»¿ëº¸±â
 	public BoardVO getBoard(int no);
-	//ê¸€ìˆ˜ì •
+	//±Û¼öÁ¤
 	public int boardEditOk(BoardVO vo);
-	//ê¸€ì‚­ì œ
+	//±Û»èÁ¦
 	public int boardDel(int no, String userid);
-	//ì¡°íšŒìˆ˜ ì¦ê°€
+	//Á¶È¸¼ö Áõ°¡
 	public void hitCount(int no);
-	//ì´ë ˆì½”ë“œìˆ˜
+	//ÃÑ·¹ÄÚµå¼ö
 	public int totalRecord(PagingVO pVO);
-	//ì—¬ëŸ¬ê°œì˜ ë ˆì½”ë“œ ì‚­ì œ
-	public int boardMultiDel(BoardVO vo); //voì— ì‚­ì œí•  ë ˆì½”ë“œê°€ ìˆë‹¤.
+	//¿©·¯°³ÀÇ ·¹ÄÚµå »èÁ¦
+	public int boardMultiDel(BoardVO vo); //vo¿¡ »èÁ¦ÇÒ ·¹ÄÚµå°¡ ÀÖ´Ù.
 }
