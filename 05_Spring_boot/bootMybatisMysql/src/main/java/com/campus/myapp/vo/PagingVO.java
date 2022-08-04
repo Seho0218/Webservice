@@ -1,19 +1,19 @@
 package com.campus.myapp.vo;
 
 public class PagingVO {
-	private int nowPage = 1; // ÇöÀç ÆäÀÌÁö
-	private int onePageRecord=10; // ÇÑÆäÀÌÁö¿¡ Ãâ·ÂÇÒ ·¹ÄÚµå¼ö
-	private int totalRecord; // ÃÑ·¹ÄÚµå¼ö
-	private int totalPage;// ÃÑÆäÀÌÁö¼ö
-	private int offsetPoint; // ÆäÀÌÁö ·¹ÄÚµå ¼­³¼ÇÒ À§Ä¡
+	private int nowPage = 1; // í˜„ì¬ í˜ì´ì§€
+	private int onePageRecord=10; // í•œí˜ì´ì§€ì— ì¶œë ¥í•  ë ˆì½”ë“œìˆ˜
+	private int totalRecord; // ì´ë ˆì½”ë“œìˆ˜
+	private int totalPage;// ì´í˜ì´ì§€ìˆ˜
+	private int offsetPoint; // í˜ì´ì§€ ë ˆì½”ë“œ ì„œë‚µí•  ìœ„ì¹˜
 	
-	//ÆäÀÌÁö ¹øÈ£
+	//í˜ì´ì§€ ë²ˆí˜¸
 	private int startPage = 1;
 	private int onePageCount = 5;
 	
-	//°Ë»ö
+	//ê²€ìƒ‰
 	private String searchKey;
-	private String searchWord; //boardListÀÇ searchword¿Í °°¾Æ¾ßÇÔ.
+	private String searchWord; //boardListì˜ searchwordì™€ ê°™ì•„ì•¼í•¨.
 	
 	
 	public int getStartPage() {
@@ -43,9 +43,9 @@ public class PagingVO {
 	}
 	public void setNowPage(int nowPage) {
 		this.nowPage = nowPage;
-		//¼±ÅÃ ·¹ÄÚµå ½ÃÀÛ À§Ä¡
+		//ì„ íƒ ë ˆì½”ë“œ ì‹œì‘ ìœ„ì¹˜
 		offsetPoint = (nowPage-1)*onePageRecord;
-		//Ç¥½ÃÇÒ ÆäÀÌÁöÀÇ ½ÃÀÛ¹øÈ£
+		//í‘œì‹œí•  í˜ì´ì§€ì˜ ì‹œì‘ë²ˆí˜¸
 		startPage = (nowPage-1)/onePageCount*onePageCount+1;
 	}
 	public int getOnePageRecord() {
@@ -60,7 +60,7 @@ public class PagingVO {
 	
 	public void setTotalRecord(int totalRecord) {
 		this.totalRecord = totalRecord;
-		//ÃÑÆäÀÌÁö¼ö ±¸ÇÏ±â
+		//ì´í˜ì´ì§€ìˆ˜ êµ¬í•˜ê¸°
 		totalPage = totalRecord/onePageRecord;
 		if(totalRecord%onePageRecord!=0) {
 			totalPage++;
@@ -81,7 +81,7 @@ public class PagingVO {
 		this.offsetPoint = offsetPoint;
 	}
 	
-	//°Ë»ö
+	//ê²€ìƒ‰
 	public String getSearchKey() {
 		return searchKey;
 	}

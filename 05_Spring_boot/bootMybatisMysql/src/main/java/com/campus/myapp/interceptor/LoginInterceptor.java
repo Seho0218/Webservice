@@ -7,20 +7,20 @@ import javax.servlet.http.HttpSession;
 import org.springframework.web.servlet.HandlerInterceptor;
 
 public class LoginInterceptor implements HandlerInterceptor {
-	//ÄÁÆ®·Ñ·¯°¡ È£ÃâµÇ±âÀü¿¡ ÀÎÅÍ¼ÁÅÍÇÏ´Â ¸Ş¼ÒµåÀÌ´Ù.
+	//ì»¨íŠ¸ë¡¤ëŸ¬ê°€ í˜¸ì¶œë˜ê¸°ì „ì— ì¸í„°ì…‰í„°í•˜ëŠ” ë©”ì†Œë“œì´ë‹¤.
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-		//·Î±×ÀÎ ¿©ºÎ È®ÀÎÇÏ±â
+		//ë¡œê·¸ì¸ ì—¬ë¶€ í™•ì¸í•˜ê¸°
 		HttpSession session = request.getSession();
 		
-		//session¿¡¼­ ·Î±×ÀÎ Á¤º¸¸¦ ±¸ÇØ¿Â´Ù.
-		String logStatus = (String)session.getAttribute("logStatus"); // ·Î±×ÀÎ ¿©ºÎ È®ÀÎ
+		//sessionì—ì„œ ë¡œê·¸ì¸ ì •ë³´ë¥¼ êµ¬í•´ì˜¨ë‹¤.
+		String logStatus = (String)session.getAttribute("logStatus"); // ë¡œê·¸ì¸ ì—¬ë¶€ í™•ì¸
 		
 		if(logStatus != null && logStatus.equals("Y")) {
-			//·Î±×ÀÎ»óÅÂÀÏ¶§
+			//ë¡œê·¸ì¸ìƒíƒœì¼ë•Œ
 			return true;
 		}else {
-			//·Î±×ÀÎ ¾ÈµÈ°æ¿ì
+			//ë¡œê·¸ì¸ ì•ˆëœê²½ìš°
 		response.sendRedirect("/member/login");
 		return false;	
 		}	

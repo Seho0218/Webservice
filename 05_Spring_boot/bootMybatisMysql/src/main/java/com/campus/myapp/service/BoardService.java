@@ -6,20 +6,20 @@ import com.campus.myapp.vo.BoardVO;
 import com.campus.myapp.vo.PagingVO;
 
 public interface BoardService {
-	//±Û¸ñ·Ï
+	//ê¸€ëª©ë¡
 	public List<BoardVO> boardList(PagingVO pVO);
-	//±Ûµî·Ï
+	//ê¸€ë“±ë¡
 	public int boardWriteOk(BoardVO vo);
-	//±Û¼±ÅÃ(¼öÁ¤). ±Û³»¿ëº¸±â
+	//ê¸€ì„ íƒ(ìˆ˜ì •). ê¸€ë‚´ìš©ë³´ê¸°
 	public BoardVO getBoard(int no);
-	//±Û¼öÁ¤
+	//ê¸€ìˆ˜ì •
 	public int boardEditOk(BoardVO vo);
-	//±Û»èÁ¦
+	//ê¸€ì‚­ì œ
 	public int boardDel(int no, String userid);
-	//Á¶È¸¼ö Áõ°¡
+	//ì¡°íšŒìˆ˜ ì¦ê°€
 	public void hitCount(int no);
-	//ÃÑ·¹ÄÚµå
+	//ì´ë ˆì½”ë“œ
 	public int totalRecord(PagingVO pVO);
-	//¿©·¯°³ »èÁ¦
+	//ì—¬ëŸ¬ê°œ ì‚­ì œ
 	public int boardMultiDel(BoardVO vo);
 }

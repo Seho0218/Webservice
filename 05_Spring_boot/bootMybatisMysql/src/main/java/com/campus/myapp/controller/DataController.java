@@ -21,7 +21,7 @@ public class DataController {
 	
 		mav= new ModelAndView();
 		
-		//DBÁ¶È¸
+		//DBì €ìž¥
 		mav.addObject("dataList", service.dataAllSelect());
 		mav.setViewName("data/dataList");
 		return mav;

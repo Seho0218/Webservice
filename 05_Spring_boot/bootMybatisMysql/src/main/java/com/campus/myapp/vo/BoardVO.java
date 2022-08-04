@@ -11,7 +11,7 @@ public class BoardVO {
 	private int hit;
 	private String writedate;
 	
-	//¿©·¯°³ÀÇ ·¹ÄÚµå ¹øÈ£¸¦ ÀúÀåÇÏ´Â ÄÃ·º¼Ç ¼±¾ğ
+	//ì—¬ëŸ¬ê°œì˜ ë ˆì½”ë“œ ë²ˆí˜¸ë¥¼ ì €ì¥í•˜ëŠ” ì»¬ë ‰ì…˜ ì„ ì–¸
 	private List<Integer> noList;
 	
 	

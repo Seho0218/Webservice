@@ -11,17 +11,17 @@ import com.campus.myapp.vo.ZipcodeVO;
 @Mapper
 @Repository
 public interface MemberDAO {
-	//¾ÆÀÌµğ Áßº¹°Ë»ç
+	//ì•„ì´ë”” ì¤‘ë³µê²€ì‚¬
 	public int idCheck(String userid);
-	//¿ìÆí¹øÈ£ Ã£±â
+	//ìš°í¸ë²ˆí˜¸ ì°¾ê¸°
 	public List<ZipcodeVO> zipSearch(String doro);
-	// È¸¿ø°¡ÀÔ
+	// íšŒì›ê°€ì…
 	public int memberWrite(MemberVO vo);
-	// ·Î±×ÀÎ
+	// ë¡œê·¸ì¸
 	public MemberVO loginOk(MemberVO vo);
-	//È¸¿ø ¼±ÅÃ: ·Î±×ÀÎ ÇÑ È¸¿ø
+	//íšŒì› ì„ íƒ: ë¡œê·¸ì¸ í•œ íšŒì›
 	public MemberVO getMember(String userid);
-	//È¸¿ø Á¤º¸ ¼öÁ¤: DB ¾÷µ¥ÀÌÆ®
+	//íšŒì› ì •ë³´ ìˆ˜ì •: DB ì—…ë°ì´íŠ¸
 	public int memberEditOk(MemberVO vo);
 
 }
