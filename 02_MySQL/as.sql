@@ -6,6 +6,8 @@ use mydb;
 
 show tables;
 
+desc reply_board;
+
 desc data;
 
 
