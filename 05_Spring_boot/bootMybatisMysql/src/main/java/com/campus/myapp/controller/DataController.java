@@ -6,6 +6,7 @@ package com.campus.myapp.controller;
 import java.io.File;
 import java.nio.charset.Charset;
 import java.security.Provider.Service;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -108,8 +109,7 @@ public class DataController {
     								f = new File(path,fileName+"_"+renameNum+"."+extName);
     								if(!f.exists()) { // 다른 파일명을 만들필요가 없음.
     									orgName = f.getName(); //파일명 + 파일명+ 확장자를 구해줌
-    									break;
-    									
+    									break;								
     								}    								
     							}// for2
     						}//if3
@@ -119,10 +119,8 @@ public class DataController {
     						cnt++;
     						
     						if(cnt==1) vo.setFilename1(f.getName());
-    						if(cnt==2) vo.setFilename2(f.getName());
-    						
-    				}//if2
-    					
+    						if(cnt==2) vo.setFilename2(f.getName());						
+    				}//if2				
     			}//for1    			
     		}//if 1
     		//DB등록//////////////////
@@ -181,8 +179,38 @@ public class DataController {
     	mav.addObject("dataVO",service.dataSelect(no));
     	mav.setViewName("data/dataView");
     	return mav; 	
-	
-    }	
+    }
+    //글 수정 폼
+    @GetMapping("dataEditForm/{no}")
+    public ModelAndView dataEditForm(@PathVariable("no") int no) {
+    	mav = new ModelAndView();
+    	mav.addObject("vo",service.dataSelect(no));
+    	mav.setViewName("data/dataEditForm");
+    	return mav;
+    }
+    //글 수정 (DB)
+    @PostMapping("dataEditFormOk")		//번호,제목,글내용,삭제파일명					새로 업로드될 파일
+    public ResponseEntity<String> dataEditFormOk(DataVO vo,HttpServletRequest request){
+    	//DB에 있는 파일명을 보관한다.
+    	DataVO dbFile = service.getFilenames(vo.getNo());
+    	
+    	//최종으로 사용할 파일명을 정리할 컬렉션
+    	List<String> editFileList = new ArrayList<String>();
+    	
+    	//DB에서 선택한 파일을 컬렉션에 담기
+    	editFileList.add(dbFile.getFilename1());
+    	if(dbFile.getFilename2()!=null) {
+    		editFileList.add(dbFile.getFilename2());
+    	}
+    	
+    	//삭제한 파일명과 같은 파일을 최종파일을 저장하는 컬렉션에서 제거하기
+    	if(vo.getDelFile()!=null) {
+    		for(String del : vo.getDelFile()){
+    			editFileList.remove(del);    		
+    		}
+    	}
+    	return null;
+    }
  }
 
 

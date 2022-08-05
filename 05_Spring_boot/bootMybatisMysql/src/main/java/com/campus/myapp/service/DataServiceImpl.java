@@ -44,4 +44,9 @@ public class DataServiceImpl implements DataService {
 	public DataVO dataSelect(int no) {
 		return dao.dataSelect(no);
 	}
+
+	@Override
+	public DataVO getFilenames(int no) {
+		return dao.getFilenames(no);
+	}
 }

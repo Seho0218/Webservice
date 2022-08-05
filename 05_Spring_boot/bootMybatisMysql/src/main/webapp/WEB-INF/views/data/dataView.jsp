@@ -3,6 +3,21 @@
 <style>
 	.container li{border-bottom:1px solid #ddd;}
 </style>
+<script>
+	$(function(){
+		$(".down a").click(function(){
+			$.ajax({
+				url:"/data/donwCountUpdate",
+				data: "no =${dataVO.no}",
+				success: function(result){
+					$("#dCount").text(result);
+				},error:function(e){
+					console.log(e.responseText);
+				}
+			})
+		})
+	})
+</script>
 <div class = "container">
 	<h1>글내용보기</h1>
 	<ul>
@@ -10,7 +25,7 @@
 		<li>${dataVO.no}</li>
 		<li>작성자</li>
 		<li>${dataVO.userid}</li>
-		<li>조회수 : ${dataVO.hit}, 다운횟수 : ${dataVO.downcount}, 등록일 : ${dataVO.writedate}</li>
+		<li>조회수 : ${dataVO.hit}, 다운횟수 :<span id = "dCount">${dataVO.downcount}</span>, 등록일 : ${dataVO.writedate}</li>
 		<li>첨부파일:
 				<a href = "/upload/${dataVO.filename1}" download> ${dataVO.filename1}</a>
 				<c:if test = "${dataVO.filename2!=null && dataVO.filename2!=''}">
@@ -22,7 +37,11 @@
 		<li>${dataVO.content}</li>
 	</ul>
 	<div>
-		수정
+	<!--  본인이 쓴 글일 경우 수정, 삭제 -->
+	<c:if test="${dataVO.userid==logId}">
+		<a href="/data/dataEditForm/${dataVO.no}">수정</a>
+		
 		삭제
+	</c:if>
 	</div>
 </div>

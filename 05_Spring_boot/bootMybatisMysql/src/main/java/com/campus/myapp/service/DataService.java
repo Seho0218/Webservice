@@ -13,4 +13,5 @@ public interface DataService {
 	public int newDownCount(int no);
 	public int hitCount(int no);
 	public DataVO dataSelect(int no);
+	public DataVO getFilenames(int no);
 }

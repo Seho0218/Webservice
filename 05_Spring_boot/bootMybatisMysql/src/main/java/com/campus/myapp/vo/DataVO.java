@@ -1,5 +1,7 @@
 package com.campus.myapp.vo;
 
+import java.util.List;
+
 public class DataVO {
 	private int no;
 	private String title;
@@ -10,6 +12,8 @@ public class DataVO {
 	private String writedate;
 	private String filename1;
 	private String filename2;
+	
+	private List<String> delFile;
 	
 	@Override
 	public String toString() {
@@ -70,6 +74,12 @@ public class DataVO {
 	}
 	public void setFilename2(String filename2) {
 		this.filename2 = filename2;
+	}
+	public List<String> getDelFile() {
+		return delFile;
+	}
+	public void setDelFile(List<String> delFile) {
+		this.delFile = delFile;
 	}
 	
 	

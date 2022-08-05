@@ -18,4 +18,5 @@ public interface DataDAO {
 	public int newDownCount(int no);
 	public int hitCount(int no);
 	public DataVO dataSelect(int no);
+	public DataVO getFilenames(int no);//DB에 있는 파일명 선택
 }

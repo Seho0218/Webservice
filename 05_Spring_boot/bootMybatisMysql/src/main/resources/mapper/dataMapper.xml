@@ -26,4 +26,8 @@
   			from data
   			where no=${param1}  		
   		</select>
+  		<select id = "getFilenames" resultType="DataVO">
+  			select filename1, filename2 from data where no=${param1}
+  		
+  		</select>
   </mapper>
