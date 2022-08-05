@@ -19,4 +19,6 @@ public interface DataDAO {
 	public int hitCount(int no);
 	public DataVO dataSelect(int no);
 	public DataVO getFilenames(int no);//DB에 있는 파일명 선택
+	public int dataUpdate(DataVO vo);
+	public int dataDelete(int no, String userid);
 }

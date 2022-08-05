@@ -18,7 +18,7 @@
 			//삭제된 파일명을 서버로 보내기 위해서 name속성을 결정한다.
 			$(this).parent().next().next().attr("name","delFile");//name의 속성의 값을 delFile로
 			//남은 파일의 수를 감소시킨다.
-			$("input[name=fileCount]").val($("input[name=fileCount]").val()-1);
+			$("#del").val($("#del").val()-1);//$("input[name=fileCount]").val($("input[name=fileCount]").val()-1);
 		});
 		
 			
@@ -31,7 +31,7 @@
 				alert("글 내용을 입력하세요.")
 				return false;
 			}
-			var fileCount = $("input[name=fileCount]").val();//선택한 첨부파일의 갯수
+			var fileCount = $("#del").val();//선택한 첨부파일의 갯수/// var fileCount = $("input[name=fileCount]").val();
 			if($("#filename1").val() != ""){
 				fileCount++;
 			}
@@ -74,14 +74,14 @@
 						<!--  첨부파일 있을때 -->
 						<c:if test="${vo.filename2!=null && vo.filename2!=''}">
 							<div> ${vo.filename2} &nbsp;<b class="del">X</b></div>
-							<input type = "hidden" name="filename" id="filename2"/>
-							<input type = "hidden" name="" value="${vo.filename2}"/>
-							<input type = "hidden" name="fileCount" value="2"/>
+							<input type="hidden" name="filename" id="filename2"/>
+							<input type="hidden" name="" value="${vo.filename2}"/>
+							<input type="hidden" name="fileCount" id="del" value="2"/> <!-- <input type = "hidden" name="fileCount" value="2"/> -->
 						</c:if>
 						<!-- 첨부파일이 없을때 -->
 						<c:if test="${vo.filename2==null || vo.filename2==''}">
-							<input type = "file" name="filename" id="filename2"/>
-							<input type = "hidden" name="fileCount" value="1"/>
+							<input type="file" name="filename" id="filename2"/>
+							<input type="hidden" name="fileCount" id="del" value="1"/> <!-- <input type = "hidden" name="fileCount" value="1"/> -->
 						</c:if>
 					</div>			
 				</li>	

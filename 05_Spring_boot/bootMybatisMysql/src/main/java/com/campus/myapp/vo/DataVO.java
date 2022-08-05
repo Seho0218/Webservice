@@ -13,7 +13,7 @@ public class DataVO {
 	private String filename1;
 	private String filename2;
 	
-	private List<String> delFile;
+	private List<String> delFile; //삭제할 파일명이 보관될 컬렉션
 	
 	@Override
 	public String toString() {

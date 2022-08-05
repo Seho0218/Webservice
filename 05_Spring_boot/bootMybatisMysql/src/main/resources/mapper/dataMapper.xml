@@ -28,6 +28,12 @@
   		</select>
   		<select id = "getFilenames" resultType="DataVO">
   			select filename1, filename2 from data where no=${param1}
-  		
   		</select>
+  		<update id = "dataUpdate">
+  			update data set title=#{title}, content =#{content}, filename1=#{filename1}, filename2=#{filename2}
+  			where no=${no} and userid=#{userid}
+  		</update>
+  		<delete id = "dataDelete">
+  			delete from data where no=${param1} and userid=#{param2}
+  		</delete>
   </mapper>

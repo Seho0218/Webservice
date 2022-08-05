@@ -14,4 +14,6 @@ public interface DataService {
 	public int hitCount(int no);
 	public DataVO dataSelect(int no);
 	public DataVO getFilenames(int no);
+	public int dataUpdate(DataVO vo);
+	public int dataDelete(int no, String userid);
 }

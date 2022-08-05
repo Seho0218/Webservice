@@ -11,6 +11,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -209,7 +210,124 @@ public class DataController {
     			editFileList.remove(del);    		
     		}
     	}
-    	return null;
+    	//업로드할 위치
+    	String path = request.getServletContext().getRealPath("/upload");
+    	System.out.println("update.path"+path);
+    	//새로 업로드
+		//새로 업로드 한 파일명 보관할 컬렉션
+		List<String> newUpload = new ArrayList<String>();
+		
+		String msg = ""; //스크립트코드
+    	try {
+    		MultipartHttpServletRequest mr =(MultipartHttpServletRequest)request;
+    		
+    		List<MultipartFile> newMf = mr.getFiles("filename");
+    				
+    		
+    		if(newMf!=null) {//업로드한 파일이 있으면
+    			for(int i = 0; i<newMf.size();i++) {
+    				MultipartFile mf = newMf.get(i);
+    				String org_filename = mf.getOriginalFilename();
+    				
+    				if(org_filename !=null && !org_filename.equals("")) {
+    					File file =  new File(path,org_filename);
+    					if(file.exists()) {
+    						for(int j=1; ;j++) {
+    							int p = org_filename.lastIndexOf(".");
+    							String filenameNoExt = org_filename.substring(0,p);
+    							String ext = org_filename.substring(p+1);
+    							String renameFilename = filenameNoExt+"_"+j+ext;
+    							file = new File(path,renameFilename);
+    							
+    							if(!file.exists()) {
+    								org_filename = renameFilename;
+    								break;
+    							}
+    						}//for
+    					}
+    					//업로드
+    					mf.transferTo(file);
+    					newUpload.add(file.getName());
+    					editFileList.add(file.getName());
+    				}
+    			}
+    		}
+    		
+    		//DB update
+    		//수정할 파일명이 있는 컬렉션의 값을 filenmae1, filename2에 셋팅하여야한다.
+    		for(int i=0;i<editFileList.size();i++) {
+    			if(i==0)vo.setFilename1(editFileList.get(0));
+    			if(i==1)vo.setFilename2(editFileList.get(1));
+    		}
+    		
+    		//세션에 로그인 한 아이디
+    		vo.setUserid((String)request.getSession().getAttribute("logId"));
+    		int result = service.dataUpdate(vo);
+    		
+    		if(result>0) {//수정됨
+    			//삭제한 파일을 지운다.
+    			//글내용 보기로 페이지 이동
+    			if(vo.getDelFile()!=null) {
+    				for(String f: vo.getDelFile()) {
+    					fileDelete(path,f);
+    				}
+    			}
+    			
+    			//글내용보기로 페이지 이동
+    			msg ="<script>";
+    			msg += "alert('자료실 글수정 성공하였습니다.');";
+    			msg += "location.href='/data/dataView/"+vo.getNo()+"'";//레코드 번호는 vo안에 있다.
+    			msg += "</script>";
+    		}else {//수정실패
+    			throw new Exception();
+    		}
+    		
+    	}catch(Exception e) {
+    		e.printStackTrace();
+    		
+    		//update실패
+    		//새로 업로드된 파일을 지운다.
+    		for(String f :newUpload) {
+    			fileDelete(path,f);
+    		}
+    		//수정 페이지로 이동(history)
+    		msg += "<script>";
+    		msg += "alert('자료실 글 수정 실패하였습니다.');";
+    		msg += "history.back(-1);";
+    	}
+    	
+    	HttpHeaders headers = new HttpHeaders();
+    	headers.setContentType(new MediaType("text","html",Charset.forName("UTF-8")));
+    	headers.add("Content_type","text/html; charset=UTF-8");
+    	
+    	ResponseEntity<String> entity = new ResponseEntity<String>(msg, headers,HttpStatus.OK);
+    	
+    	return entity;
+    }
+    //자료실 삭제
+    @GetMapping("dataDelete/{no}")
+    public ModelAndView dataDelete(@PathVariable("no") int no, HttpSession session ){ //변수를 받아서 no에 넣어라
+    	String userid = (String)session.getAttribute("logId");
+    	
+    	//업로드 파일명을 조회한다.
+    	DataVO fileVO = service.getFilenames(no);
+    	
+    	
+    	int result = service.dataDelete(no,userid);
+    	
+    	mav= new ModelAndView();
+    	if(result>0) {//삭제
+    	//레코드가 삭제되었으므로 파일도 삭제한다.
+    	String path = session.getServletContext().getRealPath("/upload");
+    	fileDelete(path, fileVO.getFilename1());
+    	fileDelete(path, fileVO.getFilename2());
+    		
+    		
+    	mav.setViewName("redirect:/data/dataList"); // 매핑 확인
+    	}else {//삭제실패
+    		mav.setViewName("redirect:/data/dataView/"+no);
+    	}
+    	return mav;
     }
  }
 

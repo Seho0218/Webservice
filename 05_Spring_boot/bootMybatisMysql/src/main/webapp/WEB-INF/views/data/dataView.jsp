@@ -14,9 +14,15 @@
 				},error:function(e){
 					console.log(e.responseText);
 				}
-			})
-		})
-	})
+			});
+		});
+	});
+	
+	function dataDel(){
+		if(confirm("삭제하시겠습니까?")){
+			location.href="/data/dataDelete/${dataVO.no}";
+		}
+	}
 </script>
 <div class = "container">
 	<h1>글내용보기</h1>
@@ -39,9 +45,8 @@
 	<div>
 	<!--  본인이 쓴 글일 경우 수정, 삭제 -->
 	<c:if test="${dataVO.userid==logId}">
-		<a href="/data/dataEditForm/${dataVO.no}">수정</a>
-		
-		삭제
+		<a href="/data/dataEditForm/${dataVO.no}">수정</a>	
+		<a href="javascript:dataDel()">삭제</a>
 	</c:if>
 	</div>
 </div>
