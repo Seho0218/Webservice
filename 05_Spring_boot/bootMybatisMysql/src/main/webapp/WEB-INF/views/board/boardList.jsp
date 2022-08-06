@@ -51,9 +51,9 @@ $(function(){
 <div class = "container">
 	<h1>게시판 리스트</h1>
 	<c:if test = "${logStatus=='Y'}">
-	<div>
-		<a href = "/board/boardForm">글쓰기</a>
-	</div>
+		<div>
+			<a href = "/board/boardForm">글쓰기</a>
+		</div>
 	</c:if>
 	<div>
 		${pVO.nowPage}/${pVO.totalPage}, 총레코드수:${pVO.totalRecord}
@@ -62,24 +62,27 @@ $(function(){
 		<input type = "button" value ="선택삭제" id= "multiDel"/>
 	</div>
 	<form method="post" action="/board/multiDel" id ="listFrm">
-	<ul id = "board">
-	<li><input type="checkbox" id = "allChk"/></li>
-		<li>번호</li>
-		<li>제목</li>
-		<li>작성자</li>
-		<li>조회수</li>
-		<li>등록일</li>	
-		
-		<c:forEach var = "vo" items="${list}">
-		
-		<li><input type = "checkbox" name = "noList" value = "${vo.no}"></li><!--  name: 변수 value: 값 -->
-			<li>${vo.no}</li>
-			<li><a href="/board/boardView?no=${vo.no} &nowPage=${pVO.nowPage}<c:if test ='${pVO.searchWord!=null}'>&searchKey=${pVO.searchKey}&searchWord=${pVO.searchWord}</c:if>">${vo.subject}</a></li>
-			<li>${vo.userid}</li>
-			<li>${vo.hit}</li>
-			<li>${vo.writedate}</li>
-		</c:forEach>
-	</ul>
+		<ul id = "board">
+				<li><input type="checkbox" id = "allChk"/></li>		
+				<li>번호</li>
+				<li>제목</li>
+				<li>작성자</li>
+				<li>조회수</li>
+				<li>등록일</li>	
+				
+				<c:forEach var = "vo" items="${list}">
+					
+						<li><input type = "checkbox" name = "noList" value = "${vo.no}"></li><!--  name: 변수 value: 값 -->
+						<li>${vo.no}</li>
+						<li><a href="/board/boardView?no=${vo.no} &nowPage=${pVO.nowPage}
+							<c:if test ='${pVO.searchWord!=null}'>
+									&searchKey=${pVO.searchKey}&searchWord=${pVO.searchWord}
+							</c:if>">${vo.subject}</a></li>
+						<li>${vo.userid}</li>
+						<li>${vo.hit}</li>
+						<li>${vo.writedate}</li>
+				</c:forEach>
+		</ul>
 	</form>
 	<div>
 		<ul id = "page">
