@@ -87,31 +87,40 @@ $(function(){
 	<div>
 		<ul id = "page">
 		<!-- 페이지 번호 -->
-		<c:if test="${pVO.nowPage<=1}"><!-- 이전페이지가 없을때 -->
-			<li>prev</li>
-		</c:if>
-		<c:if test = "${pVO.nowPage>1}">  <!-- 이전페이지 존재 -->
-			<li><a href = "/board/boardList?nowPage=${pVO.nowPage-1}<c:if test ='${pVO.searchWord!=null}'>&searchKey=${pVO.searchKey}&searchWord=${pVO.searchWord}</c:if>">prev</a></li>
-		</c:if>
-		<c:forEach var = "p" begin="${pVO.startPage}" end ="${pVO.startPage+pVO.onePageCount-1}">
-			<!-- 출력할페이지 번호보다 작거나 같을때 -->
-			<c:if test="${p<=pVO.totalPage}">
-			<li
-			<c:if test="${p==pVO.nowPage}">
-				style = "background-color:#f00;color:#fff;"
+			<c:if test="${pVO.nowPage<=1}"><!-- 이전페이지가 없을때 -->
+				<li>prev</li>
 			</c:if>
-				><a href ="/board/boardList?nowPage=${p}<c:if test ='${pVO.searchWord!=null}'>&searchKey=${pVO.searchKey}&searchWord=${pVO.searchWord}</c:if>">${p}</a></li>
+			<c:if test = "${pVO.nowPage>1}">  <!-- 이전페이지 존재 -->
+				<li><a href = "/board/boardList?nowPage=${pVO.nowPage-1}
+					<c:if test ='${pVO.searchWord!=null}'>
+						&searchKey=${pVO.searchKey} &searchWord=${pVO.searchWord}
+					</c:if>">prev</a>
+				</li>
 			</c:if>
-		</c:forEach>
-		
-		<!-- 다음페이지 -->
-		<c:if test ="${pVO.nowPage==pVO.totalPage }">
-			<li>next</li>
-		</c:if>
-		<c:if test ="${pVO.nowPage<pVO.totalPage }">
-			<li><a href = "/board/boardList?nowPage=${pVO.nowPage+1}<c:if test ='${pVO.searchWord!=null}'>&searchKey=${pVO.searchKey}&searchWord=${pVO.searchWord}</c:if>">next</a></li>
-		</c:if>
-		
+			<c:forEach var = "p" begin="${pVO.startPage}" end ="${pVO.startPage+pVO.onePageCount-1}">
+				<!-- 출력할페이지 번호보다 작거나 같을때 -->
+				<c:if test="${p<=pVO.totalPage}">
+					<li
+					<c:if test="${p==pVO.nowPage}">
+						style = "background-color:#f00;color:#fff;"
+					</c:if>
+					><a href ="/board/boardList?nowPage=${p}
+					<c:if test ='${pVO.searchWord!=null}'>
+						&searchKey=${pVO.searchKey} &searchWord=${pVO.searchWord}
+					</c:if>">${p}</a></li>
+				</c:if>
+			</c:forEach>
+			
+			<!-- 다음페이지 -->
+			<c:if test ="${pVO.nowPage==pVO.totalPage }">
+				<li>next</li>
+			</c:if>
+			<c:if test ="${pVO.nowPage<pVO.totalPage }">
+				<li><a href = "/board/boardList?nowPage=${pVO.nowPage+1}
+				<c:if test ='${pVO.searchWord!=null}'>
+					&searchKey=${pVO.searchKey} &searchWord=${pVO.searchWord}
+				</c:if>">next</a></li>
+			</c:if>
 		</ul>
 	</div>
 	<div>
