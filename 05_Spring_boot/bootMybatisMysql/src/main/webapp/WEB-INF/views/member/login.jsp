@@ -30,8 +30,7 @@
     	<li><input type = "text" name = "userid" id = "userid"/></li>
     	<li>비밀번호</li>
     	<li><input type = "text" name = "userpwd" id = "userpwd"/></li>
-    	<li><input type = "submit" value = "로그인"/></li>
-     
+    	<li><input type = "submit" value = "로그인"/></li>    
     </ul>
     </form>	
    </div>

@@ -71,7 +71,6 @@ $(function(){
 				<li>등록일</li>	
 				
 				<c:forEach var = "vo" items="${list}">
-					
 						<li><input type = "checkbox" name = "noList" value = "${vo.no}"></li><!--  name: 변수 value: 값 -->
 						<li>${vo.no}</li>
 						<li><a href="/board/boardView?no=${vo.no} &nowPage=${pVO.nowPage}
@@ -112,14 +111,16 @@ $(function(){
 			</c:forEach>
 			
 			<!-- 다음페이지 -->
-			<c:if test ="${pVO.nowPage==pVO.totalPage }">
+			
+			<c:if test="${pVO.nowPage==pVO.totalPage }">
 				<li>next</li>
 			</c:if>
 			<c:if test ="${pVO.nowPage<pVO.totalPage }">
 				<li><a href = "/board/boardList?nowPage=${pVO.nowPage+1}
-				<c:if test ='${pVO.searchWord!=null}'>
-					&searchKey=${pVO.searchKey} &searchWord=${pVO.searchWord}
-				</c:if>">next</a></li>
+					<c:if test ='${pVO.searchWord!=null}'>
+						&searchKey=${pVO.searchKey} &searchWord=${pVO.searchWord}
+					</c:if>">next</a>
+				</li>
 			</c:if>
 		</ul>
 	</div>

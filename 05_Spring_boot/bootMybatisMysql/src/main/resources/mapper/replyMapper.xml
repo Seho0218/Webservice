@@ -14,4 +14,11 @@
   		where no=${param1}
   		order by reply_no asc
   	</select>
+  	<update id="replyUpdate">
+	  	update reply_board set coment=#{coment}
+	  	where reply_no=${reply_no} and userid=#{userid}
+  	</update>
+  	<delete id="replyDelete">
+  		delete from reply_board where reply_no=${param1} and userid=#{param2}
+  	</delete>
   </mapper>

@@ -3,7 +3,6 @@
 <style>
 	#topMenu, #logo, #mainMenu, .footer{
 	display:none;
-	
 	}
 </style>
 <script>
@@ -30,6 +29,5 @@
 	<form method = "get" action="/member/idCheck">
 		아이디 : <input type = "text" name = "userid" id = "userid"/>
 		<input type = "submit" value ="아이디중복검사하기"/>
-	
 	</form>
 </div>

@@ -42,8 +42,8 @@ public class BoardController {
 		//DB 레코드 선택 - 페이지, 검색어
 		mav.addObject("list",service.boardList(pVO));
 		mav.addObject("pVO",pVO);
-		
 		mav.setViewName("board/boardList");
+		
 		return mav;	
 	}
 	//글쓰기폼
@@ -51,6 +51,7 @@ public class BoardController {
 	public ModelAndView boardForm() {
 		mav = new ModelAndView();
 		mav.setViewName("board/boardForm");
+		
 		return mav;
 	}
 	//글쓰기 DB
@@ -67,17 +68,18 @@ public class BoardController {
 			msg += "alert('글 등록이 실패하였습니다.');";
 			msg += "history.go(-1)";
 		}
+		
 		msg+="</script>";
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(new MediaType("text","html", Charset.forName("UTF-8")));
 		headers.add("Content-Type","text/html; charset=UTF-8");
 		ResponseEntity<String> entity = new ResponseEntity<String>(msg,headers,HttpStatus.OK);
+		
 		return entity;
 	}
 	//글내용보기
 	@GetMapping("boardView")
-	public ModelAndView boardView(@RequestParam("no") int no, PagingVO pVO){
-		
+	public ModelAndView boardView(@RequestParam("no") int no, PagingVO pVO){	
 		//조회수 증가
 		service.hitCount(no);
 		
@@ -85,6 +87,7 @@ public class BoardController {
 		mav.addObject("vo",service.getBoard(no));
 		mav.addObject("pVO",pVO);
 		mav.setViewName("/board/boardView");
+		
 		return mav;
 	}
 	//글수정 폼
@@ -92,7 +95,6 @@ public class BoardController {
 	public ModelAndView boardEdit(@PathVariable("num") int no) {
 		
 		mav = new ModelAndView();
-		
 		mav.addObject("vo",service.getBoard(no));
 		mav.setViewName("board/boardEdit");
 		
@@ -119,6 +121,7 @@ public class BoardController {
 			msg += "history.go(-1);";
 		}
 		msg += "</script>";
+		
 		return new ResponseEntity<String>(msg,headers,HttpStatus.OK);
 	}
 	//글 삭제
@@ -131,6 +134,7 @@ public class BoardController {
 		}else {
 			mav.setViewName("redirect:boardView");
 		}
+		
 		return mav;
 	}
 	//여러개의 레코드 삭제
@@ -142,6 +146,7 @@ public class BoardController {
 		
 		mav=new ModelAndView();
 		mav.setViewName("redirect:boardList");
+		
 		return mav;
 	}
 }

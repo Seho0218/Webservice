@@ -22,8 +22,7 @@
 		$(".zip").click(function(){
 			opener.$("#zipcode").val($(this).prev().text());//우편번호
 			opener.$("#addr").val($(this).text()); //li의 문자열 받기
-			window.close();
-			
+			window.close();	
 		})
 	});	
 </script>
