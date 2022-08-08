@@ -3,15 +3,20 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace = "com.campus.myapp.dao.BoardDAO">
+  
   <select id = "boardList" resultType="BoardVO">
-  		select no,subject, userid, hit, date_format(writedate, '%m-%d %h:%i') writedate
+  		select b1.no, b1.subject, b1.userid, b1.hit, b1.writedate, b2.reply_count 
+  		from
+  		(select no, subject, userid, hit, date_format(writedate, '%m-%d %h:%i') writedate 
   		from board
   		<if test = "searchWord!=null">
   			where ${searchKey} like '%${searchWord}%'
   		</if>
-  		
-  		order by no desc
-  		limit ${onePageRecord} offset ${offsetPoint}
+  		order by no desc 
+  		limit ${onePageRecord} offset ${offsetPoint}) b1
+  		left outer join
+  		(select no, count(no) reply_count from reply_board group by no) b2 
+  		on b1.no=b2.no
   </select>
 	  <insert id = "boardWriteOk">
 	  		insert into board(subject,content,userid,ip)

@@ -14,6 +14,8 @@ public class BoardVO {
 	//여러개의 레코드 번호를 저장하는 컬렉션 선언
 	private List<Integer> noList;
 	
+	///여러개의 레코드 번호를 저장할 컬렉션 선언
+	private int reply_count;
 	
 	@Override
 	public String toString() {
@@ -67,6 +69,12 @@ public class BoardVO {
 	}
 	public void setNoList(List<Integer> noList) {
 		this.noList = noList;
+	}
+	public int getReply_count() {
+		return reply_count;
+	}
+	public void setReply_count(int reply_count) {
+		this.reply_count = reply_count;
 	}
 	
 

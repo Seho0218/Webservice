@@ -9,7 +9,8 @@
 	/*white-space:nowrap; overflow:hidden; text-overflow:ellipsis;*/
 	}
 	#board li:nth-child(6n+3){
-	width:55%; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+	width:50%; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+	padding-right:5%;
 	}
 	
  	/* 페이지 */
@@ -70,7 +71,7 @@ $(function(){
 				<li>조회수</li>
 				<li>등록일</li>	
 				
-				<c:forEach var = "vo" items="${list}">
+				<c:forEach var = "vo" items="${list}"><!-- vo안에 댓글 수 있음 -->
 						<li><input type = "checkbox" name = "noList" value = "${vo.no}"></li><!--  name: 변수 value: 값 -->
 						<li>${vo.no}</li>
 						<li><a href="/board/boardView?no=${vo.no} &nowPage=${pVO.nowPage}
@@ -79,6 +80,9 @@ $(function(){
 							</c:if>">
 							${vo.subject}
 							</a>
+							<c:if test="${vo.reply_count>0}">
+								[${vo.reply_count}]
+							</c:if>
 						</li>
 						<li>${vo.userid}</li>
 						<li>${vo.hit}</li>
