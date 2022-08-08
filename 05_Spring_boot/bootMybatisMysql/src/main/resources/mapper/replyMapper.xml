@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="com.campus.myapp.dao.ReplyDAO">
+  	<insert id="replyInsert">
+  		insert into reply_board(no, userid, coment)
+  		values(#{no}, #{userid}, #{coment})
+  	</insert>
+  	
+  	<select id="replyList" resultType="ReplyVO">
+  		select reply_no, no, userid, coment, writedate
+  		from reply_board
+  		where no=${param1}
+  		order by reply_no asc
+  	</select>
+  </mapper>
