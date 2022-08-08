@@ -76,7 +76,10 @@ $(function(){
 						<li><a href="/board/boardView?no=${vo.no} &nowPage=${pVO.nowPage}
 							<c:if test ='${pVO.searchWord!=null}'>
 									&searchKey=${pVO.searchKey}&searchWord=${pVO.searchWord}
-							</c:if>">${vo.subject}</a></li>
+							</c:if>">
+							${vo.subject}
+							</a>
+						</li>
 						<li>${vo.userid}</li>
 						<li>${vo.hit}</li>
 						<li>${vo.writedate}</li>
