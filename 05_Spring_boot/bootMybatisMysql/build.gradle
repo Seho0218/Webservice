@@ -39,10 +39,6 @@ dependencies {
 	// https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload
 	implementation 'commons-fileupload:commons-fileupload:1.4'
 	
-	
-	
-	
-	
 	//view를 jsp로 사용하기위해서 프레임 워크를 추가한다
 }
 
