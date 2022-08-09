@@ -8,9 +8,10 @@
 	#board li:nth-child(6n+1){width:5%;
 	/*white-space:nowrap; overflow:hidden; text-overflow:ellipsis;*/
 	}
-	#board li:nth-child(6n+3){
-	width:50%; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
-	padding-right:5%;
+	#board li:nth-child(6n+3){width:55%;}
+	#board li:nth-child(6n+3)>div{float:left;}
+	#board li:nth-child(6n+3)>div:first-child{
+		white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
 	}
 	
  	/* 페이지 */
@@ -74,15 +75,25 @@ $(function(){
 				<c:forEach var = "vo" items="${list}"><!-- vo안에 댓글 수 있음 -->
 						<li><input type = "checkbox" name = "noList" value = "${vo.no}"></li><!--  name: 변수 value: 값 -->
 						<li>${vo.no}</li>
-						<li><a href="/board/boardView?no=${vo.no} &nowPage=${pVO.nowPage}
+						<li>
+						<div
+							<c:if test="${vo.subject.length()>=30}">
+								style='width:90%'
+							</c:if>
+						>
+						<a href="/board/boardView?no=${vo.no} &nowPage=${pVO.nowPage}
 							<c:if test ='${pVO.searchWord!=null}'>
 									&searchKey=${pVO.searchKey}&searchWord=${pVO.searchWord}
 							</c:if>">
 							${vo.subject}
 							</a>
-							<c:if test="${vo.reply_count>0}">
-								[${vo.reply_count}]
-							</c:if>
+							</div>
+							<div>
+								<!-- 댓글수 -->
+								<c:if test="${vo.reply_count>0}">
+									[${vo.reply_count}]
+								</c:if>
+							</div>
 						</li>
 						<li>${vo.userid}</li>
 						<li>${vo.hit}</li>
