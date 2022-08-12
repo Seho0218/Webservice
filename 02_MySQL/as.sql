@@ -3,6 +3,7 @@ show databases;
 create database mydb;
 
 use mydb;
+use travel;
 
 show tables;
 
@@ -11,7 +12,7 @@ select * from reply_board;
 
 desc data;
 
-
+select * from post;
 select * from member;
 
 insert into member(userid, userpwd, username, tel) 

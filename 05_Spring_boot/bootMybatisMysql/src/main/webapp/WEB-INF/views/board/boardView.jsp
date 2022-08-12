@@ -144,22 +144,22 @@
 		</ul>
 		<div>
 		<a href="/board/boardList?nowPage=${pVO.nowPage}<c:if test ='${pVO.searchWord!=null}'> &searchKey=${pVO.searchKey} &searchWord=${pVO.searchWord} </c:if>">목록</a>
-		<c:if test = "${vo.userid==logId}">
-			<a href = "/board/boardEdit/${vo.no}">수정</a>
-			<a href = "javascript:boardDel();">삭제</a>
-		</c:if>
+			<c:if test = "${vo.userid==logId}">
+				<a href = "/board/boardEdit/${vo.no}">수정</a>
+				<a href = "javascript:boardDel();">삭제</a>
+			</c:if>
 		</div>
 		<hr/>
-	<!-- 댓글달기 -->
-	<div>
-		<form method="post" id="replyFrm">
-			<!-- 원글 번호는 숨겨서  -->
-			<input type = "hidden" name="no" value="${vo.no}"/>
-			<textarea maxlength="200" name="coment" id="coment" cols="50" rows ="3"></textarea>
-			<input type="submit" value="댓글쓰기"/>					
-		</form>	
+		<!-- 댓글달기 -->
+		<div>
+			<form method="post" id="replyFrm">
+				<!-- 원글 번호는 숨겨서  -->
+				<input type = "hidden" name="no" value="${vo.no}"/>
+				<textarea maxlength="200" name="coment" id="coment" cols="50" rows ="3"></textarea>
+				<input type="submit" value="댓글쓰기"/>					
+			</form>	
+		</div>
+		<div id = "replyList">
+		<ul></ul>
+		</div>
 	</div>
-	<div id = "replyList">
-	<ul></ul>
-	</div>
-</div>
