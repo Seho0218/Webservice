@@ -126,7 +126,7 @@
 			});
 		}
 	});
-		replyAllList();// 댓글 목록을 가져오는 함수 호출
+		replyAllList();// 댓글 목록을 가져오는 함수 호출fjfgyjf
 });
 </script>
 	<div class = "container">
