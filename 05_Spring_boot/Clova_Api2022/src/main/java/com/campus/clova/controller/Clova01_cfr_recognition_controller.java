@@ -91,9 +91,7 @@ public class Clova01_cfr_recognition_controller {
                 }
                 br.close();
                 System.out.println(response.toString());
-            } else {
-                System.out.println("error !!!");
-            }
+            } 
         } catch (Exception e) {
             System.out.println(e);
         }
