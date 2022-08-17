@@ -31,8 +31,12 @@
 						$("#txt").val(result);
 						//문자열을 json으로 변환해준다. 여기서 부터 특징 보여줌
 						//console.log(124);
-						//var jsonData = JSON.parse(result);
-						//$("#view").html(jsonData.faces[0].gender.value);
+						var jsonData = JSON.parse(result);
+						$("#view").html(jsonData.faces[0].gender.value);
+						$("#view").html(jsonData.faces[0].gender.value);
+						$("#view").html(jsonData.faces[0].gender.value);
+						$("#view").html(jsonData.faces[0].gender.value);
+						$("#view").html(jsonData.faces[0].gender.value);
 						
 					},error:function(e){
 						console.log(e.responseText);
