@@ -20,7 +20,8 @@ public class Clova01_cfr_recognition_controller {
 	public String cfr() {
 		return "clova/cfr_recognition";
 	}
-	@RequestMapping(value="cfrOk", method=RequestMethod.POST)
+	
+	@RequestMapping(value="/cfrOk", method=RequestMethod.POST)
 	@ResponseBody
 	public String cfrOk(@RequestParam("image") MultipartFile file, HttpSession session) {
 		//업로드할 위치 경로
@@ -36,10 +37,11 @@ public class Clova01_cfr_recognition_controller {
         String filename = null;//업로드한 파일명
         try {
         	//* 클라이언트 이미지를 서버에 업로드
-        	
         	filename = ClovaFileupload.fileUpload(path, file);
+        	
             String paramName = "image"; // 파라미터명은 image로 지정
-            String imgFile = path+"/" +filename;
+            String imgFile = path+"/"+filename; //서버에 실제 있는 파일의 절대주소
+            
             File uploadFile = new File(imgFile);
             String apiURL = "https://naveropenapi.apigw.ntruss.com/vision/v1/face"; // 얼굴 감지
             URL url = new URL(apiURL);
@@ -90,13 +92,14 @@ public class Clova01_cfr_recognition_controller {
                     response.append(inputLine);
                 }
                 br.close();
-                System.out.println(response.toString());
+               //System.out.println(response.toString());
             } 
         } catch (Exception e) {
             System.out.println(e);
         }
-		System.out.println("response->"+response);
-		return null;
+        //////////////////////////////////////
+		System.out.println("response->"+response.toString()); // 바뀐곳
+		return response.toString(); //  바뀐 곳
 	}
 
 }

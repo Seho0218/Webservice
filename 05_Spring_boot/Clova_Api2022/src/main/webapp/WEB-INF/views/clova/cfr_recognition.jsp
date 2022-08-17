@@ -14,25 +14,30 @@
 			if($("#image").val()==""){
 				alert("이미지를 선택하세요..");
 				return false;
-			}else{
-				var form =$("#cfrform")[0];
-				var data = new Formdata(form);
+				}
+				console.log(123);
+				var form =$("#cfrForm")[0];
+				var data = new FormData(form);
 				
 				$.ajax({
 					type:"post",
 					dataType:"text",
-					url:"/cfrOk"
+					url:"http://localhost:8050/cfrOk",
 					async:false,
-					proccessData:false,
+					processData:false,
 					contentType:false,
-					data:param,
+					data:data,
 					success:function(result){
+						$("#txt").val(result);
+						//문자열을 json으로 변환해준다. 여기서 부터 특징 보여줌
+						//console.log(124);
+						//var jsonData = JSON.parse(result);
+						//$("#view").html(jsonData.faces[0].gender.value);
 						
-					},error:function(e){}
-					console.log(e.responseText);
-				})
-				///
-			}
+					},error:function(e){
+						console.log(e.responseText);
+					}
+				});
 		});
 	});
 </script>
@@ -51,5 +56,6 @@
 		<hr/>
 		<textarea id = "txt" rows="20" cols="100"></textarea>
 	</div>
+	<div id="view"></div>
 </body>
 </html>
