@@ -15,6 +15,7 @@
 	<h1>Clova Api 홈</h1>
 	<ol>
 		<li><a href="/clova/cfr">CFR(Clova Face Recongintion) : 얼굴감지 (눈,코,입,나이,얼굴방향,표정)</a></li>
+		<li><a href="/clova/cfr_celebrity">CFR(Clova Face Recongintion) : 유명인얼굴인식 (눈,코,입,나이,얼굴방향,표정)</a></li>
 	</ol>
 </body>
 </html>
