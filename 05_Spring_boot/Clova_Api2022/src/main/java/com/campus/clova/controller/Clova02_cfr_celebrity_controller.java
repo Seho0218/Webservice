@@ -26,7 +26,7 @@ public class Clova02_cfr_celebrity_controller {
     public String celebrityOk(@RequestParam("image") MultipartFile file, HttpSession session){//절대경로 때문에 필요
         String path = session.getServletContext().getRealPath("/file");
         
-        StringBuffer reqStr = new StringBuffer();
+
         String clientId = "6xzpv2vi46";//애플리케이션 클라이언트 아이디값";
         String clientSecret = "0Fd5DjUUZhpqV7Gt40anXGueLrC2VuWaKtNY26eF";//애플리케이션 클라이언트 시크릿값";
         StringBuffer response = new StringBuffer();

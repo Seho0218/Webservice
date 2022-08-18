@@ -43,7 +43,7 @@
 						tag += "<td>코</td><td>입(좌)</td><td>입(우)</td><td>모션</td><td>포즈</td></tr>";
 						
 						//얼굴 수 만큼 반복문 실행
-						//	faces[{},{},{}]
+						//	faces[{},{},{}] 배열, 수만큼 반복
 						jsonData.faces.map(function(face, idx){
 							tag+="<tr><td>"+(idx+1)+"</td>";
 							tag+="<td>"+ face.age.value +"</td>";//나이
