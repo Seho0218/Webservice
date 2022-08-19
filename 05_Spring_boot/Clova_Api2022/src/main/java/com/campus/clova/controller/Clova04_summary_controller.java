@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class Clova04_summary_controller {
@@ -17,7 +18,8 @@ public class Clova04_summary_controller {
 		return "clova/summary";
 	}
 	@RequestMapping(value="/clova/summaryOk", method=RequestMethod.POST)
-	public String summaryOk(@RequestParam("title") String title, @RequestParam("content") String content) {
+    @ResponseBody
+	public String summaryOk(@RequestParam("content") String content) {
 
         String clientId = "6xzpv2vi46";//애플리케이션 클라이언트 아이디값";
         String clientSecret = "0Fd5DjUUZhpqV7Gt40anXGueLrC2VuWaKtNY26eF";//애플리케이션 클라이언트 시크릿값";
@@ -29,7 +31,6 @@ public class Clova04_summary_controller {
 			//클라우드로 보낼 데이터를 준비한다.
 
 			JSONObject document = new JSONObject(); // 그래들에 있어서 됌.
-			document.put("title", title); // summaryOk에서title이라 title. key가 title인 이유는api가 그래서
 			document.put("content", content);	
 
 			JSONObject option = new JSONObject();
@@ -92,6 +93,14 @@ public class Clova04_summary_controller {
         }
 
 		System.out.println("summary ="+response.toString());
-		return null;
+		//return response.toString();
+
+        //결과의 summary키에 있는 값을 구하여 뷰로 전송하기
+        JSONObject resultObj = new JSONObject(response.toString()); //문자열을 json객체로 생성하여 값을 구하기
+        String summary = resultObj.getString("summary");
+        //String summary = (String)resultObj(summary);
+
+        return summary;
+
 	}
 }

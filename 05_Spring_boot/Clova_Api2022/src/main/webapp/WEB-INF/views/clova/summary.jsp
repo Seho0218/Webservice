@@ -18,14 +18,15 @@
             $.ajax({
                 type:"post",
                 dataType:"text",
+                async:false,
 				url:"/clova/summaryOk",
-				async:false,
 				data:{
                     title:$("#title").val(),
                     content:$("#content").val()
                 },
                 success:function(result){
-
+                    $("#resultText").val(result);
+                    $("#resultString").html(result);
                 },error:function(e){
                     console.log(e.responseText);
                 }
