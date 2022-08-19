@@ -25,7 +25,8 @@
                     content:$("#content").val()
                 },
                 success:function(result){
-
+                    $("#resultText").val(result);
+                    $("#resultString").html(result);
                 },error:function(e){
                     console.log(e.responseText);
                 }
