@@ -42,7 +42,7 @@ $(function(){
 <!-- 사용자에게 표시할 캡챠 이미지 -->
 <img src="/clova/captchaImage"/><br/>
 <form method="post" action="/clova/captchaCheck" id="captchaForm">
-    <input type="button" name="refresh" id="refresh" value="새로고침"/>
+    <input type="button" name="refresh" value="새로고침" onclick="location.reload()"/><br/>
     <input type="text" name="userIn" id="userIn"/>
     <input type="submit" value="전송하기"/>
 </body>
