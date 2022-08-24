@@ -95,7 +95,7 @@ public class Clova07_ocr_text_controller {
                 resultText.append("\n");
             }
         }
-        /////////////////////
+        ///////////////////////
         return resultText.toString();
     }
 
