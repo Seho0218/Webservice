@@ -22,6 +22,8 @@
 		<li><a href="/clova/sentiment">CLOVA Sentiment API는 텍스트 데이터를 분석해서 해당 단어/문장/문구 내용의 감정을 분석하는 서비스입니다.</a></li>
 		<li><a href="/clova/captchaForm">CAPTCHA(image) : 이미지 캡차 API는 자동 입력 방지를 위해 사람의 눈으로 식별 가능한 문자가 포함된 이미지를 전송하고 입력값을 검증하는 REST API입니다.</a></li>
 		<li><a href="/clova/ocrForm">OCR : 인쇄물 상의 글자와 이미지를 디지털 데이터로 자동 추출하는 기술입니다.(gateway 필요함)</a></li>
+		<li><a href="/clova/voiceForm">Voice : 텍스트를 음성으로 변환하여 mp3 또는 wav파일로 얻을 수 있다.</a></li>
+		<li><a href="/clova/chatbotForm">Chatbot : 챗봇 </a></li>
 	</ol>
 </body>
 </html>

@@ -57,7 +57,7 @@ public class Clova07_ocr_text_controller {
 
 			con.connect();
 			DataOutputStream wr = new DataOutputStream(con.getOutputStream());
-			long start = System.currentTimeMillis();
+			//long start = System.currentTimeMillis(); 변경부분
 			//File file = new File(imageFile);
 			writeMultiPart(wr, postParams, file, boundary);
 			wr.close();
