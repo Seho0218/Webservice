@@ -15,7 +15,7 @@
             let xhr=new XMLHttpRequest();
 
             xhr.responseType = "blob"; // 응답받는 데이터 타입
-
+            
             //응답 받은 경우 실행하는 곳
 
             xhr.onload=function(){
