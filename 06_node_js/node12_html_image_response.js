@@ -20,6 +20,16 @@ var server = http.createServer(function(request,response){
                 response.end(htmlData);
             }
         });
+    }else if(url =="/subpage"){//서브페이지
+        fs.readFile('html/subpage.html','utf-8',function(e,d){
+            if(!e){//성공
+                response.writeHead(200, {"content-type":"text/html;charset=utf-8"});
+                response.end(d);
+            }else{//읽기실패
+                response.writeHead(200, {"content-type":"text/html;charset=utf-8"});
+                response.end("에러")
+            }
+        })
     }else if(url.indexOf("/images")==0){//이미지 요청일때
         //      /images/asdf.png
         var resource = url.substring(1);
