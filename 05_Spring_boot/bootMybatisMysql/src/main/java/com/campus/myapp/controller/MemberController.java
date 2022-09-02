@@ -81,7 +81,7 @@ public class MemberController {
 		headers.add("Content-Type","text/html; charset=utf-8");
 		
 		try {//회원등록 -> 로그인폼으로 이동
-			int result = service.memberWrite(vo);
+			//int result = service.memberWrite(vo);
 			
 			String msg = "<script>";
 			msg += "alert('회원가입이 성공하였습니다. 로그인 페이지로 이동합니다');";
