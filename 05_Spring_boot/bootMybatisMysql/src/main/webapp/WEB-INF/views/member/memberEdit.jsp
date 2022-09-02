@@ -52,7 +52,7 @@
 			<li>이메일</li>
 			<li><input type ="text" name = "email" id ="email" value = "${vo.email}"/></li>
 			<li>우편번호</li>
-			<li><input type ="text" name = "zipcode" id ="zipcode"value =" ${vo.zipcode}"/>
+			<li><input type ="text" name = "zipcode" id ="zipcode" value =" ${vo.zipcode}"/>
 				<input type = "button" value = "우편번호찾기" id = "zipSearch"/><br/>
 			<li>주소</li>
 			<li><input type = "text" name = "addr" id = "addr" value = "${vo.addr}" style = "width:90%"/></li>
