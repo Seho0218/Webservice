@@ -10,6 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "mime": "^2.5.2"
+    "express": "^4.18.1",
+    "mime": "^2.5.2",
+    "mysql2": "^2.3.3"
   }
 }
