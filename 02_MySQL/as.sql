@@ -4,8 +4,14 @@ create database mydb;
 
 use mydb;
 use travel;
+use genie;
 
 show tables;
+select * from user;
+
+insert into user(user_id, user_pwd,user_phone_num,user_email, user_zipcode, user_addr, user_detailaddr, user_gender, sign_in_date, payment_method) 
+values('user', '1234','010-1234-1234','user1234@gmail.com','12345','asdf','asdf','1','2020-07-08','asdf');
+
 
 desc reply_board;
 select * from reply_board;
