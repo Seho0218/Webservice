@@ -9,12 +9,12 @@
     $(function(){
         $("#logFrm").submit(function(){
             if($("#userid").val()==""){
-                alter("아이디를 입력하세요..");
+                alert("아이디를 입력하세요..");
                 $("#userid").focus();
                 return false;
             }
             if($("#userpwd").val()==""){
-                alter("비밀번호를 입력하세요..");
+                alert("비밀번호를 입력하세요..");
                 $("#userpwd").focus();
                 return false;
             }
