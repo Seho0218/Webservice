@@ -1,0 +1,42 @@
+<!DOCTYPE html> 
+<html lang= "ko">
+
+<meta charset= "UTF-8"> 
+<meta name= "viewport" content="width=device-width, initial-scale=1.0" > 
+<title> 게시판 리스트</title> 
+    <style> 
+        ul, li{padding: 0; margin:0; list-style-type:none;} 
+        ·boardList>li{ 
+            float:left; height:50px; line-height:50px; border-bottom:1px solid □ #ddd ; 
+            width:10%; 
+        } 
+        ·boardList>li:nth-child(5n+2) {
+        width:60%;
+    } 
+    </style> 
+</head>
+<body> 
+    <h1>게시판 리스트</h1> 
+    <% 
+        if(logstatus== 'Y' ) {%> 
+            <a href="/boardWrite" > 글쓰기 </a><br/> 
+        <%} 
+    %> 
+    <div> 총레코드수: <%=parsing. totalRecord%> 현재페이지 : <%=parsing.nowPage% ></div> 
+    <ul class= "boardList"> 
+        <li>번호</li> 
+        <li>제목</li> 
+        <li>글쓴이</li> 
+        <li>조회수</1i> 
+        <1i>등록일 </li> 
+        <% for(var record=0; record<result.length;record++ ) { %> 
+            <li><%=result[record].no%</li> 
+            <li><%=result[record].sub%</li> 
+            <li><%=result[record].userid%</li> 
+            <li><%=result[record].hit%</1i> 
+            <li><%=result[record].writedate%</li> 
+        < %}%>
+    </ul > 
+</body>
+</html>
+    

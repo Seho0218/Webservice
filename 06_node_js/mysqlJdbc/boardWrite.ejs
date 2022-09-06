@@ -1,0 +1,37 @@
+<!DOCTYPE html> 
+<html lang= "ko">
+ 
+<head> 
+<meta charset= "UTF-8" > 
+<meta name= . viewport " content= " width=device-width, initial-scale=1.0" > 
+<title> 게시판 글쓰기 폼</title> 
+<script src="/ccn.ckeditor.com/4.19.1/full/ckeditor.js" ></script> 
+<script> 
+    function start(){ 
+        CKEDITOR.replace("content");
+    } 
+    function formChk() { 
+    if(document.getElementById("subject").value== ""){
+        alert ("제목을 입력하세요."); 
+        return false; 
+    } 
+    if(CKEDITOR.instances.content.getData ()= '') { 
+    alert ("글내용을 입력하세요.. " ); 
+    return false; 
+    } 
+    return true; 
+    } 
+</script> 
+</head> 
+
+ <body onload= "start () " > 
+ <h1> 글쓰기 폼</h1> 
+ <form method="post action= /boardWriteOk" > 
+ <label>제목 : </label> 
+ <input type= "text " name= "subject" id= "subject"/><br/> 
+ <label>글내용 :</label> 
+ <textarea name= "content"></textarea><br/> 
+ <input type= "submit " value= "글등록"/> 
+ </form> 
+ </body> 
+ </html>
