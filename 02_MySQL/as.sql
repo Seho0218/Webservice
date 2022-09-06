@@ -8,6 +8,21 @@ use genie;
 
 show tables;
 select * from user;
+select * from administer;
+select * from seller;
+
+select count(U.user_id) cnt from user U 
+join seller S on U.user_id=S.seller_id
+union All 
+select count(S.seller_id) cnt from seller S 
+join administer A on S.seller_id = A.administer_code;
+
+select sum(cnt) cnt from 
+(select count(U.user_id) cnt from user U 
+join seller S on U.user_id=S.seller_id
+union All 
+select count(U.user_id) cnt from user U 
+join administer A on U.user_id = A.administer_code) k;
 
 insert into user(user_id, user_pwd,user_phone_num,user_email, user_zipcode, user_addr, user_detailaddr, user_gender, sign_in_date, payment_method) 
 values('user', '1234','010-1234-1234','user1234@gmail.com','12345','asdf','asdf','1','2020-07-08','asdf');
@@ -61,4 +76,3 @@ from
 order by no desc limit 5 offset 0) a left outer join
 (select no, count(no) reply_count from reply_board group by no) b
 on a.no=b.no;
-
