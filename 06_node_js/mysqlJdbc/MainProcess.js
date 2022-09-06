@@ -25,6 +25,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 //mysql2모듈이 필요 npm install mysql2
 var mysqldb = require("mysql2");
 const e = require('express');
+const { response } = require('express');
 mysqldb.autoCommit=true;
 
 //DB연결
@@ -120,24 +121,40 @@ app.get("/logout",function(request,response){
 });
 //게시판 리스트
 app.get("/boardList",function(request,response){
+    //===========================================
     fs.readFile(__dirname+'/boardList.ejs','utf-8',function(error,boardListData){
+
         if(!error){
-            response.writeHead (200, {"Content-Type":"text/html; charset=UTF-8"});
+            //db조회(게시판 목록)
+            var sql="select no, subject, userid, hit, date_format(writedate, %m-%d %H:%i) writedate";
+                sql+="from board order by no desc";
+
+            connection.query(sql,function(err,results){         
+            //로그인 여부 설정
+            var logStatus='N';
             if(session.user!=null){
-                response.end(ejs.render(boardListData,{
-                    logStatus:'Y'
-                }));
-                }else{
-                    response.end(ejs.render(boardListData, {
-                        logStatus:'N'
-                    }));
-                }
-            }else{
-                response.writeHead (200, {"Content-Type":"text/html;charset=UTF-8"});
-                response.end("404 pages");
+                var logStatus='Y';         
             }
+        
+            response.writeHead (200, {"Content-Type":"text/html; charset=UTF-8"});
+            response.end(ejs.render(boardListData,{
+                results,results,
+                parsing:{
+                    logStatus:logStatus,
+                    nowPage:3,
+                    totalRecord:results.length
+                }
+            }));
+
         });
+
+        }else{
+            response.writeHead (200, {"Content-Type":"text/html;charset=UTF-8"});
+            response.end("404 pages");
+        }
     });
+    /////////////////////////////////////////////////
+});
 //게시판 글쓰기 폼
 app.get('/boardWrite',function(request,response){
     fs.readFile(__dirname+"/boardWrite.ejs",'utf-8', function(error, boardWriteData){
@@ -172,7 +189,49 @@ app.post("/boardWriteOk",function(request,response){
         }
     });
 });
-// 접속대기
+
+//글내용보기
 server.listen(10020,function(){
-    console.log("express server start...http://localhost:10020/home");
+    var params = new URLSearchParams(request.url.substring(6));
+
+    //boardView.ejs파일 일기 
+    fs.readfile( dirname+"/boardView.ejs",'utf-8', function(error, viewData){ 
+        if(!error){ 
+            //조회수 증가 
+            var sql = "update board set hit = hit + 1 where no=?" ; 
+            connection.execute(sql, [params.get ('no')], function(err, result) { 
+                console.log ( "조회 수==>", result) ; 
+        }) ; 
+        //해당레코드 선택 
+        sql = "select no , subject, content, userid, hit, writedate from board where no=?"; 
+        connection.execute(sql, [params.get('no')], function(err, result){ 
+            if(result. length>0){//해당글이 있을때 
+                var logStatus = 'N' ; 
+                if(session.user!=null){ logStatus= 'Y';} 
+                response.writeHead(200, {"Content-Type" : "text/html; charset=utf-8"}) ; 
+                response.end(ejs.render (viewData, { 
+                    record : result, 
+                    logStatus:logStatus, 
+                    user:session.user 
+            })) ; 
+
+        }else{//해당글이 없을때 
+            response.writeHead(200, {"Content-Type" : "text/html; charset=utf-8"});
+            response.end("<h1>이미 삭제된 글입니다.</h1><a href='/boardList'>게시판 목록으로 이동하기</a>"); 
+        }
+    });
+}else{
+    response.writeHead(200, {"Content-Type" : "text/html; charset=utf-8"});
+    response.end("404pages...");
+}
+    });
+}); 
+///글수정 [폼] 
+app.get ('/boardEdit', (request, response)=>{ //boardEdit?no=6 
+    var params = new URLSearchParams(request.url.substring(11)) 
+}) ; 
+
+// ***접속대기 ********** 
+server.listen (10020, function(){ 
+    console.log("express server start.. http://:10020/home ");
 });

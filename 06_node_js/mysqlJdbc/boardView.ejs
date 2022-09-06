@@ -1,0 +1,28 @@
+<!DOCTYPE html> 
+<html lang= "ko"> 
+<head> 
+<meta charset= "UTF-8" > 
+<meta name= " viewport" content = "width=device-width, initial-scale=1. 0" > 
+<title> 글내용보기 </title> 
+</head> 
+<body> 
+    <h1> 글내용보기 </h1> 
+    <ul> 
+        <li>번호 : <%=record[0].no%></li> 
+        <li>작성자 : <%=record[0].userid%> </li> 
+        <1i>등록일 : <%=record[0].writedate%>, 조회수 : <%=record[0].hit%></li> 
+        <li>제목 : <%=record[0].subject%></li> 
+        <li>글내용<br/> 
+            <%=record[0].content%> 
+        </li> 
+    </u1> 
+    <div> 
+        <% if(logStatus== 'Y'){%> 
+            < % if(record[0].userid==user.userid) {%> 
+                <a href="/boardEdit?no=<%=record[0].no%>"> 수정</a> 
+                삭제 
+            <%}%> 
+        %}%>> 
+    </div> 
+</body> 
+</html> 
