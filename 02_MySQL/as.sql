@@ -2,6 +2,7 @@ show databases;
 
 create database mydb;
 
+use mysql;
 use mydb;
 use travel;
 use genie;
@@ -23,10 +24,6 @@ join seller S on U.user_id=S.seller_id
 union All 
 select count(U.user_id) cnt from user U 
 join administer A on U.user_id = A.administer_code) k;
-
-insert into user(user_id, user_pwd,user_phone_num,user_email, user_zipcode, user_addr, user_detailaddr, user_gender, sign_in_date, payment_method) 
-values('user', '1234','010-1234-1234','user1234@gmail.com','12345','asdf','asdf','1','2020-07-08','asdf');
-
 
 desc reply_board;
 select * from reply_board;

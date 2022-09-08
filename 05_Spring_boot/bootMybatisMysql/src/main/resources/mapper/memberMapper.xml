@@ -4,10 +4,13 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace = "com.campus.myapp.dao.MemberDAO">
 	<select id = "idCheck" resultType="int">
-		select count(userid) cnt from member where userid =#{param1}
+		select count(userid) cnt 
+		from member 
+		where userid =#{param1}
 	</select>
 	<select id = "zipSearch" resultType ="ZipcodeVO">
-		select zipcode, sido, doro, buildingnum1,buildingnum2, buildname, dong, num1, num2 from zipcode	
+		select zipcode, sido, doro, buildingnum1,buildingnum2, buildname, dong, num1, num2 
+		from zipcode	
 		where doro like "%${param1}%" order by zipcode
 	</select>
 	<insert id = "memberWrite">
@@ -15,7 +18,9 @@
 		values(#{userid}, #{userpwd}, #{username}, #{tel}, #{email}, #{zipcode}, #{addr}, #{detailaddr})
 	</insert>
 	<select id = "loginOk" resultType = "MemberVO">
-		select userid, username from member where userid=#{userid} and userpwd=#{userpwd}
+		select userid, username 
+		from member 
+		where userid=#{userid} and userpwd=#{userpwd}
 	</select>
 	<select id = "getMember" resultType = "MemberVO">
 		select userid, username, tel, email, zipcode, addr, detailaddr
@@ -23,7 +28,8 @@
 		where userid=#{param1}
 	</select>
 	<update id ="memberEditOk">
-		update member set tel =#{tel}, email=#{email}, zipcode =#{zipcode}, addr=#{addr}, detailaddr =#{detailaddr}
+		update member 
+		set tel =#{tel}, email=#{email}, zipcode =#{zipcode}, addr=#{addr}, detailaddr =#{detailaddr}
 		where userid =#{userid} and userpwd=#{userpwd}
 	</update>
 </mapper>
