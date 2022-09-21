@@ -33,6 +33,7 @@ public class BoardController {
 	//게시판
 	@GetMapping("boardList") //a태그
 	public ModelAndView boardList(PagingVO pVO) {
+		
 		mav = new ModelAndView();
 		
 		//총 레코드 수

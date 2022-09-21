@@ -9,8 +9,47 @@ use genie;
 
 show tables;
 select * from user;
+select * from account;
 select * from administer;
 select * from seller;
+select * from address;
+select * from product;
+    
+SELECT 1 result 
+    	FROM DUAL 
+    	WHERE EXISTS(
+        SELECT 1 
+        FROM user  
+        WHERE genie_id='user' AND user_email='ghdtpgh8913@naver.com'
+    );
+    
+ALTER DATABASE genie DEFAULT CHARACTER SET utf8mb4;
+
+insert into user (user_num,genie_id)
+(
+ select a.genie_num,a.genie_id
+ from user u left outer join account a  
+ on a.genie_id = u.genie_id
+);
+
+insert into address 
+select user_name, user_tel, user_zipcode, user_addr, user_detailaddr 
+from dual 
+where exists(select * from address where user_id='user');
+
+select u.genie_id, u.user_name 
+		from user u 
+		join account a 
+		on a.genie_id=u.genie_id 
+		where a.member_type='1' and a.genie_id='user' and genie_pwd=sha2('123',256) and a.withdrawal=1;
+
+	select u.genie_id, u.user_name 
+			from account a
+				join user u
+					on a.genie_id=u.genie_id
+		where a.genie_id='user' and a.genie_pwd='123';
+
+
 
 select count(U.user_id) cnt from user U 
 join seller S on U.user_id=S.seller_id
