@@ -12,7 +12,7 @@ import com.campus.myapp.vo.PagingVO;
 @Service
 public class BoardServiceImpl implements BoardService {
 	@Autowired
-	BoardDAO dao;
+	BoardDAO dao; 
 
 	@Override
 	public List<BoardVO> boardList(PagingVO pVO) {
