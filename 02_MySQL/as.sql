@@ -7,6 +7,7 @@ use mydb;
 use travel;
 use genie;
 
+select  * from address where genie_id='user';
 show tables;
 select * from user;
 select * from account;
@@ -14,16 +15,51 @@ select * from administer;
 select * from seller;
 select * from address;
 select * from product;
-    
+select * from product where genie_id='seller';
+select * from cart;
+select * from tag;
+select * from myorder;
+ALTER TABLE cart MODIFY cart_num INT NOT NULL AUTO_INCREMENT;
+select 
+            cart_num,
+            genie_id,
+            product_id,
+            cart_price,
+            cart_qty,
+            cart_writedate 
+        from cart 
+        where genie_id='user';
+ALTER table cart MODIFY cart_num INT NOT NULL AUTO_INCREMENT;
+
+select product_id, 
+            genie_id,
+            product_category,
+            product_tag,
+            product_name,
+            product_price,
+            product_info,
+            product_stock,
+            product_quantity,
+            product_hit,
+            product_like,
+            product_writedate,
+            product_image1,
+            product_image2,
+            product_image3,
+            product_mbti
+from product 
+where product_category like '%기념일%' and product_tag like '%배우자%';
+
+select * from product where product_price between 0 and 1000;
 SELECT 1 result 
     	FROM DUAL 
     	WHERE EXISTS(
         SELECT 1 
-        FROM user  
-        WHERE genie_id='user' AND user_email='ghdtpgh8913@naver.com'
+        FROM user 
+        WHERE genie_id='user' AND user_email='ghdtpgh8913@naver.com' 
     );
     
-ALTER DATABASE genie DEFAULT CHARACTER SET utf8mb4;
+select product_tag from product;
 
 insert into user (user_num,genie_id)
 (
@@ -49,6 +85,17 @@ select u.genie_id, u.user_name
 					on a.genie_id=u.genie_id
 		where a.genie_id='user' and a.genie_pwd='123';
 
+select s.genie_id, 
+		seller_tel, 
+		seller_email, 
+		seller_reg_no, 
+		company_name, 
+		ceo_name, 
+		seller_website
+	from seller s
+    join product p
+    on s.genie_id=p.genie_id
+where p.product_id='1';
 
 
 select count(U.user_id) cnt from user U 

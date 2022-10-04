@@ -20,35 +20,34 @@
  	}
 </style>
 <script>
-$(function(){
-	$("#searchFrm").submit(function(){
-		if($("#searchWord").val()==""){
-			alert("검색어를 입력하세요.");
-			return false;
-		}
-		return true;
-	});
-	//리스트 전체 선택
-	$("#allChk").click(function(){
-		$("#board input[type=checkbox]").prop("checked",$("#allChk").prop("checked"));
-	});
-	//선택된 갯수를 구하여 여러개를 삭제하도록 한다.
-	$("#multiDel").click(function(){
-		//체크 갯수 확인
-		var countChk = 0;//				반복문					input input input
-		$("#board input[name=noList]").each(function(idx,obj){
-			if(obj.checked){ // input 태그가 체크 상태이면 true
-				countChk++;
+	$(function(){
+		$("#searchFrm").submit(function(){
+			if($("#searchWord").val()==""){
+				alert("검색어를 입력하세요.");
+				return false;
 			}
+			return true;
 		});
-		if(countChk<=0){
-			alert("삭제할 레코드를 선택 후 삭제하세요.");
-			return false;
-		}
-		$("#listFrm").submit();
+		//리스트 전체 선택
+		$("#allChk").click(function(){
+			$("#board input[type=checkbox]").prop("checked",$("#allChk").prop("checked"));
+		});
+		//선택된 갯수를 구하여 여러개를 삭제하도록 한다.
+		$("#multiDel").click(function(){
+			//체크 갯수 확인
+			var countChk = 0;//				반복문					input input input
+			$("#board input[name=noList]").each(function(idx,obj){
+				if(obj.checked){ // input 태그가 체크 상태이면 true
+					countChk++;
+				}
+			});
+			if(countChk<=0){
+				alert("삭제할 레코드를 선택 후 삭제하세요.");
+				return false;
+			}
+			$("#listFrm").submit();
+		});
 	});
-	
-});
 </script>
 <div class = "container">
 	<h1>게시판 리스트</h1>
